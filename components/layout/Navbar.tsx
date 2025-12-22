@@ -27,7 +27,7 @@ const Navbar = () => {
     <>
       <nav
         id="navbarSection"
-        className={`fixed z-50 w-screen transition-colors duration-300 ${
+        className={`fixed z-100 w-screen transition-colors duration-300 ${
           isScrolled ? "bg-black" : "bg-transparent"
         }`}
       >

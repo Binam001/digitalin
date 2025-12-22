@@ -197,12 +197,18 @@ const HoverImageReveal = React.forwardRef<HTMLDivElement, ComponentProps>(
     );
 
     if (asChild) {
+      if (!React.isValidElement(children)) return children;
+
+      const child = children as React.ReactElement<{ className?: string }>;
       return React.isValidElement(children) ? (
-        React.cloneElement(children, {
-          ref,
-          className: cn(children.props.className, commonClasses),
-          ...props,
-        })
+        React.cloneElement(
+          children as React.ReactElement<React.ComponentPropsWithRef<"div">>,
+          {
+            className: cn(child.props.className, commonClasses),
+            ref,
+            ...props,
+          }
+        )
       ) : (
         <div ref={ref} className={commonClasses} {...props}>
           {children}
