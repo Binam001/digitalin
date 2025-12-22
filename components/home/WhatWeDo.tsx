@@ -88,17 +88,17 @@ const WhatWeDo = () => {
           {
             id: 1,
             title: "What We Do",
-            image: "/images/WhatWeDo/WhatWeDo1.svg",
+            image: "/images/whatWeDo/WhatWeDo1.svg",
           },
           {
             id: 2,
             title: "What We Do",
-            image: "/images/WhatWeDo/WhatWeDo2.svg",
+            image: "/images/whatWeDo/WhatWeDo2.svg",
           },
           {
             id: 3,
             title: "What We Do",
-            image: "/images/WhatWeDo/WhatWeDo1.svg",
+            image: "/images/whatWeDo/WhatWeDo1.svg",
           },
         ].map((item) => (
           <div
