@@ -19,7 +19,7 @@ const TheAgency = () => {
   });
 
   return (
-    <div ref={containerRef} className="h-screen bg-black">
+    <div ref={containerRef} className="h-screen bg-black z-20 relative">
       <motion.section
         style={{ scale }}
         className="w-screen h-screen flex flex-col justify-center gap-8 sticky top-0"

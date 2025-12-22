@@ -20,7 +20,7 @@ const images: ImageData[] = [
     href: "#",
     src: "https://images.unsplash.com/photo-1682806816936-c3ac11f65112?q=80&w=1274&auto=format&fit=crop",
     alt: "Image Mousetrail",
-    gradient: "bg-gradient-to-b from-blue-200/20 to-transparent",
+    gradient: "bg-gradient-to-b from-blue-300/20 to-transparent",
   },
   {
     id: 2,
@@ -28,7 +28,7 @@ const images: ImageData[] = [
     href: "#",
     src: "https://images.unsplash.com/photo-1681063762354-d542c03bbfc5?q=80&w=1274&auto=format&fit=crop",
     alt: "Spotlight Cards",
-    gradient: "bg-gradient-to-b from-purple-200/20 to-transparent",
+    gradient: "bg-gradient-to-b from-green-200/20 to-transparent",
   },
   {
     id: 3,
@@ -44,7 +44,7 @@ const images: ImageData[] = [
     href: "#",
     src: "https://images.unsplash.com/photo-1679482451632-b2e126da7142?q=80&w=1274&auto=format&fit=crop",
     alt: "Horizontal Scroll",
-    gradient: "bg-gradient-to-b from-green-200/20 to-transparent",
+    gradient: "bg-gradient-to-b from-green-300/20 to-transparent",
   },
   {
     id: 5,
@@ -52,7 +52,7 @@ const images: ImageData[] = [
     href: "#",
     src: "https://images.unsplash.com/photo-1679482451632-b2e126da7142?q=80&w=1274&auto=format&fit=crop",
     alt: "Horizontal Scroll",
-    gradient: "bg-gradient-to-b from-pink-200/20 to-transparent",
+    gradient: "bg-gradient-to-b from-green-200/20 to-transparent",
   },
   {
     id: 6,
@@ -60,7 +60,7 @@ const images: ImageData[] = [
     href: "#",
     src: "https://images.unsplash.com/photo-1679482451632-b2e126da7142?q=80&w=1274&auto=format&fit=crop",
     alt: "Horizontal Scroll",
-    gradient: "bg-gradient-to-b from-zinc-200/20 to-transparent",
+    gradient: "bg-gradient-to-b from-red-200/20 to-transparent",
   },
 ];
 
@@ -213,7 +213,9 @@ const HoverImageReveal = React.forwardRef<HTMLDivElement, ComponentProps>(
     return (
       <div
         ref={ref}
-        className={cn("relative py-32 grid grid-cols-2 gap-x-8 bg-transparent")}
+        className={cn(
+          "relative py-32 grid grid-cols-2 gap-x-8 bg-background z-50"
+        )}
         onMouseLeave={handleMouseLeave}
         {...props}
       >

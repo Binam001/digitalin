@@ -7,7 +7,7 @@ import HoverText from "../HoverText";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Introduction = () => {
+const SecondSection = () => {
   const sectionRef = useRef(null);
 
   useGSAP(
@@ -31,7 +31,7 @@ const Introduction = () => {
   return (
     <section
       ref={sectionRef}
-      className="w-screen h-screen flex flex-col justify-center gap-8 bg-background z-10"
+      className="w-screen h-screen flex flex-col justify-center gap-8 bg-primary z-10"
     >
       <motion.h1
         initial={{ x: "-100%", opacity: 0 }}
@@ -39,10 +39,10 @@ const Introduction = () => {
         transition={{ duration: 1, ease: "easeOut" }}
         className="text-7xl font-bold"
       >
-        <HoverText text="We don't sell products" />
+        <HoverText text="We sell attention" />
       </motion.h1>
     </section>
   );
 };
 
-export default Introduction;
+export default SecondSection;

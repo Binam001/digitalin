@@ -9,7 +9,9 @@ import HorizontalScroll from "@/components/home/HorizontalScroll";
 import Introduction from "@/components/home/Introduction";
 import MarqueeExpand from "@/components/home/MarqueeExpand";
 import Recognition from "@/components/home/Recognition";
+import SecondSection from "@/components/home/SecondSection";
 import TheAgency from "@/components/home/TheAgency";
+import ThirdSection from "@/components/home/ThirdSection";
 import WhatWeDo from "@/components/home/WhatWeDo";
 import HoverImageReveal from "@/components/image-reveal";
 import { useGSAP } from "@gsap/react";
@@ -22,7 +24,7 @@ export default function Home() {
   useGSAP(() => {
     gsap.to("#imageSlideShow", {
       opacity: 0,
-      filter: "blur(5px)",
+      // filter: "blur(5px)",
       scrollTrigger: {
         trigger: "#imageSlideShow",
         start: "center center",
@@ -32,7 +34,7 @@ export default function Home() {
     });
   }, []);
   return (
-    <div className="w-screen relative">
+    <div className="w-screen relative bg-background">
       {/* <HeroSection /> */}
       <div id="imageSlideShow" className="h-screen fixed inset-0">
         <ImageSlideShow />
@@ -40,8 +42,10 @@ export default function Home() {
       <div className="h-dvh" />
       <div className="relative z-20">
         <Introduction />
-        <TheAgency />
-        <Expertise />
+        <SecondSection />
+        <ThirdSection />
+        {/* <TheAgency /> */}
+        {/* <Expertise /> */}
       </div>
 
       <HoverImageReveal />
