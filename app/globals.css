@@ -1,0 +1,68 @@
+@import "tailwindcss";
+@plugin 'lightswind/plugin';
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --primary: #f26622;
+  --cream: #f1ede4;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-cream: var(--cream);
+
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("/fonts/Poppins-Regular.ttf");
+  font-style: regular;
+}
+@font-face {
+  font-family: "Poppins-ExtraBold";
+  src: url("/fonts/Poppins-ExtraBold.ttf");
+  font-weight: 800;
+  font-style: regular;
+}
+@font-face {
+  font-family: "Poppins-Light";
+  src: url("/fonts/Poppins-ExtraLight.ttf");
+  font-weight: 100;
+  font-style: regular;
+}
+@layer utilities {
+  section {
+    @apply px-4 md:px-8 lg:px-16;
+  }
+  nav {
+    @apply px-4 md:px-8 lg:px-16 py-4;
+  }
+}
+body {
+  background: var(--background);
+  color: var(--foreground);
+  scroll-behavior: smooth;
+  font-family: "Poppins", sans-serif;
+}
+
+@layer components {
+  .text-stroke {
+    -webkit-text-stroke: 2px var(--foreground);
+    color: transparent;
+  }
+
+  .text-stroke-primary {
+    -webkit-text-stroke: 2px var(--primary);
+    color: transparent;
+  }
+}
