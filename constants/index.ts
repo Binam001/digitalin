@@ -54,4 +54,11 @@ const brandsBLists = [
   { id: 4, title: "Surf Exel", image: "/images/brands/surf-exel.webp" },
 ];
 
-export { navLinks, whatWeDoLists, brandsALists, brandsBLists };
+const socialLinkLists = [
+  { id: 1, title: "facebook", icon: "ic:baseline-facebook", href: "#" },
+  { id: 2, title: "instagram", icon: "hugeicons:instagram", href: "#" },
+  { id: 3, title: "youtube", icon: "ant-design:youtube-filled", href: "#" },
+  { id: 4, title: "twitter", icon: "codicon:twitter", href: "#" },
+];
+
+export { navLinks, whatWeDoLists, brandsALists, brandsBLists, socialLinkLists };

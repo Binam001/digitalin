@@ -101,13 +101,13 @@ const AnalogClock: React.FC<AnalogClockProps> = ({
   return (
     <div
       className={cn(
-        "relative flex items-center justify-center bg-background p-10",
+        "relative flex items-center justify-center p-10",
         className
       )}
     >
       <div className="absolute inset-0 opacity-20 pointer-events-none bg-[url('https://grainy-gradients.vercel.app/noise.svg')] mix-blend-overlay"></div>
 
-      <div className="relative w-80 h-80 rounded-full border-[6px] border-[#1a2e26] bg-[#0a0a0a] shadow-[inset_0_0_20px_rgba(0,0,0,0.8)] flex items-center justify-center">
+      <div className="relative w-80 h-80 rounded-full border-[6px] border-primary bg-[#0a0a0a] shadow-[inset_0_0_20px_rgba(0,0,0,0.8)] flex items-center justify-center">
         {/* Ticks */}
         {Array.from({ length: 60 }).map((_, i) => {
           const isMajor = i % 5 === 0;
@@ -115,8 +115,8 @@ const AnalogClock: React.FC<AnalogClockProps> = ({
             <div
               key={i}
               className={cn(
-                "absolute w-0.5 bg-neutral-700 left-1/2 top-0 origin-bottom transform -translate-x-1/2",
-                isMajor ? "h-3 bg-neutral-400" : "h-1.5 opacity-40"
+                "absolute w-0.5 bg-white left-1/2 top-0 origin-bottom transform -translate-x-1/2",
+                isMajor ? "h-3 bg-[#735749]" : "h-1.5 opacity-40"
               )}
               style={{
                 height: isMajor ? "10px" : "5px",
@@ -161,7 +161,8 @@ const AnalogClock: React.FC<AnalogClockProps> = ({
                     "font-bold text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]"
                 )}
               >
-                {isCurrentHour ? num : char}
+                {/* {isCurrentHour ? num : char} */}
+                {char}
               </motion.span>
             </div>
           );
@@ -179,7 +180,7 @@ const AnalogClock: React.FC<AnalogClockProps> = ({
 
         {/* Hour Hand */}
         <motion.div
-          className="absolute w-1.5 h-20 bg-neutral-200 rounded-full z-10 left-1/2 bottom-1/2 origin-bottom -translate-x-1/2 shadow-lg"
+          className="absolute w-1.5 h-20 bg-primary rounded-full z-10 left-1/2 bottom-1/2 origin-bottom -translate-x-1/2 shadow-lg"
           animate={{ rotate: hourDeg }}
           transition={{ ease: "linear", duration: 0.4 }}
           style={{ borderBottomLeftRadius: 0, borderBottomRightRadius: 0 }}
@@ -187,7 +188,7 @@ const AnalogClock: React.FC<AnalogClockProps> = ({
 
         {/* Minute Hand */}
         <motion.div
-          className="absolute w-1 h-28 bg-[#4ade80] rounded-full z-20 left-1/2 bottom-1/2 origin-bottom -translate-x-1/2 shadow-lg mix-blend-screen"
+          className="absolute w-1 h-28 bg-[#B36A46] rounded-full z-20 left-1/2 bottom-1/2 origin-bottom -translate-x-1/2 shadow-lg mix-blend-screen"
           animate={{ rotate: minDeg }}
           transition={{ ease: "linear", duration: 0.4 }}
           style={{ borderBottomLeftRadius: 0, borderBottomRightRadius: 0 }}
@@ -195,7 +196,7 @@ const AnalogClock: React.FC<AnalogClockProps> = ({
 
         {/* Second Hand */}
         <motion.div
-          className="absolute w-0.5 h-32 bg-[#fb923c] rounded-full z-30 left-1/2 bottom-1/2 origin-bottom -translate-x-1/2"
+          className="absolute w-0.5 h-32 bg-white rounded-full z-30 left-1/2 bottom-1/2 origin-bottom -translate-x-1/2"
           animate={{ rotate: secDeg }}
           transition={{
             ease: "linear",
@@ -203,7 +204,7 @@ const AnalogClock: React.FC<AnalogClockProps> = ({
           }}
           style={{ height: "140px", transformOrigin: "50% 140px" }}
         >
-          <div className="absolute w-1 h-8 bg-[#fb923c] top-full left-1/2 -translate-x-1/2 rounded-full" />
+          <div className="absolute w-1 h-8 bg-white top-full left-1/2 -translate-x-1/2 rounded-full" />
         </motion.div>
 
         {/* Center Cap */}

@@ -80,21 +80,26 @@ const WhatWeDo = () => {
   );
   return (
     <div>
-      {/* <section className="about w-screen h-screen relative flex items-center justify-center overflow-hidden">
-        <h1 className="animate-text text-4xl font-semibold text-center w-full md:w-[60%] mx-auto">
-          We are a world—class team of industry—leading professionals, who
-          constantly push new technology to its limits.
-        </h1>
-      </section> */}
-
       <section
         ref={container}
         className="services relative w-screen h-screen flex flex-col items-center justify-center overflow-hidden"
       >
         {[
-          { id: 1, title: "What We Do", image: "/images/WhatWeDo.svg" },
-          { id: 2, title: "What We Do", image: "/images/WhatWeDo.svg" },
-          { id: 3, title: "What We Do", image: "/images/WhatWeDo.svg" },
+          {
+            id: 1,
+            title: "What We Do",
+            image: "/images/WhatWeDo/WhatWeDo1.svg",
+          },
+          {
+            id: 2,
+            title: "What We Do",
+            image: "/images/WhatWeDo/WhatWeDo2.svg",
+          },
+          {
+            id: 3,
+            title: "What We Do",
+            image: "/images/WhatWeDo/WhatWeDo1.svg",
+          },
         ].map((item) => (
           <div
             key={item.id}
@@ -110,9 +115,9 @@ const WhatWeDo = () => {
       </section>
 
       <section className="services-copy relative w-screen h-[50vh] mt-[155dvh] p-8 flex items-center text-center">
-        <h1 className="animate-text text-4xl font-semibold text-center w-full md:w-[60%] mx-auto">
-          We are a world—class team of industry—leading professionals, who
-          constantly push new technology to its limits.
+        <h1 className="animate-text text-4xl font-semibold text-center w-full md:w-[70%] mx-auto">
+          We are a world-class team creating innovative advertising, marketing,
+          and social media solutions for growing brands.
         </h1>
       </section>
     </div>

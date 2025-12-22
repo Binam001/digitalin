@@ -105,7 +105,7 @@ const CustomCursor = () => {
     <>
       {/* Main cursor dot */}
       <div
-        className="fixed top-0 left-0 pointer-events-none z-[9999] mix-blend-difference"
+        className="fixed top-0 left-0 pointer-events-none z-9999 mix-blend-difference"
         style={{
           transform: `translate(${position.x}px, ${position.y}px)`,
           opacity: isVisible ? 1 : 0,
@@ -116,7 +116,7 @@ const CustomCursor = () => {
         <div
           className={`absolute rounded-full border-2 border-white transition-all duration-200 ease-out ${
             cursorState === "pointer"
-              ? "w-12 h-12 -translate-x-6 -translate-y-6 opacity-100"
+              ? "size-4 -translate-x-2 -translate-y-2 opacity-100"
               : cursorState === "mousedown"
               ? "w-8 h-8 -translate-x-4 -translate-y-4 opacity-100 bg-white/20"
               : cursorState === "grab"
@@ -129,14 +129,14 @@ const CustomCursor = () => {
 
         {/* Inner dot */}
         <div
-          className={`absolute rounded-full bg-white transition-all duration-150 ease-out ${
+          className={`absolute top-0 left-0 transform -translate-x-1/2 -translate-y-1/2 rounded-full bg-white transition-all duration-150 ease-out ${
             cursorState === "pointer"
-              ? "w-2 h-2 -translate-x-1 -translate-y-1"
+              ? "size-3"
               : cursorState === "mousedown"
-              ? "w-3 h-3 -translate-x-1.5 -translate-y-1.5 bg-primary"
+              ? "size-3 bg-primary"
               : cursorState === "grab" || cursorState === "grabbing"
-              ? "w-0 h-0"
-              : "w-2 h-2 -translate-x-1 -translate-y-1"
+              ? "size-0"
+              : "size-5"
           }`}
         />
 
@@ -180,13 +180,13 @@ const CustomCursor = () => {
 
         {/* Pointer arrow indicator */}
         {cursorState === "pointer" && (
-          <div className="absolute w-0 h-0 -translate-x-0.5 translate-y-2 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[8px] border-t-white rotate-[135deg]" />
+          <div className="absolute w-0 h-0 translate-x-1 translate-y-2 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-8 border-t-white rotate-135" />
         )}
       </div>
 
       {/* Trailing cursor for smooth effect */}
       <div
-        className="fixed top-0 left-0 pointer-events-none z-[9998]"
+        className="fixed top-0 left-0 pointer-events-none z-9998"
         style={{
           transform: `translate(${position.x}px, ${position.y}px)`,
           opacity: isVisible ? 0.3 : 0,
@@ -196,10 +196,10 @@ const CustomCursor = () => {
         <div
           className={`absolute rounded-full bg-primary transition-all duration-300 ease-out ${
             cursorState === "pointer"
-              ? "w-16 h-16 -translate-x-8 -translate-y-8"
+              ? "size-4 -translate-x-2 -translate-y-2"
               : cursorState === "mousedown"
-              ? "w-12 h-12 -translate-x-6 -translate-y-6"
-              : "w-8 h-8 -translate-x-4 -translate-y-4"
+              ? "size-12 -translate-x-6 -translate-y-6"
+              : "size-8 -translate-x-4 -translate-y-4"
           }`}
         />
       </div>

@@ -65,4 +65,37 @@ body {
     -webkit-text-stroke: 2px var(--primary);
     color: transparent;
   }
+
+  /* Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #f26622 rgba(0, 0, 0, 0.1);
+  }
+
+  /* WebKit Browsers (Chrome, Edge, Safari) */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.08);
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #f26622, #ff8a50);
+    border-radius: 10px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+    transition: background 0.25s ease, opacity 0.25s ease;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #ff8a50, #f26622);
+  }
+
+  ::-webkit-scrollbar-corner {
+    background: transparent;
+  }
 }

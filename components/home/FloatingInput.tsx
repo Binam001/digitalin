@@ -200,7 +200,7 @@ const FloatingInput = () => {
   });
   return (
     <>
-      <div className="">
+      <div className="mb-16">
         {/* <section className="intro">
           <h1 className="w-full lg:w-1/2">Where systems move with intention</h1>
         </section> */}

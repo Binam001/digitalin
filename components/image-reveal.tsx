@@ -9,7 +9,6 @@ interface ImageData {
   title: string;
   href: string;
   src: string;
-  alt: string;
   gradient: string;
 }
 
@@ -18,48 +17,42 @@ const images: ImageData[] = [
     id: 1,
     title: "Digital Strategy",
     href: "#",
-    src: "https://images.unsplash.com/photo-1682806816936-c3ac11f65112?q=80&w=1274&auto=format&fit=crop",
-    alt: "Image Mousetrail",
-    gradient: "bg-gradient-to-b from-blue-300/20 to-transparent",
+    src: "/images/home/digital-strategy.jpg",
+    gradient: "bg-gradient-to-b from-gray-300/20 to-transparent",
   },
   {
     id: 2,
     title: "Branding",
     href: "#",
-    src: "https://images.unsplash.com/photo-1681063762354-d542c03bbfc5?q=80&w=1274&auto=format&fit=crop",
-    alt: "Spotlight Cards",
-    gradient: "bg-gradient-to-b from-green-200/20 to-transparent",
+    src: "/images/home/orange-hat-2.jpg",
+    gradient: "bg-gradient-to-b from-orange-300/20 to-transparent",
   },
   {
     id: 3,
     title: "Advertising",
     href: "#",
-    src: "https://images.unsplash.com/photo-1679640034489-a6db1f096b70?q=80&w=1274&auto=format&fit=crop",
-    alt: "Sparkles Effects",
-    gradient: "bg-gradient-to-b from-red-200/20 to-transparent",
+    src: "/images/home/advertising.jpg",
+    gradient: "bg-gradient-to-b from-blue-300/10 to-transparent",
   },
   {
     id: 4,
     title: "User Experience",
     href: "#",
-    src: "https://images.unsplash.com/photo-1679482451632-b2e126da7142?q=80&w=1274&auto=format&fit=crop",
-    alt: "Horizontal Scroll",
-    gradient: "bg-gradient-to-b from-green-300/20 to-transparent",
+    src: "/images/home/ux.png",
+    gradient: "bg-gradient-to-r from-green-200/10 to-blue-200/10",
   },
   {
     id: 5,
     title: "Digital Marketing",
     href: "#",
-    src: "https://images.unsplash.com/photo-1679482451632-b2e126da7142?q=80&w=1274&auto=format&fit=crop",
-    alt: "Horizontal Scroll",
-    gradient: "bg-gradient-to-b from-green-200/20 to-transparent",
+    src: "/images/home/digital-marketing.jpg",
+    gradient: "bg-gradient-to-b from-blue-400/20 to-transparent",
   },
   {
     id: 6,
     title: "Media Production",
     href: "#",
-    src: "https://images.unsplash.com/photo-1679482451632-b2e126da7142?q=80&w=1274&auto=format&fit=crop",
-    alt: "Horizontal Scroll",
+    src: "/images/home/media-production.jpg",
     gradient: "bg-gradient-to-b from-red-200/20 to-transparent",
   },
 ];
@@ -280,7 +273,7 @@ const HoverImageReveal = React.forwardRef<HTMLDivElement, ComponentProps>(
         {isDesktop && activeImage && (
           <img
             src={activeImage.src}
-            alt={activeImage.alt}
+            alt={activeImage.title}
             className={`fixed object-cover pointer-events-none z-10 w-[300px] h-[400px] rounded-lg`}
             style={{
               left: `${cursorPosition.x}px`,

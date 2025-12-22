@@ -21,30 +21,38 @@ export default function HoverText({ text, className = "" }: MotionTextProps) {
         return (
           <motion.span
             key={i}
-            className="relative inline-block"
-            onHoverStart={() => {
-              if (isO) {
-                letterControls.start({ opacity: 0 });
-                imageControls.start({ opacity: 1 });
-              }
-            }}
-            onHoverEnd={() => {
-              if (isO) {
-                letterControls.start({ opacity: 1 });
-                imageControls.start({ opacity: 0 });
-              }
-            }}
+            className="relative inline-block leading-none"
+            // onHoverStart={() => {
+            //   if (isO) {
+            //     letterControls.start({ opacity: 0 });
+            //     imageControls.start({ opacity: 1 });
+            //   }
+            // }}
+            // onHoverEnd={() => {
+            //   if (isO) {
+            //     letterControls.start({ opacity: 1 });
+            //     imageControls.start({ opacity: 0 });
+            //   }
+            // }}
             whileHover={{
-              color: randomColor(),
               rotate: randomRotation(),
               scale: 1.2,
-              fontFamily: "Poppins-Light",
-              fontWeight: 100,
             }}
             transition={{ duration: 0.2 }}
           >
+            {/* Sizer Span to maintain width */}
+            <span className="invisible leading-none">
+              {char === " " ? "\u00A0" : char}
+            </span>
+
             {/* Letter */}
             <motion.span
+              className="absolute top-0 left-0"
+              whileHover={{
+                color: randomColor(),
+                fontFamily: "Poppins-Light",
+                fontWeight: 100,
+              }}
               animate={isO ? letterControls : undefined}
               initial={{ opacity: 1 }}
             >
@@ -52,7 +60,7 @@ export default function HoverText({ text, className = "" }: MotionTextProps) {
             </motion.span>
 
             {/* Apple Image */}
-            {isO && (
+            {/* {isO && (
               <motion.img
                 src="/images/apple.png"
                 alt="Apple"
@@ -61,7 +69,7 @@ export default function HoverText({ text, className = "" }: MotionTextProps) {
                 animate={imageControls}
                 transition={{ duration: 0.15 }}
               />
-            )}
+            )} */}
           </motion.span>
         );
       })}
