@@ -174,12 +174,19 @@
 }
 
 /* Animated Gradient Border Button Property and Animation */
-/* @property MUST be defined at the global scope, not inside a rule */
+/*
+  NOTE: The @property rule is commented out below to prevent "Unknown at rule"
+  warnings during the build process, as some CSS optimizers do not yet
+  support it. When supported, uncommenting this block will enable a smoother
+  gradient animation on elements using the .gradient-border class.
+*/
+/*
 @property --border-angle {
   syntax: "<angle>";
   inherits: true;
   initial-value: 0turn;
 }
+*/
 
 @keyframes bg-spin {
   to {
