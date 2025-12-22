@@ -1,8 +1,9 @@
 @import "tailwindcss";
 @plugin 'lightswind/plugin';
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #171717;
+  /* --foreground: #171717; */
+  --foreground: #ffffff;
   --primary: #f26622;
   --cream: #f1ede4;
 }
@@ -17,12 +18,12 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
-}
+} */
 @font-face {
   font-family: "Poppins";
   src: url("/fonts/Poppins-Regular.ttf");
