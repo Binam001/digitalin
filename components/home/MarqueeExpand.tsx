@@ -101,7 +101,7 @@ const MarqueeExpand = () => {
         trigger: ".horizontal-scroll",
         start: "top 30%",
         // Reduced from * 5 to * 3.5 to make scrolling faster
-        end: () => `+=${window.innerHeight * 8.5}`,
+        end: () => `+=${window.innerHeight * 3.5}`,
         pin: true,
         scrub: true,
         onEnter: () => {

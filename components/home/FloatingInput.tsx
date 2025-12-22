@@ -61,7 +61,7 @@ const FloatingInput = () => {
     ScrollTrigger.create({
       trigger: ".spotlight",
       start: "start",
-      end: `+=${window.innerWidth * 3}px`,
+      end: `+=${window.innerWidth * 1.5}px`,
       pin: true,
       pinSpacing: true,
       scrub: 1,
@@ -153,9 +153,9 @@ const FloatingInput = () => {
           const searchBarProgress = (progress - 0.5) / 0.25;
 
           const width = 3 + (searchBarFinalWidth - 3) * searchBarProgress;
-          const height = 3 + (5 - 3) * searchBarProgress;
+          const height = 3;
 
-          const translateY = -50 + (200 - -50) * searchBarProgress;
+          const translateY = 350 * searchBarProgress;
 
           gsap.set(".search-bar", {
             width: `${width}rem`,
@@ -169,8 +169,8 @@ const FloatingInput = () => {
         } else if (progress > 0.75) {
           gsap.set(".search-bar", {
             width: `${searchBarFinalWidth}rem`,
-            height: "5rem",
-            transform: "translate(-50%, 200%)",
+            height: "3rem",
+            transform: "translate(-50%, 350%)",
           });
         }
 
