@@ -66,7 +66,7 @@ const WhatWeDo = () => {
             gsap.set(headers[2], { yPercent: -100 });
 
             const scaleProgress = (progress - 0.5) / 0.5;
-            const minScale = window.innerWidth <= 1000 ? 0.3 : 0.1;
+            const minScale = window.innerWidth <= 1000 ? 0.5 : 0.3;
             const scale = 1 - scaleProgress * (1 - minScale);
 
             headers.forEach((header: HTMLElement) =>
@@ -82,7 +82,7 @@ const WhatWeDo = () => {
     <div>
       <section
         ref={container}
-        className="services relative w-screen h-screen flex flex-col items-center justify-center overflow-hidden"
+        className="services relative w-screen h-screen flex flex-col items-center justify-center overflow-hidden z-20"
       >
         {[
           {

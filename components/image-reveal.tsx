@@ -39,7 +39,7 @@ const images: ImageData[] = [
     title: "User Experience",
     href: "#",
     src: "/images/home/ux.png",
-    gradient: "bg-gradient-to-r from-green-200/10 to-blue-200/10",
+    gradient: "bg-gradient-to-r from-black/10 to-transparent",
   },
   {
     id: 5,
@@ -53,7 +53,7 @@ const images: ImageData[] = [
     title: "Media Production",
     href: "#",
     src: "/images/home/media-production.jpg",
-    gradient: "bg-gradient-to-b from-red-200/20 to-transparent",
+    gradient: "bg-gradient-to-b from-gray-200/20 to-transparent",
   },
 ];
 
