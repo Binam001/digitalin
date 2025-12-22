@@ -19,7 +19,7 @@ const Footer = () => {
       </Link>
       <HoverText
         text="DIGITALIN"
-        className="text-[200px] font-[Poppins-ExtraBold] font-extrabold tracking-wider"
+        className="text-[200px] font-[Poppins-ExtraBold] tracking-wider"
       />
     </footer>
   );
