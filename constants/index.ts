@@ -55,10 +55,203 @@ const brandsBLists = [
 ];
 
 const socialLinkLists = [
-  { id: 1, title: "facebook", icon: "ic:baseline-facebook", href: "#" },
+  { id: 1, title: "facebook", icon: "iconoir:facebook", href: "#" },
   { id: 2, title: "instagram", icon: "hugeicons:instagram", href: "#" },
-  { id: 3, title: "youtube", icon: "ant-design:youtube-filled", href: "#" },
+  { id: 3, title: "youtube", icon: "iconoir:youtube", href: "#" },
   { id: 4, title: "twitter", icon: "codicon:twitter", href: "#" },
+  { id: 5, title: "linkedin", icon: "circum:linkedin", href: "#" },
+  { id: 6, title: "tiktok", icon: "proicons:tiktok", href: "#" },
 ];
 
-export { navLinks, whatWeDoLists, brandsALists, brandsBLists, socialLinkLists };
+const noChangeParts = [
+  "Object_84",
+  "Object_37",
+  "Object_34",
+  "Object_12",
+  "Object_80",
+  "Object_35",
+  "Object_36",
+  "Object_13",
+  "Object_125",
+  "Object_76",
+  "Object_33",
+  "Object_42",
+  "Object_58",
+  "Object_52",
+  "Object_21",
+  "Object_10",
+];
+
+const features = [
+  {
+    id: 1,
+    icon: "/images/icons/feature-icon1.svg",
+    highlight: "Mountain Dew",
+    text: "The mountains are calling, and the adrenaline is rising. In a land where adventure is in our DNA, Mountain Dew stands as the ultimate fuel for those who refuse to back down.",
+    styles: "top-[20%]",
+  },
+  {
+    id: 2,
+    icon: "/images/icons/feature-icon2.svg",
+    highlight: "Pepsi",
+    text: "Our latest creative for Pepsi Nepal highlights the crisp, carbonated kick that cuts through the spice and doubles the delight. Because let's be honest: a meal without a cold Pepsi isn't a meal—it's just a snack.",
+    styles: "top-[50%] opacity-0",
+  },
+  {
+    id: 3,
+    icon: "/images/icons/feature-icon3.svg",
+    highlight: "Happydent",
+    text: "Brighten every smile with Happydent! Enjoy long-lasting freshness and a burst of delicious flavor with every chew. Because your smile deserves to shine anywhere, anytime..",
+    styles: "top-[100%] opacity-0",
+  },
+  // {
+  //   id: 4,
+  //   icon: "/images/icons/feature-icon4.svg",
+  //   highlight: "AirDrop.",
+  //   text: "Wirelessly share photos, large files, and more between your iPhone, your Mac, & other devices.",
+  //   styles: "top-[70%]",
+  // },
+  // {
+  //   id: 5,
+  //   icon: "/images/icons/feature-icon5.svg",
+  //   highlight: "Writing Tool.",
+  //   text: "Write smarter and faster, whether it’s blogs, essays, or captions, AI helps polish your words.",
+  //   styles: "top-[90%]",
+  // },
+];
+
+const featureSequence = [
+  {
+    videoPath: "/videos/portfolio/mountain-dew.mp4",
+    boxClass: ".box1",
+    delay: 0,
+  },
+  { videoPath: "/videos/portfolio/pepsi.mp4", boxClass: ".box2", delay: 0 },
+  {
+    videoPath: "/videos/portfolio/mountain-dew.mp4",
+    boxClass: ".box3",
+    delay: 0,
+  },
+  // { videoPath: "/videos/feature-4.mp4", boxClass: ".box4", delay: 0 },
+  // { videoPath: "/videos/feature-5.mp4", boxClass: ".box5", delay: 0 },
+];
+
+const teamMemberLists = [
+  {
+    id: 1,
+    name: "Umang Shakya",
+    image: "/images/team/umang.webp",
+  },
+  {
+    id: 2,
+    name: "Jiwan Shrestha",
+    image: "/images/team/jiwan.webp",
+  },
+  {
+    id: 3,
+    name: "Roshan Tamrakar",
+    image: "/images/team/roshan.webp",
+  },
+  {
+    id: 4,
+    name: "Shiwani Pradhan",
+    image: "/images/team/shiwani.webp",
+  },
+  {
+    id: 5,
+    name: "Luniva Singh",
+    image: "/images/team/luniva.webp",
+  },
+  {
+    id: 6,
+    name: "Romen Manandhar",
+    image: "/images/team/romen.webp",
+  },
+  {
+    id: 7,
+    name: "Sabin Khadgi",
+    image: "/images/team/sabin.webp",
+  },
+  {
+    id: 8,
+    name: "Rajesh Maharjan",
+    image: "/images/team/rajesh.webp",
+  },
+  {
+    id: 9,
+    name: "Anil Dali",
+    image: "/images/team/anil.webp",
+  },
+  {
+    id: 10,
+    name: "Alka Neupane",
+    image: "/images/team/alka.webp",
+  },
+  {
+    id: 11,
+    name: "Prakriti Shree Shrestha",
+    image: "/images/team/Prakriti.webp",
+  },
+  {
+    id: 12,
+    name: "Jabina Maharjan",
+    image: "/images/team/Jabina.webp",
+  },
+  {
+    id: 13,
+    name: "Dristi Singh",
+    image: "/images/team/Dristi.webp",
+  },
+  {
+    id: 14,
+    name: "Rujit Duwal",
+    image: "/images/team/Rujit-Duwal.webp",
+  },
+  {
+    id: 15,
+    name: "Shown Darsandhari",
+    image: "/images/team/Shown-Darsandhari.webp",
+  },
+  {
+    id: 16,
+    name: "Rasel Shakya",
+    image: "/images/team/rasel.webp",
+  },
+  {
+    id: 17,
+    name: "Meena Tamang",
+    image: "/images/team/Meena-Tamang.webp",
+  },
+  {
+    id: 18,
+    name: "Ojaswi Shrestha",
+    image: "/images/team/OJ.webp",
+  },
+  {
+    id: 19,
+    name: "Gauri K.C",
+    image: "/images/team/Gauri.webp",
+  },
+  {
+    id: 20,
+    name: "Abhishek Pandey",
+    image: "/images/team/Abisek.webp",
+  },
+  {
+    id: 21,
+    name: "Sanish Shakya",
+    image: "/images/team/Sanish.webp",
+  },
+];
+
+export {
+  navLinks,
+  whatWeDoLists,
+  brandsALists,
+  brandsBLists,
+  socialLinkLists,
+  noChangeParts,
+  features,
+  featureSequence,
+  teamMemberLists,
+};

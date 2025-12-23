@@ -5,17 +5,15 @@ import { InteractiveHoverButton } from "../ui/interactive-hover-button";
 import { socialLinkLists } from "@/constants";
 import { Icon } from "@iconify/react";
 import Noise from "../Noise";
+// import { useMediaQuery } from "react-responsive";
 
 const Footer = () => {
+  // const isMobile = useMediaQuery({ maxWidth: 425 });
   return (
-    <footer className="flex flex-col items-center gap-8 pt-16 w-screen px-4 md:px-8 lg:px-16 bg-foreground relative">
-      <Noise
-        patternSize={250}
-        patternScaleX={1}
-        patternScaleY={1}
-        patternRefreshInterval={2}
-        patternAlpha={15}
-      />
+    <footer className="flex flex-col items-center gap-8 pt-16 w-screen px-4 md:px-8 lg:px-16 bg-foreground relative min-h-screen">
+      {/* {!isMobile && <Noise className="z-80" />} */}
+      <Noise className="z-80" />
+
       <div className="space-y-8 text-center text-background">
         <p>Ideas or Ads?</p>
         <HoverText text="Let's Launch." className="text-4xl font-semibold" />
@@ -47,7 +45,7 @@ const Footer = () => {
                 <Link key={socialLinkItem.id} href={socialLinkItem.href}>
                   <Icon
                     icon={socialLinkItem.icon}
-                    className="size-6 hover:text-primary"
+                    className="size-6 hover:text-primary hover:scale-[1.3] transition-all duration-300"
                   />
                 </Link>
               ))}

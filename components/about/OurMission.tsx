@@ -2,8 +2,8 @@ import React from "react";
 
 const OurMission = () => {
   return (
-    <section className="">
-      <div className="py-24 lg:py-40">
+    <section className="h-screen flex items-center">
+      <div className="">
         <div className="grid lg:grid-cols-12 gap-8">
           <div className="lg:col-span-4">
             <span className="text-primary font-body text-sm tracking-[0.3em] uppercase">
@@ -12,28 +12,26 @@ const OurMission = () => {
           </div>
           <div className="lg:col-span-8">
             <h2 className="text-4xl md:text-5xl lg:text-6xl leading-[0.95] mb-12">
-              EMPOWER BRANDS WITH STRATEGIES THAT
-              <span className="text-primary"> DISRUPT</span>, STORIES THAT
-              <span className="text-primary"> RESONATE</span>, AND DESIGNS THAT
-              <span className="text-primary"> CONVERT</span>.
+              <span className="text-primary"> BRANDS</span>, THAT STAND OUT,
+              <span className="text-primary"> STRATEGIES </span>,THAT DELIVER,
+              <span className="text-primary"> STORIES</span> THAT STICK.
             </h2>
-
             <div className="grid md:grid-cols-3 gap-8 mt-16">
               {[
                 {
                   num: "01",
-                  title: "Disrupt",
-                  desc: "Challenge the status quo with bold thinking",
+                  title: "Creativity",
+                  desc: "Innovative ideas that capture audience attention",
                 },
                 {
                   num: "02",
-                  title: "Connect",
-                  desc: "Build authentic relationships with audiences",
+                  title: "Strategy",
+                  desc: "Smart planning to achieve real results",
                 },
                 {
                   num: "03",
-                  title: "Grow",
-                  desc: "Drive measurable results that matter",
+                  title: "Execution",
+                  desc: "Turning concepts into impactful digital experiences",
                 },
               ].map((item, index) => (
                 <div key={index} className="group">

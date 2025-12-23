@@ -1,6 +1,8 @@
 "use client";
 
+import { cn } from "@/lib/utils";
 import React, { useRef, useEffect } from "react";
+import { useMediaQuery } from "react-responsive";
 
 interface NoiseProps {
   patternSize?: number;
@@ -8,16 +10,19 @@ interface NoiseProps {
   patternScaleY?: number;
   patternRefreshInterval?: number;
   patternAlpha?: number;
+  className?: string;
 }
 
 const Noise: React.FC<NoiseProps> = ({
   patternSize = 250,
   patternScaleX = 1,
   patternScaleY = 1,
-  patternRefreshInterval = 2,
+  patternRefreshInterval = 3,
   patternAlpha = 15,
+  className,
 }) => {
   const grainRef = useRef<HTMLCanvasElement | null>(null);
+  const isMobile = useMediaQuery({ maxWidth: 425 });
 
   useEffect(() => {
     const canvas = grainRef.current;
@@ -36,8 +41,8 @@ const Noise: React.FC<NoiseProps> = ({
       canvas.width = canvasSize;
       canvas.height = canvasSize;
 
-      canvas.style.width = "100vw";
-      canvas.style.height = "100vh";
+      canvas.style.width = "100%";
+      canvas.style.height = "100%";
     };
 
     const drawGrain = () => {
@@ -80,13 +85,18 @@ const Noise: React.FC<NoiseProps> = ({
   ]);
 
   return (
-    <canvas
-      className="pointer-events-none absolute top-0 left-0 h-screen w-screen"
-      ref={grainRef}
-      style={{
-        imageRendering: "pixelated",
-      }}
-    />
+    <>
+      {!isMobile && (
+        <canvas
+          className={cn(
+            "pointer-events-none absolute top-0 left-0 h-full w-full",
+            className
+          )}
+          ref={grainRef}
+          style={{ imageRendering: "pixelated" }}
+        />
+      )}
+    </>
   );
 };
 

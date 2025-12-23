@@ -174,10 +174,6 @@ const MarqueeExpand = () => {
 
   return (
     <div ref={containerRef} className="container-box relative w-screen h-full">
-      {/* <section className="hero relative w-screen h-screen content-center text-center">
-        <h1 className="text-4xl font-semibold">We are a world—class team.</h1>
-      </section> */}
-
       <section className="marquee relative w-full h-[50dvh]">
         <div className="marquee-wrapper absolute top-full left-1/2 transform -translate-x-1/2 -translate-y-1/2 -rotate-6 w-[300%] lg:w-[75%] h-full">
           <div className="marquee-images top-1/2 left-1/2 transform translate-x-1/2 -translate-y-1/2 w-[200%] h-full flex justify-between items-center gap-4 will-change-transform">
@@ -246,12 +242,12 @@ const MarqueeExpand = () => {
         </div>
       </section>
 
-      <section className="outro relative w-screen h-screen content-center text-center">
+      {/* <section className="outro relative w-screen h-screen content-center text-center">
         <h1 className="text-4xl font-semibold">
           We are a world—class team of industry—leading professionals, who
           constantly push new technology to its limits.
         </h1>
-      </section>
+      </section> */}
     </div>
   );
 };

@@ -2,6 +2,7 @@
 
 import { ImageSlideShow } from "@/components/framer-thumbnail-carousel";
 import Brands from "@/components/home/Brands";
+import CaseStudy from "@/components/home/CaseStudy";
 import FloatingInput from "@/components/home/FloatingInput";
 import HeroSection from "@/components/home/HeroSection";
 import HorizontalScroll from "@/components/home/HorizontalScroll";
@@ -41,16 +42,13 @@ export default function Home() {
         <Introduction />
         <SecondSection />
         <ThirdSection />
-        {/* <TheAgency /> */}
-        {/* <Expertise /> */}
       </div>
 
       <HoverImageReveal />
       <WhatWeDo />
       <MarqueeExpand />
-      {/* <Recognition /> */}
+      <CaseStudy />
       {/* <HorizontalScroll /> */}
-      {/* <PoweredBy /> */}
       <Brands />
       <FloatingInput />
     </div>

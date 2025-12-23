@@ -61,7 +61,7 @@ const FloatingInput = () => {
     ScrollTrigger.create({
       trigger: ".spotlight",
       start: "start",
-      end: `+=${window.innerWidth * 1.5}px`,
+      end: `+=${window.innerWidth * 0.75}px`,
       pin: true,
       pinSpacing: true,
       scrub: 1,
