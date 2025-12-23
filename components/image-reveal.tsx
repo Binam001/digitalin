@@ -18,42 +18,47 @@ const images: ImageData[] = [
     title: "Digital Strategy",
     href: "#",
     src: "/images/home/digital-strategy.jpg",
-    gradient: "bg-gradient-to-b from-gray-300/20 to-transparent",
+    gradient:
+      "bg-gradient-to-b from-transparent via-gray-300/20 to-transparent",
   },
   {
     id: 2,
     title: "Branding",
     href: "#",
     src: "/images/home/orange-hat-2.jpg",
-    gradient: "bg-gradient-to-b from-orange-300/20 to-transparent",
+    gradient:
+      "bg-gradient-to-b from-transparent via-orange-300/20 to-transparent",
   },
   {
     id: 3,
     title: "Advertising",
     href: "#",
     src: "/images/home/advertising.jpg",
-    gradient: "bg-gradient-to-b from-blue-300/10 to-transparent",
+    gradient:
+      "bg-gradient-to-b from-transparent via-blue-300/10 to-transparent",
   },
   {
     id: 4,
     title: "User Experience",
     href: "#",
     src: "/images/home/ux.png",
-    gradient: "bg-gradient-to-r from-black/10 to-transparent",
+    gradient: "bg-gradient-to-r from-transparent via-black/10 to-transparent",
   },
   {
     id: 5,
     title: "Digital Marketing",
     href: "#",
     src: "/images/home/digital-marketing.jpg",
-    gradient: "bg-gradient-to-b from-blue-400/20 to-transparent",
+    gradient:
+      "bg-gradient-to-b from-transparent via-blue-400/20 to-transparent",
   },
   {
     id: 6,
     title: "Media Production",
     href: "#",
     src: "/images/home/media-production.jpg",
-    gradient: "bg-gradient-to-b from-gray-200/20 to-transparent",
+    gradient:
+      "bg-gradient-to-b from-transparent via-gray-200/20 to-transparent",
   },
 ];
 

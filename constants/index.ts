@@ -18,7 +18,7 @@ const whatWeDoLists = [
   {
     id: 2,
     title: "Digital Advertising",
-    image: "/images/whatWeDo/digital-Advertising.png",
+    image: "/images/whatWeDo/digital-advertising.png",
     desc: "Digital advertising is the use of online platforms—like Google, Facebook, Instagram, and YouTube—to promote your brand, products, or services to the right audience at the right time. It involves placing targeted ads across digital channels using tools that allow precise control over audience segments, budgets, timing, and messaging to drive not only clicks but meaningful engagement. At Digitalin, we specialize in crafting data-driven digital ad campaigns that deliver measurable and high quality results. From search and display ads to social media and video promotions, our approach ensures that your advertising budget works harder—generating more traffic, higher engagement, qualified leads, and conversions. Whether you're looking to build brand awareness, foster audience interaction, or drive sales, we help you reach your business goals with strategic, performance-focused advertising and marketing.",
   },
   {
@@ -33,6 +33,32 @@ const whatWeDoLists = [
     image: "/images/whatWeDo/search-engine-marketing-1.png",
     desc: "Search Engine Marketing (SEM) is a powerful digital strategy that places your business at the top of search engine results when customers are actively looking for your products or services. It uses paid advertising platforms like Google Ads to drive instant visibility, highly targeted traffic, and strong conversions through keyword-focused campaigns. As a trusted search engine marketing agency, Digitalin helps businesses grow through strategic search engine marketing SEM practices built on smart marketing strategy, precise targeting, and controlled ad spend. Unlike generic promotion, SEM allows you to reach your audience at the right time, when they are most ready to take action. As a performance-focused digital marketing agency, we design high-impact sem campaigns that improve your online presence and strengthen your online visibility, ensuring your brand shows up exactly where it matters most.",
   },
+];
+
+const ourWorkLists = [
+  {
+    id: 1,
+    title: "image 1",
+    image: "/images/portfolio/Comedy-Base-Camp-02.webp",
+  },
+  { id: 2, title: "image 2", image: "/images/portfolio/Dare-to-win-2.webp" },
+  { id: 3, title: "image 3", image: "/images/portfolio/dew-friend.png" },
+  { id: 4, title: "image 4", image: "/images/portfolio/Dove-1.webp" },
+  { id: 5, title: "image 5", image: "/images/portfolio/Dew-Roadies-2.webp" },
+  { id: 6, title: "image 6", image: "/images/portfolio/Happydent.webp" },
+  { id: 7, title: "image 7", image: "/images/portfolio/Sunsilk.webp" },
+  {
+    id: 8,
+    title: "image 8",
+    image: "/images/portfolio/Pepsi-More-Fizz-Thematic-Campaign-1.webp",
+  },
+  { id: 9, title: "image 9", image: "/images/portfolio/Play-in-Style.webp" },
+  {
+    id: 10,
+    title: "image 10",
+    image: "/images/portfolio/Pepsi-Refreshing-Utsav-Offer.png",
+  },
+  { id: 11, title: "image 11", image: "/images/portfolio/pepsi-tiktok.webp" },
 ];
 
 const brandsALists = [
@@ -128,7 +154,7 @@ const featureSequence = [
   },
   { videoPath: "/videos/portfolio/pepsi.mp4", boxClass: ".box2", delay: 0 },
   {
-    videoPath: "/videos/portfolio/mountain-dew.mp4",
+    videoPath: "/videos/portfolio/happydent.mp4",
     boxClass: ".box3",
     delay: 0,
   },
@@ -247,6 +273,7 @@ const teamMemberLists = [
 export {
   navLinks,
   whatWeDoLists,
+  ourWorkLists,
   brandsALists,
   brandsBLists,
   socialLinkLists,

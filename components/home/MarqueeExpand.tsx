@@ -1,3 +1,4 @@
+import { ourWorkLists } from "@/constants";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { Flip } from "gsap/Flip";
@@ -6,31 +7,31 @@ import { useRef } from "react";
 
 gsap.registerPlugin(ScrollTrigger, Flip);
 
-const images = [
-  {
-    id: 1,
-    title: "image 1",
-    image: "/images/portfolio/Comedy-Base-Camp-02.webp",
-  },
-  { id: 2, title: "image 2", image: "/images/portfolio/Dare-to-win-2.webp" },
-  { id: 3, title: "image 3", image: "/images/portfolio/dew-friend.png" },
-  { id: 4, title: "image 4", image: "/images/portfolio/Dove-1.webp" },
-  { id: 5, title: "image 5", image: "/images/portfolio/Dew-Roadies-2.webp" },
-  { id: 6, title: "image 6", image: "/images/portfolio/Happydent.webp" },
-  { id: 7, title: "image 7", image: "/images/portfolio/Sunsilk.webp" },
-  {
-    id: 8,
-    title: "image 8",
-    image: "/images/portfolio/Pepsi-More-Fizz-Thematic-Campaign-1.webp",
-  },
-  { id: 9, title: "image 9", image: "/images/portfolio/Play-in-Style.webp" },
-  {
-    id: 10,
-    title: "image 10",
-    image: "/images/portfolio/Pepsi-Refreshing-Utsav-Offer.png",
-  },
-  { id: 11, title: "image 11", image: "/images/portfolio/pepsi-tiktok.webp" },
-];
+// const images = [
+//   {
+//     id: 1,
+//     title: "image 1",
+//     image: "/images/portfolio/Comedy-Base-Camp-02.webp",
+//   },
+//   { id: 2, title: "image 2", image: "/images/portfolio/Dare-to-win-2.webp" },
+//   { id: 3, title: "image 3", image: "/images/portfolio/dew-friend.png" },
+//   { id: 4, title: "image 4", image: "/images/portfolio/Dove-1.webp" },
+//   { id: 5, title: "image 5", image: "/images/portfolio/Dew-Roadies-2.webp" },
+//   { id: 6, title: "image 6", image: "/images/portfolio/Happydent.webp" },
+//   { id: 7, title: "image 7", image: "/images/portfolio/Sunsilk.webp" },
+//   {
+//     id: 8,
+//     title: "image 8",
+//     image: "/images/portfolio/Pepsi-More-Fizz-Thematic-Campaign-1.webp",
+//   },
+//   { id: 9, title: "image 9", image: "/images/portfolio/Play-in-Style.webp" },
+//   {
+//     id: 10,
+//     title: "image 10",
+//     image: "/images/portfolio/Pepsi-Refreshing-Utsav-Offer.png",
+//   },
+//   { id: 11, title: "image 11", image: "/images/portfolio/pepsi-tiktok.webp" },
+// ];
 
 const MarqueeExpand = () => {
   const containerRef = useRef(null);
@@ -177,7 +178,7 @@ const MarqueeExpand = () => {
       <section className="marquee relative w-full h-[50dvh]">
         <div className="marquee-wrapper absolute top-full left-1/2 transform -translate-x-1/2 -translate-y-1/2 -rotate-6 w-[300%] lg:w-[75%] h-full">
           <div className="marquee-images top-1/2 left-1/2 transform translate-x-1/2 -translate-y-1/2 w-[200%] h-full flex justify-between items-center gap-4 will-change-transform">
-            {images.map((image) => (
+            {ourWorkLists.map((image) => (
               <img
                 key={image.id}
                 src={image.image}

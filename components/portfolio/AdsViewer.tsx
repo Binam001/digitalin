@@ -76,7 +76,7 @@ const ModelScroll = () => {
       .call(() => setTexture("/videos/portfolio/pepsi.mp4"))
       .to(".box2", { opacity: 1, y: 0 })
 
-      .call(() => setTexture("/videos/portfolio/mountain-dew.mp4"))
+      .call(() => setTexture("/videos/portfolio/happydent.mp4"))
       .to(".box3", { opacity: 1, y: 0 });
 
     // .call(() => setTexture("./videos/feature-4.mp4"))
@@ -109,12 +109,12 @@ const AdsViewer = () => {
       id="features"
       className="w-screen h-screen flex flex-col items-center justify-center relative"
     >
-      <h2>
+      <div className="mt-24">
         <HoverText
           text="Explore the campaigns we've brought to life"
-          className="text-4xl"
+          className="text-4xl font-semibold"
         />
-      </h2>
+      </div>
 
       <Canvas id="f-canvas" camera={{}}>
         <StudioLights />

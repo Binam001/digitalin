@@ -13,7 +13,7 @@ const ThirdSection = () => {
   useGSAP(
     () => {
       gsap.to(sectionRef.current, {
-        // opacity: 0,
+        opacity: 0,
         scale: 0.9,
         scrollTrigger: {
           trigger: sectionRef.current,
