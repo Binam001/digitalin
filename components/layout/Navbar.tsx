@@ -7,10 +7,12 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import LightRays from "../LightRays";
 import { useMediaQuery } from "react-responsive";
+import { usePathname } from "next/navigation";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const isTablet = useMediaQuery({ maxWidth: 768 });
+  const pathname = usePathname();
 
   const toggleMenu = () => setIsMenuOpen((prev) => !prev);
 
@@ -26,12 +28,12 @@ const Navbar = () => {
           <Image src="/logo.png" alt="logo" width={100} height={24} />
         </Link>
 
-        <div
-          className="menu-toggler w-8 h-8 flex flex-col justify-center items-center gap-1 cursor-pointer z-50"
+        <button
+          className="menu-toggler w-8 h-8 flex flex-col justify-center items-center gap-1 cursor-pointer z-50 group"
           onClick={toggleMenu}
         >
           <motion.span
-            className="block h-0.5 w-full bg-foreground rounded"
+            className="block h-0.5 w-8 bg-foreground rounded group-hover:w-10 duration-500 transform group-hover:translate-y-0.5"
             animate={isMenuOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
           />
@@ -41,11 +43,11 @@ const Navbar = () => {
             transition={{ duration: 0.3, ease: "easeInOut" }}
           />
           <motion.span
-            className="block h-0.5 w-full bg-foreground rounded"
+            className="block h-0.5 w-full bg-foreground rounded group-hover:w-10 duration-500 transform group-hover:-translate-y-0.5"
             animate={isMenuOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
           />
-        </div>
+        </button>
       </nav>
 
       <AnimatePresence>
@@ -84,34 +86,41 @@ const Navbar = () => {
             )}
 
             <div className="menu-links grid grid-cols-3 relative w-full h-1/2 items-center justify-center px-4 md:px-8 lg:px-16">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.id}
-                  href={link.href}
-                  className="menu-item uppercase text-4xl lg:text-6xl"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  <motion.span
-                    style={{
-                      background:
-                        "linear-gradient(#f26622, #f26622) left no-repeat, #ffffff90",
-                      backgroundSize: "0% 100%",
-                      WebkitBackgroundClip: "text",
-                      WebkitTextFillColor: "transparent",
-                    }}
-                    whileHover={{
-                      backgroundSize: "100% 100%",
-                      transition: { duration: 0.7, ease: "easeOut" as const },
-                    }}
-                    animate={{
-                      backgroundSize: "0% 100%",
-                      transition: { duration: 0.5, ease: "easeOut" as const },
-                    }}
+              {navLinks.map((link) => {
+                const isActive = pathname === link.href;
+
+                return (
+                  <Link
+                    key={link.id}
+                    href={link.href}
+                    className="menu-item uppercase text-4xl lg:text-6xl"
+                    onClick={() => setIsMenuOpen(false)}
                   >
-                    {link.title}
-                  </motion.span>
-                </Link>
-              ))}
+                    <motion.span
+                      style={{
+                        background: isActive
+                          ? "#f26622"
+                          : "linear-gradient(#f26622, #f26622) left no-repeat, #ffffff90",
+                        backgroundSize: "0% 100%",
+                        WebkitBackgroundClip: "text",
+                        WebkitTextFillColor: "transparent",
+                      }}
+                      whileHover={{
+                        backgroundSize: "100% 100%",
+                        fontWeight: 700,
+                        transition: { duration: 0.7, ease: "easeOut" as const },
+                      }}
+                      animate={{
+                        backgroundSize: "0% 100%",
+                        fontWeight: isActive ? 700 : 400,
+                        transition: { duration: 0.5, ease: "easeOut" as const },
+                      }}
+                    >
+                      {link.title}
+                    </motion.span>
+                  </Link>
+                );
+              })}
             </div>
           </motion.div>
         )}

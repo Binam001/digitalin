@@ -10,7 +10,7 @@ const OurWork = () => {
         {ourWorkLists.map((item) => (
           <div
             key={item.id}
-            className={`flex ${
+            className={`work-card flex ${
               item.id % 2 === 0 ? "flex-row" : "flex-row-reverse bg-primary"
             }`}
           >
@@ -29,10 +29,10 @@ const OurWork = () => {
             <div className="w-[45%] flex flex-col justify-center p-4">
               <p className="uppercase text-2xl">{item.title}</p>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Voluptas, ea officiis. Quasi quisquam, consectetur nulla quas
-                repellendus obcaecati at exercitationem cumque similique placeat
-                asperiores ex fugiat nobis, voluptatem omnis magni.
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Inventore dolores corrupti quia repellat, vero vitae velit nemo,
+                vel quas beatae error esse molestias explicabo mollitia rerum
+                hic. Placeat, dignissimos harum?
               </p>
             </div>
           </div>
@@ -40,9 +40,14 @@ const OurWork = () => {
       </div>
 
       <style jsx>{`
+        .work-card {
+          cursor: pointer;
+        }
+
+        /* Shared */
         .clip-image {
-          transition: clip-path 0.5s ease;
           overflow: hidden;
+          transition: clip-path 0.6s ease;
         }
 
         /* Even cards */
@@ -50,7 +55,7 @@ const OurWork = () => {
           clip-path: polygon(0 0, 80% 0, 100% 100%, 0% 100%);
         }
 
-        .clip-image.even:hover {
+        .work-card:hover .clip-image.even {
           clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
         }
 
@@ -59,16 +64,16 @@ const OurWork = () => {
           clip-path: polygon(20% 0%, 100% 0, 100% 100%, 0% 100%);
         }
 
-        .clip-image.odd:hover {
+        .work-card:hover .clip-image.odd {
           clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
         }
 
-        /* Optional image scaling */
+        /* Image scale */
         .clip-image img {
-          transition: transform 0.5s ease;
+          transition: transform 0.6s ease;
         }
 
-        .clip-image:hover img {
+        .work-card:hover .clip-image img {
           transform: scale(1.05);
         }
       `}</style>
