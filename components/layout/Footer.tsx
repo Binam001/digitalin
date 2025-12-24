@@ -10,25 +10,29 @@ import Noise from "../Noise";
 const Footer = () => {
   // const isMobile = useMediaQuery({ maxWidth: 425 });
   return (
-    <footer className="flex flex-col items-center gap-8 pt-16 w-screen px-4 md:px-8 lg:px-16 bg-foreground relative min-h-screen">
+    <footer className="flex flex-col items-center pt-16 w-screen px-4 md:px-8 lg:px-16 bg-foreground/80 relative min-h-screen">
       {/* {!isMobile && <Noise className="z-80" />} */}
       <Noise className="z-80" />
-
-      <div className="space-y-8 text-center text-background">
-        <p>Ideas or Ads?</p>
-        <HoverText text="Let's Launch." className="text-4xl font-semibold" />
+      <div className="flex flex-col items-center gap-8">
+        <div className="space-y-8 text-center text-background">
+          <p>Ideas or Ads?</p>
+          <HoverText text="Let's Launch." className="text-4xl font-semibold" />
+        </div>
+        <AnalogClock />
+        <div className="text-background">
+          <p>We guessed you're in Nepal?</p>
+        </div>
+        <Link href="/contact">
+          <InteractiveHoverButton
+            text="Contact Us"
+            className="text-foreground"
+          />
+        </Link>
+        <HoverText text="DIGITALIN" type="footer" className="leading-[0.7]" />
       </div>
-      <AnalogClock />
-      <div className="text-background">
-        <p>We guessed you're in Nepal?</p>
-      </div>
-      <Link href="/contact">
-        <InteractiveHoverButton text="Contact Us" className="text-foreground" />
-      </Link>
-      <HoverText text="DIGITALIN" type="footer" />
 
       <div className="w-screen py-8 z-40 bg-background">
-        <div className="px-4 md:px-8 lg:px-16 space-y-8">
+        <div className="px-4 md:px-8 lg:px-16 space-y-8 text-sm">
           <div className="flex items-center justify-between w-full">
             <div className="grid grid-cols-2 gap-y-4">
               {contactLists.map((contactItem) => (

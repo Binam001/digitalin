@@ -233,11 +233,12 @@ const ServiceSection = () => {
                       </span>
                     ))}
                   </h2>
-                  <div className="flex justify-between">
-                    <button className="mt-8 group inline-flex items-center gap-4 text-sm uppercase tracking-widest text-foreground hover:text-primary transition-colors duration-300">
+                  <div className="flex justify-end">
+                    {/* <button className="mt-8 group inline-flex items-center gap-4 text-sm uppercase tracking-widest text-foreground hover:text-primary transition-colors duration-300">
                       View Project
                       <span className="w-12 h-px bg-foreground group-hover:w-20 group-hover:bg-primary transition-all duration-300" />
-                    </button>
+                    </button> */}
+
                     <p className="justify-self-en text-sm md:text-base leading-relaxed max-w-sm line-clamp-4">
                       {work.desc}
                     </p>

@@ -18,11 +18,11 @@ const Noise: React.FC<NoiseProps> = ({
   patternScaleX = 1,
   patternScaleY = 1,
   patternRefreshInterval = 3,
-  patternAlpha = 15,
+  patternAlpha = 5,
   className,
 }) => {
   const grainRef = useRef<HTMLCanvasElement | null>(null);
-  const isMobile = useMediaQuery({ maxWidth: 425 });
+  const isTablet = useMediaQuery({ maxWidth: 767 });
 
   useEffect(() => {
     const canvas = grainRef.current;
@@ -86,10 +86,10 @@ const Noise: React.FC<NoiseProps> = ({
 
   return (
     <>
-      {!isMobile && (
+      {!isTablet && (
         <canvas
           className={cn(
-            "pointer-events-none absolute top-0 left-0 h-full w-full",
+            "pointer-events-none fixed top-0 left-0 h-full w-full",
             className
           )}
           ref={grainRef}

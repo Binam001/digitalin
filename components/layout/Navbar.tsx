@@ -11,7 +11,7 @@ import { usePathname } from "next/navigation";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const isTablet = useMediaQuery({ maxWidth: 768 });
+  const isTablet = useMediaQuery({ maxWidth: 767 });
   const pathname = usePathname();
 
   const toggleMenu = () => setIsMenuOpen((prev) => !prev);
@@ -23,11 +23,12 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="fixed top-0 z-100 w-screen flex items-center justify-between gap-4">
+      <nav className="fixed top-0 left-0 z-100 px-4 md:px-8 lg:px-16 py-4">
         <Link href="/">
           <Image src="/logo.png" alt="logo" width={100} height={24} />
         </Link>
-
+      </nav>
+      <nav className="fixed top-0 right-0 z-100 px-4 md:px-8 lg:px-16 py-4 mix-blend-difference">
         <button
           className="menu-toggler w-8 h-8 flex flex-col justify-center items-center gap-1 cursor-pointer z-50 group"
           onClick={toggleMenu}
@@ -37,11 +38,11 @@ const Navbar = () => {
             animate={isMenuOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
           />
-          <motion.span
+          {/* <motion.span
             className="block h-0.5 w-full bg-foreground rounded"
             animate={isMenuOpen ? { opacity: 0 } : { opacity: 1 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-          />
+          /> */}
           <motion.span
             className="block h-0.5 w-full bg-foreground rounded group-hover:w-10 duration-500 transform group-hover:-translate-y-0.5"
             animate={isMenuOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }}
@@ -76,7 +77,7 @@ const Navbar = () => {
                 />
                 <div className="absolute bottom-0 left-0 w-full h-full">
                   <img
-                    src="/images/home/buddha-statue.png"
+                    src="/images/home/hand-sphere.png"
                     alt=""
                     className="object-contain w-full h-2/3 absolute bottom-0"
                   />

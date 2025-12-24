@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import { MoveUpRight } from "lucide-react";
 import React, { useState, useRef, useCallback, useEffect } from "react";
 import HoverText from "./HoverText";
+import Link from "next/link";
 
 interface ImageData {
   id: number;
@@ -100,7 +101,7 @@ const HoverImageReveal = React.forwardRef<HTMLDivElement, ComponentProps>(
     },
     ref
   ) => {
-    const isDesktop = useMediaQuery("(min-width: 768px)");
+    const isDesktop = useMediaQuery("(min-width: 767px)");
     const [activeImage, setActiveImage] = useState<ImageData | null>(null);
     const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
     const [opacity, setOpacity] = useState(0);
@@ -213,7 +214,7 @@ const HoverImageReveal = React.forwardRef<HTMLDivElement, ComponentProps>(
     return (
       <div className="">
         <div className="w-full flex justify-center -mb-12 z-60 relative">
-          <HoverText text="What We Do" type="title" />
+          <HoverText text="Where Strategy Meets Creativity" type="title" />
         </div>
         <div
           ref={ref}
@@ -237,7 +238,8 @@ const HoverImageReveal = React.forwardRef<HTMLDivElement, ComponentProps>(
           ))}
 
           {images.map((image) => (
-            <div
+            <Link
+              href="#"
               key={image.id}
               className={cn(
                 "cursor-pointer relative sm:flex items-center",
@@ -278,7 +280,7 @@ const HoverImageReveal = React.forwardRef<HTMLDivElement, ComponentProps>(
                   0{image.id}
                 </span>
               </h2>
-            </div>
+            </Link>
           ))}
           {isDesktop && activeImage && (
             <img

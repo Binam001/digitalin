@@ -8,7 +8,8 @@ interface MotionTextProps {
   type?: "sm" | "md" | "lg" | "title" | "footer";
 }
 
-const randomColor = () => `hsl(${Math.floor(Math.random() * 360)}, 80%, 55%)`;
+const randomColor = () => `#f26622`;
+// const randomColor = () => `hsl(${Math.floor(Math.random() * 360)}, 80%, 55%)`;
 const randomRotation = () => Math.floor(Math.random() * 12) - 6;
 
 export default function HoverText({
@@ -20,7 +21,7 @@ export default function HoverText({
     sm: "text-2xl md:text-3xl",
     md: "text-4xl md:text-6xl",
     lg: "text-6xl md:text-8xl",
-    title: "text-5xl text-primary font-[Poppins-ExtraBold]",
+    title: "text-5xl font-[Poppins-ExtraBold] uppercase",
     footer:
       "text-[200px] font-[Poppins-ExtraBold] tracking-wider text-background",
   };

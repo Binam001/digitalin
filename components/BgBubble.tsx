@@ -57,7 +57,7 @@ const BgBubble = () => {
             background:
               "radial-gradient(circle, hsl(var(--accent)) 0%, transparent 70%)",
             filter: "blur(10px)",
-            bottom: "0%",
+            bottom: "10%",
             right: "60%",
           }}
         />
