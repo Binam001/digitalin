@@ -23,7 +23,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="fixed top-0 z-100 w-screen flex items-center justify-end gap-4">
+      <nav className="fixed top-0 z-100 w-screen flex items-center justify-between gap-4">
         <Link href="/">
           <Image src="/logo.png" alt="logo" width={100} height={24} />
         </Link>

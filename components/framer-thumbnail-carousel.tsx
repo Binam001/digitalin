@@ -8,6 +8,7 @@ import {
   useSpring,
   animate,
 } from "motion/react";
+import HoverText from "./HoverText";
 
 export const items = [
   {
@@ -38,6 +39,7 @@ const MARGIN_PX = 2;
 export function ImageSlideShow() {
   const [index, setIndex] = useState<number>(0);
   const [isDragging, setIsDragging] = useState<boolean>(false);
+  const [isHovered, setIsHovered] = useState<boolean>(false);
   const containerRef = useRef<HTMLDivElement | null>(null);
 
   const x = useMotionValue(0);
@@ -55,11 +57,26 @@ export function ImageSlideShow() {
     }
   }, [index, x, isDragging]);
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (!isDragging && !isHovered) {
+        setIndex((i) => (i === items.length - 1 ? 0 : i + 1));
+      }
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [isDragging, isHovered]);
+
   return (
     <div className="w-screen h-screen overflow-x-hidden">
       <div className="flex flex-col gap-3">
         {/* Main Carousel */}
-        <div className="relative overflow-hidden" ref={containerRef}>
+        <div
+          className="relative overflow-hidden"
+          ref={containerRef}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
           <motion.div
             className="flex"
             drag="x"
@@ -102,18 +119,15 @@ export function ImageSlideShow() {
                 />
                 <div className="absolute inset-0 w-full h-full bg-black/50"></div>
                 <div className="absolute bottom-1/2 left-20 text-foreground">
-                  <div className="flex gap-4">
-                    <p className="mt-1">/0{item.id}</p>
-                    {/* <p className="">/{item.title}</p> */}
-                    <h2 className="text-5xl font-bold w-[70%] text-primary">
-                      {item.desc}
-                    </h2>
+                  <div className="flex gap-4 w-full">
+                    <p className="mt-2">/0{item.id}</p>
+                    <div className="w-[60%]">
+                      <HoverText
+                        text={item.title}
+                        className="font-[Poppins-ExtraBold] text-6xl uppercase"
+                      />
+                    </div>
                   </div>
-                  {/* <div className="ml-10">
-                    <h2 className="text-5xl font-bold w-[70%] text-primary">
-                      {item.desc}
-                    </h2>
-                  </div> */}
                 </div>
               </div>
             ))}

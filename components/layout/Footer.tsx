@@ -2,7 +2,7 @@ import Link from "next/link";
 import AnalogClock from "../footer/AnalogClock";
 import HoverText from "../HoverText";
 import { InteractiveHoverButton } from "../ui/interactive-hover-button";
-import { socialLinkLists } from "@/constants";
+import { contactLists, socialLinkLists } from "@/constants";
 import { Icon } from "@iconify/react";
 import Noise from "../Noise";
 // import { useMediaQuery } from "react-responsive";
@@ -25,20 +25,34 @@ const Footer = () => {
       <Link href="/contact">
         <InteractiveHoverButton text="Contact Us" className="text-foreground" />
       </Link>
-      <HoverText
-        text="DIGITALIN"
-        className="text-[200px] font-[Poppins-ExtraBold] tracking-wider text-background"
-      />
+      <HoverText text="DIGITALIN" type="footer" />
 
       <div className="w-screen py-8 z-40 bg-background">
         <div className="px-4 md:px-8 lg:px-16 space-y-8">
           <div className="flex items-center justify-between w-full">
-            <div className="space-x-8">
-              <Link href="#" className="text-primary">
-                Email Us
-              </Link>
-              <Link href="#">Call</Link>
+            <div className="grid grid-cols-2 gap-y-4">
+              {contactLists.map((contactItem) => (
+                <Link
+                  key={contactItem.id}
+                  href={contactItem.link}
+                  className="flex items-center gap-1 hover:text-primary transition-all duration-300 w-fit"
+                >
+                  <Icon icon={contactItem.icon} className="size-5" />
+                  {contactItem.desc}
+                </Link>
+              ))}
             </div>
+            {/* <div className="space-y-4">
+              <div className="space-x-8">
+                <Link href="mailto:connect@digitalin.com.np">
+                  connect@digitalin.com.np
+                </Link>
+                <Link href="tel:+9779704593302">+977 9704593302</Link>
+              </div>
+              <div className="">
+                <span>Pattipa Marg Uttar Baghdol, Lalitpur, Nepal</span>
+              </div>
+            </div> */}
 
             <div className="flex items-center gap-4">
               {socialLinkLists.map((socialLinkItem) => (

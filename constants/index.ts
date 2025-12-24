@@ -89,6 +89,30 @@ const socialLinkLists = [
   { id: 6, title: "tiktok", icon: "proicons:tiktok", href: "#" },
 ];
 
+const contactLists = [
+  {
+    id: 1,
+    title: "email",
+    link: "mailto:connect@digitalin.com.np",
+    desc: "connect@digitalin.com.np",
+    icon: "mdi:email-outline",
+  },
+  {
+    id: 2,
+    title: "contact",
+    link: "tel:+977 9704593302",
+    desc: "+977 9704593302",
+    icon: "lineicons:phone",
+  },
+  {
+    id: 3,
+    title: "address",
+    link: "https://www.google.com/maps/place/DigitalIN/@27.672925,85.301999,11z/data=!4m6!3m5!1s0x39eb19b6c0ed815b:0x339d33c792d1a3!8m2!3d27.6729245!4d85.3019988!16s%2Fg%2F11cmql937l?hl=en&entry=ttu",
+    desc: " Pattipa Marg Uttar Baghdol, Lalitpur, Nepal",
+    icon: "lsicon:location-outline",
+  },
+];
+
 const noChangeParts = [
   "Object_84",
   "Object_37",
@@ -277,6 +301,7 @@ export {
   brandsALists,
   brandsBLists,
   socialLinkLists,
+  contactLists,
   noChangeParts,
   features,
   featureSequence,

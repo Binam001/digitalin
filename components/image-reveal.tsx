@@ -3,6 +3,7 @@
 import { cn } from "@/lib/utils";
 import { MoveUpRight } from "lucide-react";
 import React, { useState, useRef, useCallback, useEffect } from "react";
+import HoverText from "./HoverText";
 
 interface ImageData {
   id: number;
@@ -210,84 +211,89 @@ const HoverImageReveal = React.forwardRef<HTMLDivElement, ComponentProps>(
     }
 
     return (
-      <div
-        ref={ref}
-        className={cn(
-          "relative py-32 grid grid-cols-2 gap-x-8 bg-background z-50"
-        )}
-        onMouseLeave={handleMouseLeave}
-        {...props}
-      >
-        {/* Background Gradients */}
-        {images.map((image) => (
-          <div
-            key={`bg-${image.id}`}
-            className={cn(
-              "absolute inset-0 transition-opacity duration-500 ease-in-out",
-              image.gradient,
-              activeImage?.id === image.id ? "opacity-100" : "opacity-0"
-            )}
-            style={{ gridColumn: "1 / -1" }} // Span across all grid columns
-          />
-        ))}
-
-        {images.map((image) => (
-          <div
-            key={image.id}
-            className={cn(
-              "cursor-pointer relative sm:flex items-center",
-              image.id % 2 === 0
-                ? "sm:justify-start text-left"
-                : "sm:justify-end text-right"
-            )}
-            onMouseEnter={() => handleImageHover(image)}
-          >
-            {!isDesktop && (
-              <img
-                src={image.src}
-                className="sm:w-32 sm:h-20 w-full h-52 object-cover rounded-md"
-                alt="mobileImg"
-              />
-            )}
-            <h2
+      <div className="">
+        <div className="w-full flex justify-center -mb-12 z-60 relative">
+          <HoverText text="What We Do" type="title" />
+        </div>
+        <div
+          ref={ref}
+          className={cn(
+            "relative py-24 grid grid-cols-2 gap-x-8 bg-background z-50"
+          )}
+          onMouseLeave={handleMouseLeave}
+          {...props}
+        >
+          {/* Background Gradients */}
+          {images.map((image) => (
+            <div
+              key={`bg-${image.id}`}
               className={cn(
-                `text-5xl sm:py-6 py-2 leading-[100%] relative flex items-center gap-8`,
-                activeImage?.id === image.id
-                  ? "mix-blend-difference z-20 text-gray-300"
-                  : "text-gray-700 dark:text-gray-300"
+                "absolute inset-0 transition-opacity duration-500 ease-in-out",
+                image.gradient,
+                activeImage?.id === image.id ? "opacity-100" : "opacity-0"
               )}
+              style={{ gridColumn: "1 / -1" }} // Span across all grid columns
+            />
+          ))}
+
+          {images.map((image) => (
+            <div
+              key={image.id}
+              className={cn(
+                "cursor-pointer relative sm:flex items-center",
+                image.id % 2 === 0
+                  ? "sm:justify-start text-left"
+                  : "sm:justify-end text-right"
+              )}
+              onMouseEnter={() => handleImageHover(image)}
             >
-              {image.title}
-              <span
-                className={`font-[Poppins-Light] text-foreground/50 ${
-                  image.id % 2 !== 0 ? "block" : "hidden"
-                }`}
+              {!isDesktop && (
+                <img
+                  src={image.src}
+                  className="sm:w-32 sm:h-20 w-full h-52 object-cover rounded-md"
+                  alt="mobileImg"
+                />
+              )}
+              <h2
+                className={cn(
+                  `text-5xl sm:py-6 py-2 leading-[100%] relative flex items-center gap-8`,
+                  activeImage?.id === image.id
+                    ? "mix-blend-difference z-20 text-gray-300"
+                    : "text-gray-700 dark:text-gray-300"
+                )}
               >
-                /
-              </span>
-              <span
-                className={`absolute top-4 text-base font-light text-foreground/50 ${
-                  image.id % 2 === 0 ? "-right-5" : "right-8"
-                }`}
-              >
-                0{image.id}
-              </span>
-            </h2>
-          </div>
-        ))}
-        {isDesktop && activeImage && (
-          <img
-            src={activeImage.src}
-            alt={activeImage.title}
-            className={`fixed object-cover pointer-events-none z-10 w-[300px] h-[400px] rounded-lg`}
-            style={{
-              left: `${cursorPosition.x}px`,
-              top: `${cursorPosition.y}px`,
-              transform: `translate(-50%, -50%) scale(${scale})`,
-              opacity: opacity,
-            }}
-          />
-        )}
+                {image.title}
+                <span
+                  className={`font-[Poppins-Light] text-foreground/50 ${
+                    image.id % 2 !== 0 ? "block" : "hidden"
+                  }`}
+                >
+                  /
+                </span>
+                <span
+                  className={`absolute top-4 text-base font-light text-foreground/50 ${
+                    image.id % 2 === 0 ? "-right-5" : "right-8"
+                  }`}
+                >
+                  0{image.id}
+                </span>
+              </h2>
+            </div>
+          ))}
+          {isDesktop && activeImage && (
+            <img
+              src={activeImage.src}
+              alt={activeImage.title}
+              className={`fixed object-cover pointer-events-none z-10 w-[300px] h-[400px] rounded-lg`}
+              style={{
+                left: `${cursorPosition.x}px`,
+                top: `${cursorPosition.y}px`,
+                transform: `translate(-50%, -50%) scale(${scale})`,
+                opacity: opacity,
+              }}
+            />
+          )}
+        </div>
       </div>
     );
   }

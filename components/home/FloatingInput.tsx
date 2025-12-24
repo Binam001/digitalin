@@ -1,4 +1,5 @@
 import { useGSAP } from "@gsap/react";
+import { Icon } from "@iconify/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -247,20 +248,17 @@ const FloatingInput = () => {
               </div>
             ))}
           </div>
-
-          {/* <div className="search-bar">
-            <p>Find the unseen link</p>
-          </div> */}
-          <input
-            type="text"
-            placeholder="Email"
-            className="search-bar focus:outline-none px-8 text-xl"
-          />
+          <div className="search-bar">
+            <input
+              type="text"
+              placeholder="Email"
+              className="h-full w-full bg-transparent px-8 text-white focus:outline-none"
+            />
+            <button className="absolute right-4 top-1/2 -translate-y-1/2 transform text-primary">
+              <Icon icon="mingcute:send-plane-line" className="size-6" />
+            </button>
+          </div>
         </section>
-
-        {/* <section className="outro">
-          <h1 className="w-full lg:w-1/2">Where systems move with intention</h1>
-        </section> */}
       </div>
       <style jsx>{`
         h1 {

@@ -41,7 +41,7 @@ const ThirdSection = () => {
       >
         <HoverText text="And" />
         <HoverText text="attention" className="text-primary" />
-        <HoverText text="sells products" />
+        <HoverText text="sells products." />
       </motion.h1>
     </section>
   );

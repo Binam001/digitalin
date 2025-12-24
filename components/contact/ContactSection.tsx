@@ -14,6 +14,9 @@ import {
 } from "lucide-react";
 import HoverText from "../HoverText";
 import { InteractiveHoverButton } from "../ui/interactive-hover-button";
+import { contactLists, socialLinkLists } from "@/constants";
+import { Icon } from "@iconify/react";
+import Link from "next/link";
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -81,10 +84,19 @@ const ContactSection = () => {
               </div>
 
               <select className="w-full bg-transparent border-b border-white/10 py-4 focus:border-primary outline-none transition-colors text-gray-400">
-                <option value="">Select Service</option>
-                <option value="ads">Performance Marketing</option>
-                <option value="content">Content Strategy</option>
-                <option value="creative">Creative Design</option>
+                <option value="" disabled>
+                  Select Service
+                </option>
+                <option value="facebook-advertising">
+                  Facebook Advertising
+                </option>
+                <option value="digital-advertising">Digital Advertising</option>
+                <option value="search-engine-optimization">
+                  Search Engine Optimization
+                </option>
+                <option value="search-engine-marketing">
+                  Search Engine Marketing
+                </option>
               </select>
 
               <textarea
@@ -109,55 +121,53 @@ const ContactSection = () => {
             {/* Location Card */}
             <motion.div
               whileHover={{ y: -5 }}
-              className="bg-[#1a1a1e] border border-white/5 rounded-[2rem] p-8 group transition-colors hover:border-primary/30"
+              className="bg-[#1a1a1e] border border-white/5 rounded-4xl group transition-colors hover:border-primary/30 grayscale"
             >
-              <div className="bg-primary/10 w-12 h-12 rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary transition-colors">
-                <MapPin
-                  className="text-primary group-hover:text-white"
-                  size={24}
-                />
-              </div>
-              <h3 className="text-gray-400 text-sm uppercase tracking-widest mb-2 font-bold">
-                Base Camp
-              </h3>
-              <p className="text-xl font-medium">
-                Jhamsikhel, Lalitpur
-                <br />
-                Nepal
-              </p>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d226139.88597223538!2d85.301999!3d27.672925!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb19b6c0ed815b%3A0x339d33c792d1a3!2sDigitalin%20%7C%20Best%20Digital%20Marketing%20Agency%20in%20Nepal!5e0!3m2!1sen!2snp!4v1766563989686!5m2!1sen!2snp"
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="w-full h-full rounded-4xl"
+              ></iframe>
             </motion.div>
 
             {/* Social Card */}
             <motion.div
               whileHover={{ y: -5 }}
-              className="bg-[#1a1a1e] border border-white/5 rounded-[2rem] p-8 flex flex-col justify-between"
+              className="bg-[#1a1a1e] border border-white/5 rounded-4xl p-8 flex flex-col justify-between"
             >
               <div>
-                <h3 className="text-gray-400 text-sm uppercase tracking-widest mb-6 font-bold">
+                <h3 className="text-primary text-sm uppercase tracking-widest mb-6 font-bold">
                   Follow Us
                 </h3>
-                <div className="flex gap-4">
-                  {[Instagram, Linkedin, Twitter].map((Icon, i) => (
-                    <a
-                      key={i}
-                      href="#"
-                      className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center hover:bg-primary hover:border-transparent transition-all"
+                <div className="flex gap-2">
+                  {socialLinkLists.map((socialLinkItem) => (
+                    <Link
+                      key={socialLinkItem.id}
+                      href={socialLinkItem.href}
+                      className="size-10 rounded-full border border-white/50 flex items-center justify-center hover:bg-primary hover:border-transparent transition-all"
                     >
-                      <Icon size={20} />
-                    </a>
+                      <Icon icon={socialLinkItem.icon} className="size-6" />
+                    </Link>
                   ))}
                 </div>
               </div>
               <div className="mt-8">
-                <p className="text-gray-400 text-sm uppercase tracking-widest mb-2 font-bold">
-                  Email
+                <p className="text-primary text-sm uppercase tracking-widest mb-2 font-bold">
+                  contact
                 </p>
-                <a
-                  href="mailto:hello@agency.np"
-                  className="text-xl hover:text-primary transition-colors"
-                >
-                  hello@agency.np
-                </a>
+                <div className="flex gap-2">
+                  {contactLists.map((contactItem) => (
+                    <Link
+                      key={contactItem.id}
+                      href={contactItem.link}
+                      className="size-10 rounded-full border border-white/50 flex items-center justify-center hover:bg-primary hover:border-transparent transition-all"
+                    >
+                      <Icon icon={contactItem.icon} className="size-6" />
+                    </Link>
+                  ))}
+                </div>
               </div>
             </motion.div>
           </div>

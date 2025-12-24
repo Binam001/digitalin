@@ -23,11 +23,12 @@ const CaseStudy = () => {
         {
           xPercent: 0,
           rotation: 0,
+          duration: 1,
           ease: "power3.out",
           scrollTrigger: {
             trigger: el,
-            start: "top 85%",
-            end: "top 40%",
+            start: "top 90%",
+            end: "top 70%",
             scrub: true, // smoother than numeric scrub
           },
         }
@@ -36,9 +37,9 @@ const CaseStudy = () => {
   });
 
   return (
-    <section className="w-screen my-24">
-      <div className="w-full flex justify-center my-8">
-        <HoverText text="Our Case Study" className="text-4xl font-bold" />
+    <section className="w-screen my-28">
+      <div className="w-full flex justify-center mb-8">
+        <HoverText text="Our Services" type="title" />
       </div>
       <div className="grid grid-cols-2 gap-8">
         {whatWeDoLists.map((item) => (
