@@ -33,6 +33,13 @@ const ThirdSection = () => {
       ref={sectionRef}
       className="w-screen h-screen flex flex-col justify-center gap-8 bg-background z-10"
     >
+      <div className="absolute inset-0 flex items-center">
+        <img
+          src="/images/home/unique-orange-hat.png"
+          alt="unique orange hat"
+          className="brightness-50 h-screen w-screen object-cover"
+        />
+      </div>
       <motion.h1
         initial={{ x: "-100%", opacity: 0 }}
         whileInView={{ x: 0, opacity: 1 }}

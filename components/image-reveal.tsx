@@ -191,7 +191,7 @@ const HoverImageReveal = React.forwardRef<HTMLDivElement, ComponentProps>(
     };
 
     const commonClasses = cn(
-      "relative w-full min-h-fit",
+      "relative w-full min-h-fit bg-background",
       variantClasses[variant],
       className
     );
@@ -212,8 +212,8 @@ const HoverImageReveal = React.forwardRef<HTMLDivElement, ComponentProps>(
     }
 
     return (
-      <div className="">
-        <div className="w-full flex justify-center -mb-12 z-60 relative">
+      <div className="py-16 bg-background">
+        <div className="w-full flex justify-center -mb-8 z-60 relative bg-background pt-16">
           <HoverText text="Where Strategy Meets Creativity" type="title" />
         </div>
         <div

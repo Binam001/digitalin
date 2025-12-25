@@ -179,7 +179,23 @@ const ServiceSection = () => {
   return (
     <div ref={containerRef} className="relative">
       {/* Background layer */}
-      <div ref={bgRef} className="fixed inset-0 z-0" />
+      <div
+        // ref={bgRef}
+        className="fixed inset-0 z-0 bg-background"
+        // style={{
+        //   ...({
+        //     "--service-from": services[0].bgFrom,
+        //     "--service-to": services[0].bgTo,
+        //   } as CSSProperties),
+        //   background:
+        //     "linear-gradient(180deg, var(--service-from) 0%, var(--service-to) 100%)",
+        // }}
+      />
+
+      {/* Noise overlay */}
+      {/* <div className="fixed inset-0 z-[1] pointer-events-none noise opacity-30" /> */}
+
+      {/* Hero Section */}
       <header className="relative z-10 h-screen flex items-center justify-center bg-background">
         <BgBubble />
         <div className="w-full flex flex-col items-center justify-center gap-8">
@@ -198,7 +214,7 @@ const ServiceSection = () => {
       <main className="relative z-10">
         <section
           ref={serviceScrollRef}
-          className="relative px-0"
+          className="relative"
           style={{ height: `${services.length * 100}vh` }}
           aria-label="Work projects"
         >
@@ -208,41 +224,50 @@ const ServiceSection = () => {
             className="relative h-screen w-full overflow-hidden"
           >
             {serviceLists.map((service, index) => (
-              <div
-                key={service.id}
-                className="absolute top-0 w-screen h-screen"
-              >
+              <div key={service.id} className="absolute inset-0">
                 {/* Image */}
                 <div
                   ref={(el) => addToImagesRef(el, index)}
-                  className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-screen h-screen z-10"
+                  className="absolute left-1/2 top-1/3 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[60vh] max-w-4xl"
                 >
                   <img
                     src={service.image}
-                    alt={service.title}
+                    alt={`${service.title} project image`}
                     loading={index === 0 ? "eager" : "lazy"}
-                    className="w-full h-full object-cover transition-all duration-700 brightness-25"
+                    className="w-full h-full object-cover transition-all duration-700 brightness-75"
                   />
                 </div>
+
+                {/* count */}
+                {/* <div
+                  ref={(el) => addToTextsRef(el, index)}
+                  className="absolute bottom-1/3 left-10 text-2xl"
+                >
+                  {service.id}
+                </div> */}
+
+                {/* Text */}
                 <article
                   ref={(el) => addToTextsRef(el, index)}
-                  className="absolute h-full w-full top-[0%] z-50 flex flex-col justify-between py-16 px-4 md:px-8 lg:px-16"
+                  className="absolute h-full w-full top-[0%] z-20 flex flex-col justify-between py-16"
                 >
                   <h2 className="text-2xl md:text-4xl lg:text-5xl text-primary leading-none mb-4">
                     {service.title.split(" ").map((word, index) => (
                       <span key={index} className="block">
-                        <HoverText text={word} type="title" />
+                        {word}
                       </span>
                     ))}
                   </h2>
-                  <div className="flex flex-col items-center justify-center gap-4">
-                    <p className="md:text-lg lg:text-2xl text-foreground/70">
+                  {/* <div
+                    // ref={(el) => addToTextsRef(el, index)}
+                    className="absolute bottom-1/3 left-10 text-2xl"
+                  >
+                    {service.id}/{serviceLists.length}
+                  </div> */}
+                  <div className="flex justify-center">
+                    <p className="text-sm md:text-base text-foreground/70 leading-relaxed max-w-3xl line-clamp-4">
                       {service.desc}
                     </p>
-                    <InteractiveHoverButton
-                      text="Make Inquiry"
-                      className="w-fit"
-                    />
                   </div>
                 </article>
               </div>
@@ -251,7 +276,7 @@ const ServiceSection = () => {
         </section>
 
         {/* Footer CTA */}
-        {/* <section className="relative z-10 h-screen flex items-center justify-center">
+        <section className="relative z-10 h-screen flex items-center justify-center">
           <div className="text-center px-8">
             <h2 className="text-5xl md:text-7xl lg:text-8xl text-foreground leading-none mb-8">
               LET&apos;S CREATE
@@ -260,7 +285,7 @@ const ServiceSection = () => {
             </h2>
             <InteractiveHoverButton text="START A PROJECT" />
           </div>
-        </section> */}
+        </section>
       </main>
     </div>
   );

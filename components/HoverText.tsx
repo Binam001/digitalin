@@ -5,7 +5,7 @@ import { motion, useAnimation } from "framer-motion";
 interface MotionTextProps {
   text: string;
   className?: string;
-  type?: "sm" | "md" | "lg" | "title" | "footer";
+  type?: "sm" | "md" | "lg" | "title" | "footer" | "subTitle";
 }
 
 const randomColor = () => `#f26622`;
@@ -21,6 +21,7 @@ export default function HoverText({
     sm: "text-2xl md:text-3xl",
     md: "text-4xl md:text-6xl",
     lg: "text-6xl md:text-8xl",
+    subTitle: "text-lg text-primary font-semibold",
     title: "text-5xl font-[Poppins-ExtraBold] uppercase",
     footer:
       "text-[200px] font-[Poppins-ExtraBold] tracking-wider text-background",

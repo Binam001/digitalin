@@ -27,8 +27,8 @@ const CaseStudy = () => {
           ease: "power3.out",
           scrollTrigger: {
             trigger: el,
-            start: "top 90%",
-            end: "top 70%",
+            start: "top 85%",
+            end: "top 60%",
             scrub: true, // smoother than numeric scrub
           },
         }
@@ -37,7 +37,7 @@ const CaseStudy = () => {
   });
 
   return (
-    <section className="w-screen my-28">
+    <section className="w-screen my-28 bg-background">
       <div className="w-full flex justify-center mb-8">
         <HoverText text="Our Services" type="title" />
       </div>

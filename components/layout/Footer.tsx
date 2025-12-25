@@ -13,8 +13,8 @@ const Footer = () => {
     <footer className="flex flex-col items-center pt-16 w-screen px-4 md:px-8 lg:px-16 bg-foreground/80 relative min-h-screen">
       {/* {!isMobile && <Noise className="z-80" />} */}
       <Noise className="z-80" />
-      <div className="flex flex-col items-center gap-8">
-        <div className="space-y-8 text-center text-background">
+      <div className="flex flex-col items-center gap-4">
+        <div className="space-y-4 text-center text-background">
           <p>Ideas or Ads?</p>
           <HoverText text="Let's Launch." className="text-4xl font-semibold" />
         </div>
@@ -28,62 +28,50 @@ const Footer = () => {
             className="text-foreground"
           />
         </Link>
-        <HoverText text="DIGITALIN" type="footer" className="leading-[0.7]" />
+        <div className="mt-16">
+          <HoverText text="DIGITALIN" type="footer" className="leading-[0.7]" />
+        </div>
       </div>
 
-      <div className="w-screen py-8 z-40 bg-background">
+      <div className="w-screen py-4 z-40 bg-background">
         <div className="px-4 md:px-8 lg:px-16 space-y-8 text-sm">
-          <div className="flex items-center justify-between w-full">
-            <div className="grid grid-cols-2 gap-y-4">
-              {contactLists.map((contactItem) => (
-                <Link
-                  key={contactItem.id}
-                  href={contactItem.link}
-                  className="flex items-center gap-1 hover:text-primary transition-all duration-300 w-fit"
-                >
-                  <Icon icon={contactItem.icon} className="size-5" />
-                  {contactItem.desc}
-                </Link>
-              ))}
+          <div className="flex justify-between w-full">
+            <div className="">
+              <HoverText text="Contact Us" type="subTitle" />
+              <div className="flex flex-col gap-y-4 mt-4">
+                {contactLists.map((contactItem) => (
+                  <Link
+                    key={contactItem.id}
+                    href={contactItem.link}
+                    className="flex items-center gap-1 hover:text-primary transition-all duration-300 w-fit"
+                  >
+                    <Icon icon={contactItem.icon} className="size-5" />
+                    {contactItem.desc}
+                  </Link>
+                ))}
+              </div>
             </div>
-            {/* <div className="space-y-4">
-              <div className="space-x-8">
-                <Link href="mailto:connect@digitalin.com.np">
-                  connect@digitalin.com.np
-                </Link>
-                <Link href="tel:+9779704593302">+977 9704593302</Link>
-              </div>
-              <div className="">
-                <span>Pattipa Marg Uttar Baghdol, Lalitpur, Nepal</span>
-              </div>
-            </div> */}
 
-            <div className="flex items-center gap-4">
-              {socialLinkLists.map((socialLinkItem) => (
-                <Link key={socialLinkItem.id} href={socialLinkItem.href}>
-                  <Icon
-                    icon={socialLinkItem.icon}
-                    className="size-6 hover:text-primary hover:scale-[1.3] transition-all duration-300"
-                  />
-                </Link>
-              ))}
+            <div className="">
+              <div className="justify-self-end">
+                <HoverText text="Stay Connected" type="subTitle" />
+              </div>
+              <div className="flex items-center gap-4 mt-4">
+                {socialLinkLists.map((socialLinkItem) => (
+                  <Link key={socialLinkItem.id} href={socialLinkItem.href}>
+                    <Icon
+                      icon={socialLinkItem.icon}
+                      className="size-6 hover:text-primary hover:scale-[1.3] transition-all duration-300"
+                    />
+                  </Link>
+                ))}
+              </div>
             </div>
           </div>
 
           <div className="flex items-center justify-between">
-            <div className="space-x-8">
-              <Link
-                href="#"
-                className="border-b hover:text-primary hover:border-b-2"
-              >
-                Terms & Conditions
-              </Link>
-              <Link
-                href="#"
-                className="border-b hover:text-primary hover:border-b-2"
-              >
-                Privacy Policy
-              </Link>
+            <div>
+              <span className="text-xs">© Copyright 2025 DigitalIn</span>
             </div>
 
             <div className="flex items-center gap-2">

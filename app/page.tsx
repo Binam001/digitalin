@@ -44,10 +44,10 @@ export default function Home() {
         <ThirdSection />
       </div>
 
+      <CaseStudy />
       <HoverImageReveal />
       <WhatWeDo />
       <MarqueeExpand />
-      <CaseStudy />
       {/* <HorizontalScroll /> */}
       <Brands />
       <FloatingInput />

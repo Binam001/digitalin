@@ -106,7 +106,7 @@ export default function CustomCursor() {
     };
 
     window.addEventListener("mousemove", manageMouseMove);
-    document.querySelectorAll<HTMLElement>("a, button").forEach((el) => {
+    document.querySelectorAll<HTMLElement>("button").forEach((el) => {
       el.addEventListener("mouseenter", manageMouseOver);
     });
 
@@ -114,7 +114,7 @@ export default function CustomCursor() {
 
     return () => {
       window.removeEventListener("mousemove", manageMouseMove);
-      document.querySelectorAll<HTMLElement>("a, button").forEach((el) => {
+      document.querySelectorAll<HTMLElement>("button").forEach((el) => {
         el.removeEventListener("mouseenter", manageMouseOver);
       });
       document.body.style.setProperty("cursor", null);

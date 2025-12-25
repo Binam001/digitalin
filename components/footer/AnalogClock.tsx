@@ -99,12 +99,7 @@ const AnalogClock: React.FC<AnalogClockProps> = ({
   });
 
   return (
-    <div
-      className={cn(
-        "relative flex items-center justify-center p-10",
-        className
-      )}
-    >
+    <div className={cn("relative flex items-center justify-center", className)}>
       <div className="absolute inset-0 opacity-20 pointer-events-none bg-[url('https://grainy-gradients.vercel.app/noise.svg')] mix-blend-overlay"></div>
 
       <div className="relative w-80 h-80 rounded-full border-[6px] border-primary bg-[#0a0a0a] shadow-[inset_0_0_20px_rgba(0,0,0,0.8)] flex items-center justify-center">

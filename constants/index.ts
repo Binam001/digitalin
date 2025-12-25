@@ -12,7 +12,7 @@ const whatWeDoLists = [
   {
     id: 1,
     title: "Facebook Advertising",
-    image: "/images/whatWeDo/facebook-Advertising.png",
+    image: "/images/whatWeDo/facebook-Advertising.jpg",
     desc: "Facebook Advertising is a powerful way to reach your ideal customers by placing targeted ads across Facebook's network. With advanced audience segmentation, precise interest-based targeting, and real-time optimization, Facebook allows you to connect with people who are genuinely interested in your brand. Whether your goal is brand awareness, generate lead, website traffic, or direct sales — Facebook Advertising provides the tools to deliver measurable results. As a Facebook advertising agency in Nepal, Digitalin specializes in designing performance-driven Facebook ad campaigns that align with your business goals. From compelling visuals and persuasive content to advanced targeting and budget optimization, we ensure that every rupee you spend works smarter — generating real engagement, quality leads, and impactful conversions. Whether you're launching a new brand, expanding your reach, or boosting your online sales, our Facebook advertising solutions help you achieve growth with strategic, digital marketing execution.",
   },
   {
@@ -92,17 +92,17 @@ const socialLinkLists = [
 const contactLists = [
   {
     id: 1,
-    title: "email",
-    link: "mailto:connect@digitalin.com.np",
-    desc: "connect@digitalin.com.np",
-    icon: "mdi:email-outline",
-  },
-  {
-    id: 2,
     title: "contact",
     link: "tel:+977 9704593302",
     desc: "+977 9704593302",
     icon: "lineicons:phone",
+  },
+  {
+    id: 2,
+    title: "email",
+    link: "mailto:connect@digitalin.com.np",
+    desc: "connect@digitalin.com.np",
+    icon: "mdi:email-outline",
   },
   {
     id: 3,
@@ -299,7 +299,7 @@ const blogLists = [
     id: 1,
     title: "Facebook Advertising",
     slug: "facebook-advertising",
-    image: "/images/whatWeDo/facebook-Advertising.png",
+    image: "/images/whatWeDo/facebook-Advertising.jpg",
     desc: "Facebook Advertising is a powerful way to reach your ideal customers by placing targeted ads across Facebook's network. With advanced audience segmentation, precise interest-based targeting, and real-time optimization, Facebook allows you to connect with people who are genuinely interested in your brand. Whether your goal is brand awareness, generate lead, website traffic, or direct sales — Facebook Advertising provides the tools to deliver measurable results. As a Facebook advertising agency in Nepal, Digitalin specializes in designing performance-driven Facebook ad campaigns that align with your business goals. From compelling visuals and persuasive content to advanced targeting and budget optimization, we ensure that every rupee you spend works smarter — generating real engagement, quality leads, and impactful conversions. Whether you're launching a new brand, expanding your reach, or boosting your online sales, our Facebook advertising solutions help you achieve growth with strategic, digital marketing execution.",
     descTitle1: "The Mirror of the Mountains",
     desc1:
@@ -369,7 +369,7 @@ const trendLists = [
     id: 1,
     title: "Facebook Advertising",
     slug: "facebook-advertising",
-    image: "/images/whatWeDo/facebook-Advertising.png",
+    image: "/images/whatWeDo/facebook-Advertising.jpg",
     desc: "Facebook Advertising is a powerful way to reach your ideal customers by placing targeted ads across Facebook's network. With advanced audience segmentation, precise interest-based targeting, and real-time optimization, Facebook allows you to connect with people who are genuinely interested in your brand. Whether your goal is brand awareness, generate lead, website traffic, or direct sales — Facebook Advertising provides the tools to deliver measurable results. As a Facebook advertising agency in Nepal, Digitalin specializes in designing performance-driven Facebook ad campaigns that align with your business goals. From compelling visuals and persuasive content to advanced targeting and budget optimization, we ensure that every rupee you spend works smarter — generating real engagement, quality leads, and impactful conversions. Whether you're launching a new brand, expanding your reach, or boosting your online sales, our Facebook advertising solutions help you achieve growth with strategic, digital marketing execution.",
     descTitle1: "The Mirror of the Mountains",
     desc1:
@@ -439,55 +439,55 @@ const serviceLists = [
     id: 1,
     title: "Social Media Marketing",
     image: "/images/services/Social-Media-Marketing.png",
-    desc: "At DigitalIn, we help brands stand out with powerful social media marketing strategies tailored to their audience. By combining creative content, eye-catching visuals, and data-driven optimization, we deliver campaigns that engage, perform, and drive real growth across all social platforms.",
+    desc: "We create engaging social media campaigns that drive growth and performance.",
   },
   {
     id: 2,
     title: "Digital Media Buying",
     image: "/images/services/Digital-Media-Buying.png",
-    desc: "DigitalIn delivers smart media buying solutions focused on maximum reach and ROI. Through strategic planning, precise targeting, and data-backed execution, we secure high-impact ad placements that connect brands with the right audience. Our approach ensures every campaign delivers measurable and meaningful results.",
+    desc: "We secure high-impact ad placements to maximize reach and ROI.",
   },
   {
     id: 3,
     title: "Integrated Campaigns & Activations",
     image: "/images/services/Integrated-Campaigns-&-Activations.jpg",
-    desc: "We create integrated campaigns that deliver real impact by blending social media, digital advertising, ATL, and BTL channels. Through strategic planning, creative execution, and precise targeting, we maintain a consistent brand message and drive meaningful results across all touchpoints.",
+    desc: "We deliver multi-channel campaigns that maintain brand consistency and impact.",
   },
   {
     id: 4,
     title: "Influencer Marketing",
     image: "/images/services/Influencer-Marketing.jpg",
-    desc: "DigitalIn excels in influencer marketing in Nepal, partnering with creators to deliver campaigns that resonate and convert. By strategically selecting authentic influencers and crafting engaging content, we ensure every campaign aligns with your brand values, reaches the right audience, and drives measurable results.",
+    desc: "We partner with authentic influencers to create campaigns that resonate and convert.",
   },
   {
     id: 5,
     title: "Programmatic Advertising",
     image: "/images/services/Programmatic-Advertising.jpg",
-    desc: "DigitalIn leads in programmatic advertising in Nepal, using advanced algorithms and real-time data to reach the right audience efficiently. With precision targeting and continuous optimization, we ensure every campaign maximizes engagement, conversions, and measurable results.",
+    desc: "We use data-driven automation to target the right audience and maximize results.",
   },
   {
     id: 6,
     title: "Digital Content Creation",
     image: "/images/services/Digital-Content-Creation.jpg",
-    desc: "Social media trends evolve rapidly, and at Digitalin, we stay ahead of the curve. Our team is dedicated to adapting to these changes and creating content that is both timely and relevant. We continuously brainstorm and innovate to ensure our content resonates with our client's audience and aligns with the latest trends.",
+    desc: "We craft timely, relevant content that engages audiences and aligns with trends.",
   },
   {
     id: 7,
     title: "Video Shoot Content Development",
     image: "/images/services/Video-Shoot-Content.jpg",
-    desc: "DigitalIn provides end-to-end video production, from concept to post-production. We create engaging, brand-tailored videos and short-form content like reels to maximize reach, boost engagement, and help your brand connect effectively with the audience.",
+    desc: "We produce brand-tailored videos and short-form content to boost engagement.",
   },
   {
     id: 8,
     title: "Media Planning",
     image: "/images/services/Media-Planning.jpg",
-    desc: "igitalIn researches audience behaviour and media habits to create strategic media plans. We allocate budgets across channels for maximum Return on Investment (ROI) and continuously optimize campaigns to ensure effective, results-driven advertising.",
+    desc: "We develop strategic media plans that optimize budgets and drive results.",
   },
   {
     id: 9,
     title: "Web Development",
     image: "/images/services/Web-Development.jpg",
-    desc: "DigitalIn builds custom, responsive websites in Nepal that engage users and boost brand credibility. With a focus on UX, speed, and SEO, we create sites that attract visitors, enhance visibility, and drive conversions.",
+    desc: "We build custom, responsive websites focused on UX, SEO, and conversions.",
   },
 ];
 
