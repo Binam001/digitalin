@@ -363,6 +363,7 @@ const blogLists = [
       "Once your feet are back on the ground, the lake offers a different kind of peace. I always recommend our clients take a colorful 'doonga' (boat) to the Tal Barahi temple situated on the island in the middle of the lake. It creates a beautiful symmetry to your day: you’ve seen the temple from the heavens like a bird, and now you can experience it from the water, completing your connection with Pokhara’s spirit.",
   },
 ];
+
 const trendLists = [
   {
     id: 1,
@@ -433,6 +434,63 @@ const trendLists = [
   },
 ];
 
+const serviceLists = [
+  {
+    id: 1,
+    title: "Social Media Marketing",
+    image: "/images/services/Social-Media-Marketing.png",
+    desc: "At DigitalIn, we help brands stand out with powerful social media marketing strategies tailored to their audience. By combining creative content, eye-catching visuals, and data-driven optimization, we deliver campaigns that engage, perform, and drive real growth across all social platforms.",
+  },
+  {
+    id: 2,
+    title: "Digital Media Buying",
+    image: "/images/services/Digital-Media-Buying.png",
+    desc: "DigitalIn delivers smart media buying solutions focused on maximum reach and ROI. Through strategic planning, precise targeting, and data-backed execution, we secure high-impact ad placements that connect brands with the right audience. Our approach ensures every campaign delivers measurable and meaningful results.",
+  },
+  {
+    id: 3,
+    title: "Integrated Campaigns & Activations",
+    image: "/images/services/Integrated-Campaigns-&-Activations.jpg",
+    desc: "We create integrated campaigns that deliver real impact by blending social media, digital advertising, ATL, and BTL channels. Through strategic planning, creative execution, and precise targeting, we maintain a consistent brand message and drive meaningful results across all touchpoints.",
+  },
+  {
+    id: 4,
+    title: "Influencer Marketing",
+    image: "/images/services/Influencer-Marketing.jpg",
+    desc: "DigitalIn excels in influencer marketing in Nepal, partnering with creators to deliver campaigns that resonate and convert. By strategically selecting authentic influencers and crafting engaging content, we ensure every campaign aligns with your brand values, reaches the right audience, and drives measurable results.",
+  },
+  {
+    id: 5,
+    title: "Programmatic Advertising",
+    image: "/images/services/Programmatic-Advertising.jpg",
+    desc: "DigitalIn leads in programmatic advertising in Nepal, using advanced algorithms and real-time data to reach the right audience efficiently. With precision targeting and continuous optimization, we ensure every campaign maximizes engagement, conversions, and measurable results.",
+  },
+  {
+    id: 6,
+    title: "Digital Content Creation",
+    image: "/images/services/Digital-Content-Creation.jpg",
+    desc: "Social media trends evolve rapidly, and at Digitalin, we stay ahead of the curve. Our team is dedicated to adapting to these changes and creating content that is both timely and relevant. We continuously brainstorm and innovate to ensure our content resonates with our client's audience and aligns with the latest trends.",
+  },
+  {
+    id: 7,
+    title: "Video Shoot Content Development",
+    image: "/images/services/Video-Shoot-Content.jpg",
+    desc: "DigitalIn provides end-to-end video production, from concept to post-production. We create engaging, brand-tailored videos and short-form content like reels to maximize reach, boost engagement, and help your brand connect effectively with the audience.",
+  },
+  {
+    id: 8,
+    title: "Media Planning",
+    image: "/images/services/Media-Planning.jpg",
+    desc: "igitalIn researches audience behaviour and media habits to create strategic media plans. We allocate budgets across channels for maximum Return on Investment (ROI) and continuously optimize campaigns to ensure effective, results-driven advertising.",
+  },
+  {
+    id: 9,
+    title: "Web Development",
+    image: "/images/services/Web-Development.jpg",
+    desc: "DigitalIn builds custom, responsive websites in Nepal that engage users and boost brand credibility. With a focus on UX, speed, and SEO, we create sites that attract visitors, enhance visibility, and drive conversions.",
+  },
+];
+
 export {
   navLinks,
   whatWeDoLists,
@@ -447,4 +505,5 @@ export {
   teamMemberLists,
   blogLists,
   trendLists,
+  serviceLists,
 };

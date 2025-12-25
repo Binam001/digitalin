@@ -9,7 +9,15 @@ import LightRays from "../LightRays";
 import { useMediaQuery } from "react-responsive";
 import { usePathname } from "next/navigation";
 
-const Navbar = () => {
+const Navbar = ({
+  serviceCount,
+  blogCount,
+  trendCount,
+}: {
+  serviceCount?: number;
+  blogCount?: number;
+  trendCount?: number;
+}) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const isTablet = useMediaQuery({ maxWidth: 767 });
   const pathname = usePathname();
@@ -54,7 +62,7 @@ const Navbar = () => {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
-            className="menu-overlay fixed top-0 left-0 w-full h-screen flex items-end bg-background z-90"
+            className="menu-overlay fixed top-0 left-0 w-full h-screen flex items-center bg-background z-90"
             initial="hidden"
             animate="visible"
             exit="hidden"
@@ -77,7 +85,7 @@ const Navbar = () => {
                 />
                 <div className="absolute bottom-0 left-0 w-full h-full">
                   <img
-                    src="/images/home/hand-sphere.png"
+                    src="/images/home/hand-sphere-orange.png"
                     alt=""
                     className="object-contain w-full h-2/3 absolute bottom-0"
                   />
@@ -101,7 +109,7 @@ const Navbar = () => {
                       style={{
                         background: isActive
                           ? "#f26622"
-                          : "linear-gradient(#f26622, #f26622) left no-repeat, #ffffff90",
+                          : "linear-gradient(#f26622, #f26622) left no-repeat, #ffffff80",
                         backgroundSize: "0% 100%",
                         WebkitBackgroundClip: "text",
                         WebkitTextFillColor: "transparent",
@@ -116,8 +124,18 @@ const Navbar = () => {
                         fontWeight: isActive ? 700 : 400,
                         transition: { duration: 0.5, ease: "easeOut" as const },
                       }}
+                      className="relative"
                     >
                       {link.title}
+                      {link.title === "Services" && serviceCount && (
+                        <span className="text-2xl"> {serviceCount}</span>
+                      )}
+                      {link.title === "Blog" && blogCount && (
+                        <span className="text-2xl"> {blogCount}</span>
+                      )}
+                      {link.title === "Trends" && trendCount && (
+                        <span className="text-2xl"> {trendCount}</span>
+                      )}
                     </motion.span>
                   </Link>
                 );

@@ -19,7 +19,7 @@ export const items = [
   },
   {
     id: 2,
-    url: "/images/home/statue.png",
+    url: "/images/home/chess.jpg",
     title: "Creativity Meets Innovation",
     desc: "Where Creativity & Innovation never stop!",
   },

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { blogLists, serviceLists, trendLists } from "@/constants";
 import Navbar from "@/components/layout/Navbar";
 import LenisProvider from "@/providers/LenisProvider";
 import Footer from "@/components/layout/Footer";
@@ -36,9 +37,13 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden`}
       >
         <LenisProvider>
-          <Noise className="z-9999" />
+          {/* <Noise className="z-9999" /> */}
           <CustomCursor />
-          <Navbar />
+          <Navbar
+            blogCount={blogLists.length}
+            trendCount={trendLists.length}
+            serviceCount={serviceLists.length}
+          />
           {children}
           <Footer />
         </LenisProvider>

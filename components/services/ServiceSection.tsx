@@ -3,7 +3,7 @@
 import { CSSProperties, useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { whatWeDoLists } from "@/constants";
+import { serviceLists, whatWeDoLists } from "@/constants";
 import { InteractiveHoverButton } from "../ui/interactive-hover-button";
 import BgBubble from "../BgBubble";
 import HoverText from "../HoverText";
@@ -11,7 +11,7 @@ import HoverText from "../HoverText";
 gsap.registerPlugin(ScrollTrigger);
 
 // Work data with different background colors
-const works = [
+const services = [
   {
     id: 1,
     bgFrom: "hsl(0, 0%, 8%)",
@@ -30,13 +30,38 @@ const works = [
   {
     id: 4,
     bgFrom: "hsl(24 76.2% 24.7%)",
+    bgTo: "hsl(24 14.3% 6.9%)",
+  },
+  {
+    id: 5,
+    bgFrom: "hsl(24 14.3% 6.9%)",
+    bgTo: "hsl(24 76.2% 24.7%)",
+  },
+  {
+    id: 6,
+    bgFrom: "hsl(24 76.2% 24.7%)",
+    bgTo: "hsl(24 14.3% 6.9%)",
+  },
+  {
+    id: 7,
+    bgFrom: "hsl(24 14.3% 6.9%)",
+    bgTo: "hsl(24 76.2% 24.7%)",
+  },
+  {
+    id: 8,
+    bgFrom: "hsl(24 76.2% 24.7%)",
+    bgTo: "hsl(24 14.3% 6.9%)",
+  },
+  {
+    id: 9,
+    bgFrom: "hsl(24 14.3% 6.9%)",
     bgTo: "hsl(24 0% 100%)",
   },
 ];
 
 const ServiceSection = () => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const workScrollRef = useRef<HTMLElement>(null);
+  const serviceScrollRef = useRef<HTMLElement>(null);
   const stageRef = useRef<HTMLDivElement>(null);
 
   const imagesRef = useRef<HTMLDivElement[]>([]);
@@ -47,11 +72,11 @@ const ServiceSection = () => {
     const ctx = gsap.context(() => {
       const bg = bgRef.current;
       const stage = stageRef.current;
-      const scrollEl = workScrollRef.current;
+      const scrollEl = serviceScrollRef.current;
 
       if (!bg || !stage || !scrollEl) return;
 
-      // Initial states: only the first work is visible
+      // Initial states: only the first service is visible
       imagesRef.current.forEach((img, i) => {
         gsap.set(img, {
           transformOrigin: "center center",
@@ -72,7 +97,7 @@ const ServiceSection = () => {
         scrollTrigger: {
           trigger: scrollEl,
           start: "top top",
-          end: () => `+=${window.innerHeight * (works.length - 1)}`,
+          end: () => `+=${window.innerHeight * (services.length - 1)}`,
           scrub: 1,
           pin: stage,
           pinSpacing: true,
@@ -80,20 +105,20 @@ const ServiceSection = () => {
         },
       });
 
-      for (let i = 0; i < works.length - 1; i++) {
+      for (let i = 0; i < services.length - 1; i++) {
         const at = i * step;
         const currentImage = imagesRef.current[i];
         const nextImage = imagesRef.current[i + 1];
         const currentText = textsRef.current[i];
         const nextText = textsRef.current[i + 1];
-        const nextWork = works[i + 1];
+        const nextWork = services[i + 1];
 
         // Background gradient blends via CSS variables (smoothly interpolated)
         tl.to(
           bg,
           {
-            "--work-from": nextWork.bgFrom,
-            "--work-to": nextWork.bgTo,
+            "--service-from": nextWork.bgFrom,
+            "--service-to": nextWork.bgTo,
             duration: step,
             ease: "none",
           } as gsap.TweenVars,
@@ -159,11 +184,11 @@ const ServiceSection = () => {
         className="fixed inset-0 z-0"
         style={{
           ...({
-            "--work-from": works[0].bgFrom,
-            "--work-to": works[0].bgTo,
+            "--service-from": services[0].bgFrom,
+            "--service-to": services[0].bgTo,
           } as CSSProperties),
           background:
-            "linear-gradient(180deg, var(--work-from) 0%, var(--work-to) 100%)",
+            "linear-gradient(180deg, var(--service-from) 0%, var(--service-to) 100%)",
         }}
       />
 
@@ -185,12 +210,12 @@ const ServiceSection = () => {
         </div>
       </header>
 
-      {/* Scroll-driven work showcase */}
+      {/* Scroll-driven service showcase */}
       <main className="relative z-10">
         <section
-          ref={workScrollRef}
+          ref={serviceScrollRef}
           className="relative"
-          style={{ height: `${works.length * 100}vh` }}
+          style={{ height: `${services.length * 100}vh` }}
           aria-label="Work projects"
         >
           {/* Pinned stage (everything happens here) */}
@@ -198,64 +223,53 @@ const ServiceSection = () => {
             ref={stageRef}
             className="relative h-screen w-full overflow-hidden"
           >
-            {whatWeDoLists.map((work, index) => (
-              <div key={work.id} className="absolute inset-0">
+            {serviceLists.map((service, index) => (
+              <div key={service.id} className="absolute inset-0">
                 {/* Image */}
                 <div
                   ref={(el) => addToImagesRef(el, index)}
-                  className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[60vh] max-w-4xl"
+                  className="absolute left-1/2 top-1/3 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[60vh] max-w-4xl"
                 >
-                  <div className="absolute inset-0 border border-foreground/10" />
                   <img
-                    src={work.image}
-                    alt={`${work.title} project image`}
+                    src={service.image}
+                    alt={`${service.title} project image`}
                     loading={index === 0 ? "eager" : "lazy"}
-                    className="w-full h-full object-cover transition-all duration-700"
+                    className="w-full h-full object-cover transition-all duration-700 brightness-75"
                   />
-                  {/* <div className="absolute -top-8 -left-8 text-[20vw] leading-none text-foreground/5 pointer-events-none select-none">
-                    0{work.id}
-                  </div> */}
                 </div>
+
+                {/* count */}
+                {/* <div
+                  ref={(el) => addToTextsRef(el, index)}
+                  className="absolute bottom-1/3 left-10 text-2xl"
+                >
+                  {service.id}
+                </div> */}
 
                 {/* Text */}
                 <article
                   ref={(el) => addToTextsRef(el, index)}
-                  className="absolute h-[60vh] w-full top-[20%] z-20 flex flex-col justify-between"
+                  className="absolute h-full w-full top-[0%] z-20 flex flex-col justify-between py-16"
                 >
-                  {/* <span className="inline-block text-xs uppercase tracking-[0.3em] text-primary mb-4">
-                    {work.subtitle}
-                  </span> */}
                   <h2 className="text-2xl md:text-4xl lg:text-5xl text-primary leading-none mb-4">
-                    {/* {work.title} */}
-                    {work.title.split(" ").map((word, index) => (
+                    {service.title.split(" ").map((word, index) => (
                       <span key={index} className="block">
                         {word}
                       </span>
                     ))}
                   </h2>
-                  <div className="flex justify-end">
-                    {/* <button className="mt-8 group inline-flex items-center gap-4 text-sm uppercase tracking-widest text-foreground hover:text-primary transition-colors duration-300">
-                      View Project
-                      <span className="w-12 h-px bg-foreground group-hover:w-20 group-hover:bg-primary transition-all duration-300" />
-                    </button> */}
-
-                    <p className="justify-self-en text-sm md:text-base leading-relaxed max-w-sm line-clamp-4">
-                      {work.desc}
+                  {/* <div
+                    // ref={(el) => addToTextsRef(el, index)}
+                    className="absolute bottom-1/3 left-10 text-2xl"
+                  >
+                    {service.id}/{serviceLists.length}
+                  </div> */}
+                  <div className="flex justify-center">
+                    <p className="text-sm md:text-base text-foreground/70 leading-relaxed max-w-3xl line-clamp-4">
+                      {service.desc}
                     </p>
                   </div>
                 </article>
-
-                {/* Project number indicator */}
-                {/* <aside className="absolute right-8 md:right-16 lg:right-24 bottom-24 md:bottom-32 z-20">
-                  <div className="flex flex-col items-end">
-                    <span className="text-7xl md:text-9xl text-foreground/10">
-                      0{work.id}
-                    </span>
-                    <span className="text-xs uppercase tracking-widest text-foreground/40">
-                      / 0{works.length}
-                    </span>
-                  </div>
-                </aside> */}
               </div>
             ))}
           </div>
@@ -269,13 +283,6 @@ const ServiceSection = () => {
               <br />
               <span className="text-stroke-primary">TOGETHER</span>
             </h2>
-            {/* <a
-              href="/contact"
-              className="inline-flex items-center gap-4 px-8 py-4 bg-primary text-primary-foreground text-sm uppercase tracking-widest hover:bg-primary/90 transition-colors duration-300"
-            >
-              Start a Project
-              <span className="w-8 h-[1px] bg-primary-foreground" />
-            </a> */}
             <InteractiveHoverButton text="START A PROJECT" />
           </div>
         </section>

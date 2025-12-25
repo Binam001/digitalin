@@ -89,7 +89,7 @@ const Noise: React.FC<NoiseProps> = ({
       {!isTablet && (
         <canvas
           className={cn(
-            "pointer-events-none fixed top-0 left-0 h-full w-full",
+            "pointer-events-none absolute top-0 left-0 h-full w-full",
             className
           )}
           ref={grainRef}

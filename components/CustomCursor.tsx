@@ -88,8 +88,8 @@ export default function CustomCursor() {
           setIsHovered(false);
           animate(
             hoveredElementRef.current,
-            { x: 0, y: 0 },
-            { type: "spring", stiffness: 300, damping: 10, mass: 1 }
+            { x: 0, y: 0 }
+            // { type: "spring", stiffness: 300, damping: 10, mass: 1 }
           );
           hoveredElementRef.current = null;
         }
