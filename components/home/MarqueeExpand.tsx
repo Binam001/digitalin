@@ -102,7 +102,7 @@ const MarqueeExpand = () => {
         trigger: ".horizontal-scroll",
         start: "top 30%",
         // Reduced from * 5 to * 3.5 to make scrolling faster
-        end: () => `+=${window.innerHeight * 3.5}`,
+        end: () => `+=${window.innerHeight * 1}`,
         pin: true,
         scrub: true,
         onEnter: () => {
@@ -193,7 +193,7 @@ const MarqueeExpand = () => {
       </section>
 
       <section className="horizontal-scroll relative w-full h-[50dvh]">
-        <div className="horizontal-scroll-wrapper relative w-[200%] flex will-change-transform">
+        <div className="horizontal-scroll-wrapper relative w-[100%] flex will-change-transform">
           {/* Added Padding (p-12) to this spacer wrapper */}
           <div className="horizontal-slide horizontal-spacer flex-1 flex p-8 gap-4">
             {/* Added an inner container to act as the frame bounds */}
@@ -224,8 +224,8 @@ const MarqueeExpand = () => {
             </div>
           </div>
 
-          <div className="horizontal-slide w-[60vw] h-[50dvh] flex gap-8 p-8">
-            {/* Slide 3 content */}
+          {/* <div className="horizontal-slide w-[60vw] h-[50dvh] flex gap-8 p-8">
+
             <div className="w-[60vw] h-[35vh] col flex justify-center items-center">
               <img
                 src="/images/portfolio/Sunsilk.webp"
@@ -239,16 +239,9 @@ const MarqueeExpand = () => {
                 hair shines, you shine.
               </p>
             </div>
-          </div>
+          </div> */}
         </div>
       </section>
-
-      {/* <section className="outro relative w-screen h-screen content-center text-center">
-        <h1 className="text-4xl font-semibold">
-          We are a world—class team of industry—leading professionals, who
-          constantly push new technology to its limits.
-        </h1>
-      </section> */}
     </div>
   );
 };

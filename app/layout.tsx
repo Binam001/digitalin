@@ -6,7 +6,6 @@ import Navbar from "@/components/layout/Navbar";
 import LenisProvider from "@/providers/LenisProvider";
 import Footer from "@/components/layout/Footer";
 import CustomCursor from "@/components/CustomCursor";
-import Noise from "@/components/Noise";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -37,7 +36,6 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden`}
       >
         <LenisProvider>
-          {/* <Noise className="z-9999" /> */}
           <CustomCursor />
           <Navbar
             blogCount={blogLists.length}
