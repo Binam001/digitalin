@@ -4,6 +4,7 @@ import gsap from "gsap";
 import { Flip } from "gsap/Flip";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useRef } from "react";
+import { InteractiveHoverButton } from "../ui/interactive-hover-button";
 
 gsap.registerPlugin(ScrollTrigger, Flip);
 
@@ -101,7 +102,6 @@ const MarqueeExpand = () => {
       ScrollTrigger.create({
         trigger: ".horizontal-scroll",
         start: "top 30%",
-        // Reduced from * 5 to * 3.5 to make scrolling faster
         end: () => `+=${window.innerHeight * 1}`,
         pin: true,
         scrub: true,
@@ -162,7 +162,7 @@ const MarqueeExpand = () => {
 
           if (progress > flipEnd) {
             const scrollProgress = (progress - flipEnd) / (1 - flipEnd);
-            const xMove = -50 * scrollProgress;
+            const xMove = -25 * scrollProgress;
             gsap.set(".horizontal-scroll-wrapper", {
               x: `${xMove}%`,
             });
@@ -193,7 +193,7 @@ const MarqueeExpand = () => {
       </section>
 
       <section className="horizontal-scroll relative w-full h-[50dvh]">
-        <div className="horizontal-scroll-wrapper relative w-[100%] flex will-change-transform">
+        <div className="horizontal-scroll-wrapper relative w-[100%] flex justify-center will-change-transform">
           {/* Added Padding (p-12) to this spacer wrapper */}
           <div className="horizontal-slide horizontal-spacer flex-1 flex p-8 gap-4">
             {/* Added an inner container to act as the frame bounds */}
@@ -224,22 +224,12 @@ const MarqueeExpand = () => {
             </div>
           </div>
 
-          {/* <div className="horizontal-slide w-[60vw] h-[50dvh] flex gap-8 p-8">
-
-            <div className="w-[60vw] h-[35vh] col flex justify-center items-center">
-              <img
-                src="/images/portfolio/Sunsilk.webp"
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div className="col flex justify-center items-center w-full">
-              <p className="">
-                With every wash, unlock hair that's as bold and resilient as you
-                are. Don't just follow the trends—set them. Because when your
-                hair shines, you shine.
-              </p>
-            </div>
-          </div> */}
+          <div className="flex items-center justify-self-center ml-8">
+            <InteractiveHoverButton
+              text="View More"
+              className="whitespace-nowrap"
+            />
+          </div>
         </div>
       </section>
     </div>
