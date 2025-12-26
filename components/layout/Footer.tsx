@@ -4,15 +4,12 @@ import HoverText from "../HoverText";
 import { InteractiveHoverButton } from "../ui/interactive-hover-button";
 import { contactLists, socialLinkLists } from "@/constants";
 import { Icon } from "@iconify/react";
-import Noise from "../Noise";
 // import { useMediaQuery } from "react-responsive";
 
 const Footer = () => {
   // const isMobile = useMediaQuery({ maxWidth: 425 });
   return (
     <footer className="flex flex-col items-center w-screen px-4 md:px-8 lg:px-16 bg-background relative">
-      {/* {!isMobile && <Noise className="z-80" />} */}
-      <Noise className="z-80" />
       <div className="flex flex-col items-center gap-4">
         <div className="space-y-4 text-center">
           {/* <p>Ideas or Ads?</p> */}

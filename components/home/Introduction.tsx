@@ -40,6 +40,7 @@ const Introduction = () => {
           autoPlay
           loop
           muted
+          suppressHydrationWarning
         />
       </div>
       <motion.h1
