@@ -38,7 +38,6 @@ const CaseStudy = () => {
                 ease: [0.22, 1, 0.36, 1],
               }}
               viewport={{
-                // 🔥 key change
                 once: false,
                 margin: "-80px",
               }}
@@ -47,7 +46,7 @@ const CaseStudy = () => {
                 <img
                   src={item.image}
                   alt={item.title}
-                  className="rounded-2xl h-72 w-full grayscale group-hover:grayscale-0 transition duration-500"
+                  className="rounded-2xl h-80 w-full grayscale group-hover:grayscale-0 transition duration-500"
                 />
                 <div className="absolute inset-0 bg-black/50 pointer-events-none" />
               </div>

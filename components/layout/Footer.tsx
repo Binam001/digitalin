@@ -10,7 +10,7 @@ import Noise from "../Noise";
 const Footer = () => {
   // const isMobile = useMediaQuery({ maxWidth: 425 });
   return (
-    <footer className="flex flex-col items-center w-screen px-4 md:px-8 lg:px-16 bg-background relative min-h-screen">
+    <footer className="flex flex-col items-center w-screen px-4 md:px-8 lg:px-16 bg-background relative">
       {/* {!isMobile && <Noise className="z-80" />} */}
       <Noise className="z-80" />
       <div className="flex flex-col items-center gap-4">
