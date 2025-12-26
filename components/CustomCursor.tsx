@@ -155,16 +155,16 @@ export default function CustomCursor() {
               scaleY: pointerShadowScale.y,
               rotate: pointerShadowAngle,
             }}
-            className="size-5 fixed bg-primary rounded-full pointer-events-none z-999 mix-blend-difference"
+            className="size-4 fixed bg-primary rounded-full pointer-events-none z-999 mix-blend-difference"
             animate={{
               width: cursorSize,
               height: cursorSize,
             }}
           />
-          {/* <motion.div
+          <motion.div
             style={{ left: mouse.x, top: mouse.y }}
-            className="w-2 h-2 fixed bg-white border-primary -translate-x-1/2 -translate-y-1/2 border rounded-full pointer-events-none z-999 mix-blend-difference"
-          /> */}
+            className="size-4 fixed bg-primary border-primary -translate-x-1/2 -translate-y-1/2 border rounded-full pointer-events-none z-999 mix-blend-difference"
+          />
         </>
       )}
     </>
