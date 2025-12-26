@@ -46,9 +46,12 @@ const ThirdSection = () => {
         transition={{ duration: 1, ease: "easeOut" }}
         className="text-7xl font-bold flex items-center gap-4"
       >
-        <HoverText text="And" />
+        {/* <HoverText text="And" />
         <HoverText text="attention" className="text-primary" />
-        <HoverText text="sells products." />
+        <HoverText text="sells products." /> */}
+        <p>
+          And <span className="text-primary">attention</span> sells products.
+        </p>
       </motion.h1>
     </section>
   );

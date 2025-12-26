@@ -46,11 +46,11 @@ const Navbar = ({
             animate={isMenuOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
           />
-          {/* <motion.span
+          <motion.span
             className="block h-0.5 w-full bg-foreground rounded"
             animate={isMenuOpen ? { opacity: 0 } : { opacity: 1 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-          /> */}
+          />
           <motion.span
             className="block h-0.5 w-full bg-foreground rounded group-hover:w-10 duration-500 transform group-hover:-translate-y-0.5"
             animate={isMenuOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }}

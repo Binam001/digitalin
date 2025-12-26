@@ -5,6 +5,7 @@ import Brands from "@/components/home/Brands";
 import CaseStudy from "@/components/home/CaseStudy";
 import FloatingInput from "@/components/home/FloatingInput";
 import HeroSection from "@/components/home/HeroSection";
+// import HeroSection from "@/components/home/HeroSection";
 import HorizontalScroll from "@/components/home/HorizontalScroll";
 import Introduction from "@/components/home/Introduction";
 import MarqueeExpand from "@/components/home/MarqueeExpand";
@@ -35,7 +36,8 @@ export default function Home() {
     <div className="w-screen relative bg-background">
       {/* <HeroSection /> */}
       <div id="imageSlideShow" className="h-screen fixed inset-0">
-        <ImageSlideShow />
+        {/* <ImageSlideShow /> */}
+        <HeroSection />
       </div>
       <div className="h-dvh" />
       <div className="relative z-20">
@@ -44,13 +46,13 @@ export default function Home() {
         <ThirdSection />
       </div>
 
-      <CaseStudy />
       <HoverImageReveal />
+      <CaseStudy />
       <WhatWeDo />
       <MarqueeExpand />
       {/* <HorizontalScroll /> */}
       <Brands />
-      <FloatingInput />
+      {/* <FloatingInput /> */}
     </div>
   );
 }

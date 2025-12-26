@@ -13,7 +13,7 @@ import {
 } from "@/components/ui/card";
 import { Check, X } from "lucide-react";
 import { InteractiveHoverButton } from "./ui/interactive-hover-button";
-
+import HoverText from "./HoverText";
 // --- 1. Typescript Interfaces (API) ---
 
 type PackageCycle = "Social Media Package" | "Influence Package" | "Ad Package";
@@ -30,7 +30,15 @@ interface PriceTier {
   description?: string;
   price?: number;
   // isPopular: boolean;
-  features: Feature[];
+  title1?: string;
+  title1Features?: { name: string }[];
+  title2?: string;
+  title2Features?: Feature[];
+  title3?: string;
+  title3Features?: Feature[];
+  title4?: string;
+  title4Features?: Feature[];
+  features?: Feature[];
 }
 
 interface PricingComponentProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -90,9 +98,6 @@ const PricingComponent: React.FC<PricingComponentProps> = ({
         type="single"
         value={packageCycle}
         onValueChange={(value) => {
-          // onCycleChange((prev) =>
-          //   prev === "monthly" ? "annually" : "monthly"
-          // );
           if (
             value &&
             (value === "Social Media Package" ||
@@ -108,21 +113,21 @@ const PricingComponent: React.FC<PricingComponentProps> = ({
         <ToggleGroupItem
           value="Social Media Package"
           aria-label="Social Media Package"
-          className="px-6 py-1.5 text-sm font-medium data-[state=on]:bg-primary data-[state=on]:text-foreground data-[state=on]:shadow-sm data-rounded-md transition-colors relative"
+          className="px-6 py-1.5 text-sm font-medium data-[state=on]:bg-primary data-[state=on]:text-foreground data-[state=on]:shadow-sm data-rounded-md transition-colors relative hover:bg-primary/70 hover:text-foreground/70"
         >
           Social Media Package
         </ToggleGroupItem>
         <ToggleGroupItem
           value="Influence Package"
           aria-label="Influence Package"
-          className="px-6 py-1.5 text-sm font-medium data-[state=on]:bg-primary data-[state=on]:text-foreground data-[state=on]:shadow-sm data-rounded-md transition-colors relative"
+          className="px-6 py-1.5 text-sm font-medium data-[state=on]:bg-primary data-[state=on]:text-foreground data-[state=on]:shadow-sm data-rounded-md transition-colors relative hover:bg-primary/70 hover:text-foreground/70"
         >
           Influence Package
         </ToggleGroupItem>
         <ToggleGroupItem
           value="Ad Package"
           aria-label="Ad Package"
-          className="px-6 py-1.5 text-sm font-medium data-[state=on]:bg-primary data-[state=on]:text-foreground data-[state=on]:shadow-sm data-rounded-md transition-colors relative"
+          className="px-6 py-1.5 text-sm font-medium data-[state=on]:bg-primary data-[state=on]:text-foreground data-[state=on]:shadow-sm data-rounded-md transition-colors relative hover:bg-primary/70 hover:text-foreground/70"
         >
           Ad Package
         </ToggleGroupItem>
@@ -134,29 +139,20 @@ const PricingComponent: React.FC<PricingComponentProps> = ({
 
   // Extract all unique feature names across all plans for the comparison table header
   const allFeatures = Array.from(
-    new Set(plans.flatMap((p) => p.features.map((f) => f.name)))
+    new Set(plans.flatMap((p) => (p.features || []).map((f) => f.name)))
   );
 
   // Render the list of pricing cards
   const PricingCards = (
     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
       {plans.map((plan, index) => {
-        // const isFeatured = plan.isPopular;
         const currentPrice = plan.price;
-        // const priceSuffix =
-        //   packageCycle === "monthly"
-        //     ? "/mo"
-        //     : packageCycle === "annually"
-        //     ? "/yr"
-        //     : "/pkg";
 
         return (
           <Card
             key={plan.id}
             className={cn(
               "flex flex-col transition-all duration-300 shadow-md hover:shadow-lg bg-background border-primary/30 hover:scale-[1.02]"
-              // isFeatured &&
-              //   "ring-2 ring-primary dark:ring-primary/80 shadow-xl dark:shadow-primary/20 transform md:scale-[1.02] hover:scale-[1.04]"
             )}
           >
             <CardHeader className="p-6 pb-4">
@@ -164,11 +160,6 @@ const PricingComponent: React.FC<PricingComponentProps> = ({
                 <CardTitle className="text-2xl font-bold text-primary">
                   {plan.name}
                 </CardTitle>
-                {/* {isFeatured && (
-                  <span className="text-xs font-semibold px-3 py-1 bg-primary text-primary-foreground rounded-full">
-                    Most Popular
-                  </span>
-                )} */}
               </div>
               <CardDescription className="text-sm mt-1">
                 {plan.description}
@@ -180,35 +171,84 @@ const PricingComponent: React.FC<PricingComponentProps> = ({
                   </p>
                 </div>
               )}
-
-              {/* {packageCycle === "annually" && (
-                  <p className="text-xs text-muted-foreground mt-1">
-                    Billed annually
-                  </p>
-                )} */}
-              {/* {packageCycle === "annually" && (
-                  <p className="text-xs text-muted-foreground line-through opacity-70 mt-1">
-                    ${socialMediaPackagePlans[index].price}/mo
-                  </p>
-                )} */}
             </CardHeader>
             <CardContent className="flex-grow p-6 pt-0">
-              <h4 className="text-sm font-semibold mb-2 mt-4 text-foreground/80">
-                Key Features:
-              </h4>
-              <ul className="list-none space-y-0">
-                {plan.features.slice(0, 5).map((feature) => (
-                  <FeatureItem key={feature.name} feature={feature} />
-                ))}
-                {/* {plan.features.length > 5 && (
-                  <li className="text-sm text-muted-foreground mt-2">
-                    + {plan.features.length - 5} more features
-                  </li>
-                )} */}
-              </ul>
+              {plan.title1 || plan.title2 || plan.title3 ? (
+                <>
+                  {plan.title1 && plan.title1Features && (
+                    <div className="mt-4">
+                      <h4 className="text-sm font-semibold mb-2 text-primary/80">
+                        {plan.title1}
+                      </h4>
+                      <ul className="list-none space-y-0">
+                        {plan.title1Features.map((feature) => (
+                          <li
+                            key={feature.name}
+                            className="flex items-start space-x-3 py-2"
+                          >
+                            <span className="text-sm text-foreground">
+                              {feature.name}
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                  {plan.title2 && plan.title2Features && (
+                    <div className="mt-4">
+                      <h4 className="text-sm font-semibold mb-2 text-primary/80">
+                        {plan.title2}
+                      </h4>
+                      <ul className="list-none space-y-0">
+                        {plan.title2Features.map((feature) => (
+                          <FeatureItem key={feature.name} feature={feature} />
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                  {plan.title3 && plan.title3Features && (
+                    <div className="mt-4">
+                      <h4 className="text-sm font-semibold mb-2 text-primary/80">
+                        {plan.title3}
+                      </h4>
+                      <ul className="list-none space-y-0">
+                        {plan.title3Features.map((feature) => (
+                          <FeatureItem key={feature.name} feature={feature} />
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                  {plan.title4 && plan.title4Features && (
+                    <div className="mt-4">
+                      <h4 className="text-sm font-semibold mb-2 text-primary/80">
+                        {plan.title4}
+                      </h4>
+                      <ul className="list-none space-y-0">
+                        {plan.title4Features.map((feature) => (
+                          <FeatureItem key={feature.name} feature={feature} />
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                </>
+              ) : (
+                <>
+                  <h4 className="text-sm font-semibold mb-2 mt-4 text-foreground/80">
+                    Key Features:
+                  </h4>
+                  <ul className="list-none space-y-0">
+                    {(plan.features || []).slice(0, 5).map((feature) => (
+                      <FeatureItem key={feature.name} feature={feature} />
+                    ))}
+                  </ul>
+                </>
+              )}
             </CardContent>
             <CardFooter className="p-6 pt-0">
-              <InteractiveHoverButton text="Request a Quote" />
+              <InteractiveHoverButton
+                text="Request a Quote"
+                className="text-foreground"
+              />
             </CardFooter>
           </Card>
         );
@@ -217,76 +257,75 @@ const PricingComponent: React.FC<PricingComponentProps> = ({
   );
 
   // --- 3.3. Comparison Table (Mobile hidden, Tablet/Desktop visible) ---
-  const ComparisonTable = (
-    <div className="mt-16 hidden md:block border rounded-lg overflow-x-auto shadow-sm dark:border-border/50">
-      <table className="min-w-full divide-y divide-border/80 dark:divide-border/50">
-        <thead>
-          <tr className="bg-muted/30 dark:bg-muted/20">
-            <th
-              scope="col"
-              className="px-6 py-4 text-left text-sm font-semibold text-foreground/80 w-[200px] whitespace-nowrap"
-            >
-              Feature
-            </th>
-            {plans.map((plan) => (
-              <th
-                key={`th-${plan.id}`}
-                scope="col"
-                className={cn(
-                  "px-6 py-4 text-center text-sm font-semibold text-foreground/80 whitespace-nowrap"
-                  // plan.isPopular && "bg-primary/10 dark:bg-primary/20"
-                )}
-              >
-                {plan.name}
-              </th>
-            ))}
-          </tr>
-        </thead>
-        <tbody className="divide-y divide-border/80 dark:divide-border/50 bg-background/90">
-          {allFeatures.map((featureName, index) => (
-            <tr
-              key={featureName}
-              className={cn(
-                "transition-colors hover:bg-accent/20 dark:hover:bg-accent/10",
-                index % 2 === 0
-                  ? "bg-background"
-                  : "bg-muted/10 dark:bg-muted/5"
-              )}
-            >
-              <td className="px-6 py-3 text-left text-sm font-medium text-foreground/90 whitespace-nowrap">
-                {featureName}
-              </td>
-              {plans.map((plan) => {
-                const feature = plan.features.find(
-                  (f) => f.name === featureName
-                );
-                const isIncluded = feature?.isIncluded ?? false;
-                const Icon = isIncluded ? Check : X;
-                const iconColor = isIncluded
-                  ? "text-primary"
-                  : "text-muted-foreground/70";
+  // const ComparisonTable = (
+  //   <div className="mt-16 hidden md:block border rounded-lg overflow-x-auto shadow-sm dark:border-border/50">
+  //     <table className="min-w-full divide-y divide-border/80 dark:divide-border/50">
+  //       <thead>
+  //         <tr className="bg-muted/30 dark:bg-muted/20">
+  //           <th
+  //             scope="col"
+  //             className="px-6 py-4 text-left text-sm font-semibold text-foreground/80 w-[200px] whitespace-nowrap"
+  //           >
+  //             Feature
+  //           </th>
+  //           {plans.map((plan) => (
+  //             <th
+  //               key={`th-${plan.id}`}
+  //               scope="col"
+  //               className={cn(
+  //                 "px-6 py-4 text-center text-sm font-semibold text-foreground/80 whitespace-nowrap"
+  //                 // plan.isPopular && "bg-primary/10 dark:bg-primary/20"
+  //               )}
+  //             >
+  //               {plan.name}
+  //             </th>
+  //           ))}
+  //         </tr>
+  //       </thead>
+  //       <tbody className="divide-y divide-border/80 dark:divide-border/50 bg-background/90">
+  //         {allFeatures.map((featureName, index) => (
+  //           <tr
+  //             key={featureName}
+  //             className={cn(
+  //               "transition-colors hover:bg-accent/20 dark:hover:bg-accent/10",
+  //               index % 2 === 0
+  //                 ? "bg-background"
+  //                 : "bg-muted/10 dark:bg-muted/5"
+  //             )}
+  //           >
+  //             <td className="px-6 py-3 text-left text-sm font-medium text-foreground/90 whitespace-nowrap">
+  //               {featureName}
+  //             </td>
+  //             {plans.map((plan) => {
+  //               const feature = (plan.features || []).find(
+  //                 (f) => f.name === featureName
+  //               );
+  //               const isIncluded = feature?.isIncluded ?? false;
+  //               const Icon = isIncluded ? Check : X;
+  //               const iconColor = isIncluded
+  //                 ? "text-primary"
+  //                 : "text-muted-foreground/70";
 
-                return (
-                  <td
-                    key={`${plan.id}-${featureName}`}
-                    className={cn(
-                      "px-6 py-3 text-center transition-all duration-150"
-                      // plan.isPopular && "bg-primary/5 dark:bg-primary/10"
-                    )}
-                  >
-                    <Icon
-                      className={cn("h-5 w-5 mx-auto", iconColor)}
-                      aria-hidden="true"
-                    />
-                  </td>
-                );
-              })}
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  );
+  //               return (
+  //                 <td
+  //                   key={`${plan.id}-${featureName}`}
+  //                   className={cn(
+  //                     "px-6 py-3 text-center transition-all duration-150"
+  //                   )}
+  //                 >
+  //                   <Icon
+  //                     className={cn("h-5 w-5 mx-auto", iconColor)}
+  //                     aria-hidden="true"
+  //                   />
+  //                 </td>
+  //               );
+  //             })}
+  //           </tr>
+  //         ))}
+  //       </tbody>
+  //     </table>
+  //   </div>
+  // );
 
   // --- 3.4. Final Render ---
   return (
@@ -294,14 +333,8 @@ const PricingComponent: React.FC<PricingComponentProps> = ({
       className={cn("w-full py-12 md:py-20 px-4 md:px-8 lg:px-16", className)}
       {...props}
     >
-      <header className="text-center mb-10">
-        <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground">
-          Choose the right plan for your business.
-        </h2>
-        <p className="mt-3 text-lg text-muted-foreground max-w-2xl mx-auto">
-          Scale effortlessly with features designed for growth, from startups to
-          enterprise.
-        </p>
+      <header className="w-full flex justify-center mb-8">
+        <HoverText text="Pick Your Growth Package" type="title" />
       </header>
 
       {CycleToggle}
@@ -312,12 +345,12 @@ const PricingComponent: React.FC<PricingComponentProps> = ({
       </section>
 
       {/* Comparison Table (Desktop/Tablet visibility) */}
-      <section aria-label="Feature Comparison Table" className="mt-16">
+      {/* <section aria-label="Feature Comparison Table" className="mt-16">
         <h3 className="text-2xl font-bold mb-6 hidden md:block text-center text-foreground">
           Detailed Feature Comparison
         </h3>
         {ComparisonTable}
-      </section>
+      </section> */}
     </div>
   );
 };
@@ -476,43 +509,147 @@ const adPackagePlans: PriceTier[] = [
     name: "Basic Plan",
     // description: "For businesses looking to get started with paid advertising.",
     // price: 100,
-    features: [
-      { name: "Platforms: Facebook, Instagram", isIncluded: true },
-      { name: "Basic Ad Spend", isIncluded: true },
-      { name: "Ad Creative", isIncluded: true },
-      { name: "Monthly Reporting", isIncluded: true },
-      { name: "A/B Testing", isIncluded: true },
-      { name: "Dedicated Ad Specialist", isIncluded: true },
+    title1: "Platforms",
+    title1Features: [{ name: "Facebook, Instagram" }],
+    title2: "Features",
+    title2Features: [
+      {
+        name: "1 Facebook/Instagram Static Post Design",
+        isIncluded: true,
+      },
+      {
+        name: "1 Facebook/Instagram GIF Post Design",
+        isIncluded: true,
+      },
+      {
+        name: "Monthly analysis report",
+        isIncluded: true,
+      },
+    ],
+    title3: "Achievable Results/ Month",
+    title3Features: [
+      { name: "Facebook + Instagram Impression: upto 2.5M", isIncluded: true },
+      {
+        name: "Facebook + Instagram Engagement/ ThruPlays: upto 120K",
+        isIncluded: true,
+      },
+      { name: "Facebook Followers Growth: upto 800", isIncluded: true },
     ],
   },
   {
-    id: "ad-pro",
-    name: "Ad Pro",
-    description: "For businesses looking to scale their advertising efforts.",
-    price: 300,
-    features: [
-      { name: "5 Ad Campaigns", isIncluded: true },
-      { name: "Increased Ad Spend", isIncluded: true },
-      { name: "Advanced Ad Creative", isIncluded: true },
-      { name: "Weekly Reporting", isIncluded: true },
-      { name: "A/B Testing", isIncluded: true },
-      { name: "Retargeting Campaigns", isIncluded: true },
+    id: "engagement-boost",
+    name: "Engagement Boost",
+    title1: "Platforms",
+    title1Features: [{ name: "Facebook, Instagram" }],
+    title2: "Features",
+    title2Features: [
+      {
+        name: "1 Facebook/Instagram Static Post Design",
+        isIncluded: true,
+      },
+      {
+        name: "2 Facebook/Instagram GIF Post Design",
+        isIncluded: true,
+      },
+      {
+        name: "5 Facebook/Instagram Ad Campaigns",
+        isIncluded: true,
+      },
+      {
+        name: "Monthly analysis report with detailed insights",
+        isIncluded: true,
+      },
+    ],
+    title3: "Achievable Results/ Month",
+    title3Features: [
+      { name: "Facebook + Instagram Impression: upto 5M", isIncluded: true },
+      {
+        name: "Facebook + Instagram Engagement/ ThruPlays: upto 240K",
+        isIncluded: true,
+      },
+      { name: "Facebook Followers Growth: upto 1.6K", isIncluded: true },
     ],
   },
   {
-    id: "ad-enterprise",
-    name: "Ad Enterprise",
-    description: "Comprehensive advertising solutions for large brands.",
-    price: 800,
-    features: [
-      { name: "Unlimited Ad Campaigns", isIncluded: true },
-      { name: "Flexible Ad Spend", isIncluded: true },
-      { name: "Custom Ad Creative", isIncluded: true },
-      { name: "Real-time Reporting", isIncluded: true },
-      { name: "A/B Testing", isIncluded: true },
-      { name: "Dedicated Ad Specialist", isIncluded: true },
-      { name: "Retargeting Campaigns", isIncluded: true },
-      { name: "Multi-channel Advertising", isIncluded: true },
+    id: "multi-channel-growth",
+    name: "Multi-Channel Growth",
+    title1: "Platforms",
+    title1Features: [
+      { name: "Facebook, Instagram, YouTube, Google Display Ads" },
+    ],
+    title2: "Features",
+    title2Features: [
+      {
+        name: "1 Facebook/Instagram Static Post Design",
+        isIncluded: true,
+      },
+      {
+        name: "2 Facebook/Instagram GIF Post Design",
+        isIncluded: true,
+      },
+      {
+        name: "7 Google Display GIF Design",
+        isIncluded: true,
+      },
+      {
+        name: "Monthly analysis report with detailed insights",
+        isIncluded: true,
+      },
+      {
+        name: "Audience targeting strategy",
+        isIncluded: true,
+      },
+    ],
+    title3: "Achievable Results/ Month",
+    title3Features: [
+      { name: "Facebook + Instagram Impression: upto 5M", isIncluded: true },
+      {
+        name: "Facebook + Instagram Engagement/ ThruPlays: upto 240K",
+        isIncluded: true,
+      },
+      { name: "Facebook Followers Growth: upto 1.6K", isIncluded: true },
+      { name: "YouTube Video Views: upto 200K", isIncluded: true },
+      { name: "Display Ad Impression: upto 3.3M", isIncluded: true },
+    ],
+  },
+  {
+    id: "ultimate-reach",
+    name: "Ultimate Reach",
+    title1: "Platforms",
+    title1Features: [
+      { name: "Facebook, Instagram, YouTube, Google Display Ads" },
+    ],
+    title2: "Ad Spend",
+    title2Features: [{ name: "Upto $5000/month", isIncluded: true }],
+    title3: "Features",
+    title3Features: [
+      {
+        name: "2 Facebook/Instagram Static Post Design",
+        isIncluded: true,
+      },
+      {
+        name: "2 Facebook/Instagram GIF Post Design",
+        isIncluded: true,
+      },
+      {
+        name: "Monthly analysis report with detailed insights",
+        isIncluded: true,
+      },
+      {
+        name: "Audience targeting strategy",
+        isIncluded: true,
+      },
+    ],
+    title4: "Achievable Results/ Month",
+    title4Features: [
+      { name: "Facebook + Instagram Impression: upto 14.5M", isIncluded: true },
+      {
+        name: "Facebook + Instagram Engagement/ ThruPlays: upto 700K",
+        isIncluded: true,
+      },
+      { name: "Facebook Followers Growth: upto 3.5K", isIncluded: true },
+      { name: "YouTube Video Views: upto 6400K", isIncluded: true },
+      { name: "Display Ad Impression: upto 5M", isIncluded: true },
     ],
   },
 ];

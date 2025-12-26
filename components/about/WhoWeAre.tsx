@@ -3,8 +3,8 @@ const WhoWeAre = () => {
     <section className="py-24 bg-background relative">
       <div className="">
         {/* Section Header */}
-        <div className="grid lg:grid-cols-12 gap-8 mb-20">
-          <div className="lg:col-span-4">
+        <div className="w-[70%] justify-self-end mb-20">
+          <div className="">
             <span className="text-primary text-sm tracking-[0.3em] uppercase">
               01 / Who We Are
             </span>
@@ -12,36 +12,31 @@ const WhoWeAre = () => {
           <div className="lg:col-span-8">
             <h2 className="text-5xl md:text-6xl lg:text-7xl text-foreground leading-[0.9]">
               A COLLECTIVE OF
-              <span className="block text-stroke-primary">CREATIVE MINDS</span>
+              <span className="block text-primary">CREATIVE MINDS</span>
               BASED IN NEPAL
             </h2>
           </div>
         </div>
 
         {/* Content Grid */}
-        <div className="grid lg:grid-cols-12 gap-8 lg:gap-16">
-          <div className="lg:col-span-4 lg:col-start-5">
-            <div className="h-0.5 bg-border mb-8" />
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              Our team blends creativity and strategy to craft innovative
-              campaigns and engaging content. Using the latest tools and a
-              collaborative mindset, we turn ideas into impactful digital
-              experiences that help brands stand out.
-            </p>
-          </div>
-          <div className="lg:col-span-4">
-            <div className="h-0.5 bg-border mb-8" />
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              Recognized as one of the leading advertising agencies in Nepal,
-              DigitalIn delivers result-driven solutions powered by the latest
-              digital marketing innovations, helping brands stay ahead and
-              connect with the right audience.
-            </p>
-          </div>
+        <div className="w-[70%] justify-self-end">
+          <div className="h-px bg-foreground/30 mb-8" />
+          <p className="text-lg text-muted-foreground leading-relaxed">
+            Our team blends creativity and strategy to craft innovative
+            campaigns and engaging content. Using the latest tools and a
+            collaborative mindset, we turn ideas into impactful digital
+            experiences that help brands stand out.
+          </p>
+          <p className="text-lg text-muted-foreground leading-relaxed">
+            Recognized as one of the leading advertising agencies in Nepal,
+            DigitalIn delivers result-driven solutions powered by the latest
+            digital marketing innovations, helping brands stay ahead and connect
+            with the right audience.
+          </p>
         </div>
 
         {/* Stats Row */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-px mt-24 bg-border">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-px mt-24 bg-foreground/30">
           {[
             { number: "200+", label: "Projects" },
             { number: "50+", label: "Clients" },

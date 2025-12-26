@@ -122,10 +122,13 @@ export function ImageSlideShow() {
                   <div className="flex gap-4 w-full">
                     <p className="mt-2">/0{item.id}</p>
                     <div className="w-[60%]">
-                      <HoverText
+                      {/* <HoverText
                         text={item.title}
                         className="font-[Poppins-ExtraBold] text-6xl uppercase"
-                      />
+                      /> */}
+                      <p className="font-[Poppins-ExtraBold] text-6xl uppercase">
+                        {item.title}
+                      </p>
                     </div>
                   </div>
                 </div>

@@ -33,20 +33,21 @@ const SecondSection = () => {
       ref={sectionRef}
       className="w-screen h-screen flex flex-col justify-center gap-8 bg-primary z-10"
     >
-      <div className="absolute top-1/2 -translate-y-1/2 right-4 md:right-8 lg:not-last:right-16 flex items-center">
+      {/* <div className="absolute top-1/2 -translate-y-1/2 right-4 md:right-8 lg:not-last:right-16 flex items-center">
         <img
           src="/images/home/target.png"
           alt="target"
           className="w-1/2 h-1/2 object-cover"
         />
-      </div>
+      </div> */}
       <motion.h1
         initial={{ x: "-100%", opacity: 0 }}
         whileInView={{ x: 0, opacity: 1 }}
         transition={{ duration: 1, ease: "easeOut" }}
         className="text-7xl font-bold"
       >
-        <HoverText text="We sell attention" />
+        {/* <HoverText text="We sell attention" /> */}
+        <p>We sell attention</p>
       </motion.h1>
     </section>
   );

@@ -12,7 +12,10 @@ const Brands = () => {
   return (
     <div className="w-screen h-screen flex flex-col justify-center gap-4">
       <div className="w-full flex justify-center mb-8">
-        <HoverText text="We've Worked With" type="title" />
+        {/* <HoverText text="We've Worked With" type="title" /> */}
+        <p className="text-5xl font-[Poppins-ExtraBold] uppercase">
+          We've Worked With
+        </p>
       </div>
       <ThreeDScrollTriggerContainer>
         <ThreeDScrollTriggerRow baseVelocity={10} direction={1}>

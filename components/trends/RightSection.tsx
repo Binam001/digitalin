@@ -30,10 +30,10 @@ const categoryLists = [
 
 const RightSection = () => {
   const currentYear = new Date().getFullYear();
-  const years = [currentYear, currentYear - 1]; // current + previous year
+  const years = [currentYear, currentYear - 1];
 
   return (
-    <div className="w-[30%] rounded-lg border border-foreground/30 p-4 space-y-8">
+    <div className="sticky top-1/3 w-[30%] h-fit rounded-lg border border-foreground/30 p-4 space-y-8">
       {/* Search */}
       <div>
         <HoverText text="Search for Trends" type="subTitle" />
@@ -67,7 +67,7 @@ const RightSection = () => {
                 {months.map(({ label, month }) => (
                   <span
                     key={`${year}-${month}`}
-                    className="px-3 py-1 rounded-md bg-foreground/10 text-sm cursor-pointer hover:bg-foreground/20 transition"
+                    className="px-3 py-1 rounded-md bg-foreground/10 text-sm cursor-pointer hover:bg-primary transition"
                   >
                     {label}
                   </span>

@@ -16,7 +16,7 @@ const BlogSection = () => {
         </div>
         <div className="flex gap-4">
           {/* left section */}
-          <div className="space-y-4 w-[70%]">
+          {/* <div className="space-y-4 w-[70%]">
             {blogLists.map((blog) => (
               <div
                 key={blog.id}
@@ -47,13 +47,41 @@ const BlogSection = () => {
                     <div className="absolute inset-0 w-full h-full bg-linear-to-b from-black/70 via-transparent to-black/70 duration-300 transition-colors rounded-md" />
                   </div>
                   <div className="w-[70%] space-y-4">
-                    {/* <p className="text-lg text-primary font-semibold">
-                    {blog.title}
-                  </p> */}
                     <p className="line-clamp-6 text-sm">{blog.desc}</p>
                   </div>
                 </div>
               </div>
+            ))}
+          </div> */}
+
+          <div className="w-[70%] h-full grid grid-cols-3 gap-4">
+            {blogLists.map((blog) => (
+              <Link
+                href={blog.slug ? `/blog/${blog.slug}` : "#"}
+                key={blog.id}
+                className="border border-foreground/30 p-4 rounded-lg flex flex-col justify-between gap-2 group hover:border-primary/30 transition-all duration-300"
+              >
+                <div className="">
+                  <p className="group-hover:text-primary transition-colors duration-300">
+                    {blog.title}
+                  </p>
+                </div>
+                <div className="space-y-2">
+                  <p className="text-xs text-foreground/50">5m read time</p>
+                  <img
+                    src={blog.image}
+                    alt={blog.title}
+                    className="h-36 object-cover rounded-md group-hover:scale-[1.02] transition-transform duration-300"
+                  />
+                </div>
+                <div className="flex justify-between text-foreground/70">
+                  <div className="flex items-center gap-1">
+                    <Icon icon="mdi:eye-outline" className="size-5" />
+                    <span className="text-xs">4M</span>
+                  </div>
+                  <Icon icon="mdi:share" className="size-6" />
+                </div>
+              </Link>
             ))}
           </div>
 

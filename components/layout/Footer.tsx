@@ -10,34 +10,39 @@ import Noise from "../Noise";
 const Footer = () => {
   // const isMobile = useMediaQuery({ maxWidth: 425 });
   return (
-    <footer className="flex flex-col items-center pt-16 w-screen px-4 md:px-8 lg:px-16 bg-foreground/80 relative min-h-screen">
+    <footer className="flex flex-col items-center w-screen px-4 md:px-8 lg:px-16 bg-background relative min-h-screen">
       {/* {!isMobile && <Noise className="z-80" />} */}
       <Noise className="z-80" />
       <div className="flex flex-col items-center gap-4">
-        <div className="space-y-4 text-center text-background">
-          <p>Ideas or Ads?</p>
-          <HoverText text="Let's Launch." className="text-4xl font-semibold" />
+        <div className="space-y-4 text-center">
+          {/* <p>Ideas or Ads?</p> */}
+          {/* <HoverText text="Let's Launch." className="text-4xl font-semibold" /> */}
         </div>
-        <AnalogClock />
-        <div className="text-background">
+        {/* <AnalogClock /> */}
+        {/* <div className="text-background">
           <p>We guessed you're in Nepal?</p>
-        </div>
-        <Link href="/contact">
+        </div> */}
+        {/* <Link href="/contact">
           <InteractiveHoverButton
             text="Contact Us"
             className="text-foreground"
           />
-        </Link>
-        <div className="mt-16">
-          <HoverText text="DIGITALIN" type="footer" className="leading-[0.7]" />
+        </Link> */}
+        <div className="">
+          {/* <HoverText text="DIGITALIN" type="footer" className="leading-[0.7]" /> */}
+          <p className="text-[200px] font-[Poppins-ExtraBold] tracking-wider">
+            DIGITALIN
+          </p>
         </div>
       </div>
 
       <div className="w-screen py-4 z-40 bg-background">
         <div className="px-4 md:px-8 lg:px-16 space-y-8 text-sm">
+          <hr className="h-px w-full text-foreground/30" />
           <div className="flex justify-between w-full">
             <div className="">
-              <HoverText text="Contact Us" type="subTitle" />
+              {/* <HoverText text="Contact Us" type="subTitle" /> */}
+              <p className="text-lg text-primary font-semibold">Contact Us</p>
               <div className="flex flex-col gap-y-4 mt-4">
                 {contactLists.map((contactItem) => (
                   <Link
@@ -54,7 +59,10 @@ const Footer = () => {
 
             <div className="">
               <div className="justify-self-end">
-                <HoverText text="Stay Connected" type="subTitle" />
+                {/* <HoverText text="Stay Connected" type="subTitle" /> */}
+                <p className="text-lg text-primary font-semibold">
+                  Stay Connected
+                </p>
               </div>
               <div className="flex items-center gap-4 mt-4">
                 {socialLinkLists.map((socialLinkItem) => (

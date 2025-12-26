@@ -16,13 +16,13 @@ const FloatingInput = () => {
     const featureBgs = document.querySelectorAll(".feature-bg");
 
     const featureStartPositions = [
-      { top: 25, left: 15 },
-      { top: 12.5, left: 50 },
-      { top: 22.5, left: 75 },
-      { top: 40, left: 82.5 },
+      { top: 25, left: 20 },
+      { top: 25, left: 40 },
+      { top: 25, left: 60 },
+      { top: 50, left: 60 },
       { top: 50, left: 20 },
-      { top: 80, left: 20 },
-      { top: 75, left: 75 },
+      { top: 75, left: 42.5 },
+      { top: 50, left: 40 },
     ];
 
     features.forEach((feature, index) => {
@@ -303,7 +303,7 @@ const FloatingInput = () => {
           width: max-content;
           height: max-content;
           padding: 1rem 1.5rem;
-          transform: translate(-50%, -50%);
+          // transform: translate(-50%, -50%);
           will-change: top, left;
         }
         .feature-bg {

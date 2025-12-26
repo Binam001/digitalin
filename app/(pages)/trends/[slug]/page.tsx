@@ -23,10 +23,10 @@ export default async function TrendPostPage({
 
   return (
     <>
-      <section className="">
-        <header className="relative z-10 h-screen flex items-center justify-center bg-background">
-          <BgBubble />
-          <div className="w-full flex flex-col items-center justify-center gap-8">
+      <div className="">
+        <header className="relative z-10 h-[70vh] flex items-center justify-center bg-background">
+          {/* <BgBubble /> */}
+          {/* <div className="w-full flex flex-col items-center justify-center gap-8">
             <HoverText
               text="Insights That Inspire"
               type="title"
@@ -40,9 +40,14 @@ export default async function TrendPostPage({
               <span className="mr-2">/</span>
               <span className="text-primary">{trend.title}</span>
             </div>
-          </div>
+          </div> */}
+          {/* <img
+            src={trend.image}
+            alt={trend.title}
+            className="object-cover w-full h-full"
+          /> */}
         </header>
-      </section>
+      </div>
       <section className="mt-16">
         <main className="px-4 md:px-8 lg:px-16">
           <div className="flex justify-between">
