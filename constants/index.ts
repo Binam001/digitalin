@@ -208,12 +208,19 @@ const features = [
 
 const featureSequence = [
   {
+    id: 1,
     videoPath: "/videos/portfolio/mountain-dew.mp4",
     boxClass: ".box1",
     delay: 0,
   },
-  { videoPath: "/videos/portfolio/pepsi.mp4", boxClass: ".box2", delay: 0 },
   {
+    id: 2,
+    videoPath: "/videos/portfolio/pepsi.mp4",
+    boxClass: ".box2",
+    delay: 0,
+  },
+  {
+    id: 3,
     videoPath: "/videos/portfolio/happydent.mp4",
     boxClass: ".box3",
     delay: 0,

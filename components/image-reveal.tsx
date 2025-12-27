@@ -214,7 +214,10 @@ const HoverImageReveal = React.forwardRef<HTMLDivElement, ComponentProps>(
     return (
       <div className="py-16 bg-background">
         <div className="w-full flex justify-center -mb-8 z-60 relative bg-background pt-16">
-          <HoverText text="Where Strategy Meets Creativity" type="title" />
+          {/* <HoverText text="Where Strategy Meets Creativity" type="title" /> */}
+          <p className="text-5xl font-[Poppins-ExtraBold] uppercase">
+            Where Strategy Meets Creativity
+          </p>
         </div>
         <div
           ref={ref}

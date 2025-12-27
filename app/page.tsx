@@ -13,6 +13,7 @@ import SecondSection from "@/components/home/SecondSection";
 import ThirdSection from "@/components/home/ThirdSection";
 import WhatWeDo from "@/components/home/WhatWeDo";
 import HoverImageReveal from "@/components/image-reveal";
+import AdsViewer from "@/components/portfolio/AdsViewer";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -47,8 +48,10 @@ export default function Home() {
       </div>
 
       <HoverImageReveal />
-      <CaseStudy />
+      {/* <CaseStudy /> */}
       <WhatWeDo />
+      <AdsViewer />
+      <div className="h-dvh"></div>
       {/* <MarqueeExpand /> */}
       {/* <HorizontalScroll /> */}
       <Brands />
