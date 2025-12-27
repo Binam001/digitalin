@@ -233,16 +233,14 @@ const ServiceSection = () => {
                   ref={(el) => addToTextsRef(el, index)}
                   className="absolute h-full w-full top-0 flex flex-col justify-between py-16 px-4 md:px-8 lg:px-16 pointer-events-none"
                 >
-                  <h2 className="text-2xl md:text-4xl lg:text-5xl text-primary leading-none mb-4">
+                  <h2 className="text-2xl md:text-4xl lg:text-5xl text-primary leading-none mb-4 pointer-events-auto">
                     {service.title.split(" ").map((word, wordIndex) => (
                       <span key={wordIndex} className="block">
-                        <p className="text-5xl font-[Poppins-ExtraBold] uppercase">
-                          {word}
-                        </p>
+                        <HoverText text={word} type="title" />
                       </span>
                     ))}
                   </h2>
-                  <div className="flex flex-col items-center justify-center gap-4">
+                  <div className="flex flex-col items-center justify-center gap-4 pointer-events-auto">
                     <p className="md:text-lg lg:text-2xl text-foreground/70">
                       {service.desc}
                     </p>
