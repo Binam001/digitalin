@@ -49,7 +49,7 @@ export default function Home() {
       <HoverImageReveal />
       <CaseStudy />
       <WhatWeDo />
-      <MarqueeExpand />
+      {/* <MarqueeExpand /> */}
       {/* <HorizontalScroll /> */}
       <Brands />
       {/* <FloatingInput /> */}
