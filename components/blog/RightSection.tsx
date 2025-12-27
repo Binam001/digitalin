@@ -1,11 +1,18 @@
+"use client";
+
 import { Icon } from "@iconify/react";
-import React from "react";
-import HoverText from "../HoverText";
+import React, { useState } from "react";
 import Link from "next/link";
 
 // Generate months for a given year
 const getMonthsForYear = (year: number) => {
-  return Array.from({ length: 12 }, (_, monthIndex) => ({
+  const now = new Date();
+  const currentYear = now.getFullYear();
+  const currentMonth = now.getMonth();
+
+  const numberOfMonths = year === currentYear ? currentMonth + 1 : 12;
+
+  return Array.from({ length: numberOfMonths }, (_, monthIndex) => ({
     label: new Date(year, monthIndex, 1).toLocaleString("default", {
       month: "short",
     }),
@@ -31,12 +38,17 @@ const categoryLists = [
 const RightSection = () => {
   const currentYear = new Date().getFullYear();
   const years = [currentYear, currentYear - 1]; // current + previous year
+  const [openYear, setOpenYear] = useState<number | null>(currentYear);
+
+  const toggleYear = (year: number) => {
+    setOpenYear(openYear === year ? null : year);
+  };
 
   return (
     <div className="w-[30%] rounded-lg border border-foreground/30 p-4 space-y-8">
       {/* Search */}
       <div>
-        <HoverText text="Search for Blog" type="subTitle" />
+        <p className="text-lg text-primary font-semibold">Search for Blog</p>
         <div className="relative">
           <input
             type="text"
@@ -52,27 +64,43 @@ const RightSection = () => {
 
       {/* Months Section */}
       <div>
-        <HoverText text="Digital Media Trend Reports" type="subTitle" />
+        <p className="text-lg text-primary font-semibold">
+          Digital Media Blog Reports
+        </p>
 
         {/* Loop over years */}
         {years.map((year) => {
           const months = getMonthsForYear(year);
+          const isOpen = openYear === year;
           return (
             <div key={year} className="mt-4">
               {/* Year Label */}
-              <p className="text-lg font-semibold text-foreground">{year}</p>
+              <div
+                onClick={() => toggleYear(year)}
+                className="w-full flex justify-between items-center text-lg font-semibold text-foreground"
+              >
+                <span>{year}</span>
+                <Icon
+                  icon="iconamoon:arrow-down-2-light"
+                  className={`transition-transform duration-300 ${
+                    isOpen ? "rotate-180" : ""
+                  }`}
+                />
+              </div>
 
               {/* Months */}
-              <div className="flex flex-wrap gap-2 mt-2">
-                {months.map(({ label, month }) => (
-                  <span
-                    key={`${year}-${month}`}
-                    className="px-3 py-1 rounded-md bg-foreground/10 text-sm cursor-pointer hover:bg-foreground/20 transition"
-                  >
-                    {label}
-                  </span>
-                ))}
-              </div>
+              {isOpen && (
+                <div className="flex flex-wrap gap-2 mt-2">
+                  {months.map(({ label, month }) => (
+                    <span
+                      key={`${year}-${month}`}
+                      className="px-3 py-1 rounded-md bg-foreground/10 text-sm hover:bg-primary transition"
+                    >
+                      {label}
+                    </span>
+                  ))}
+                </div>
+              )}
             </div>
           );
         })}
@@ -80,7 +108,7 @@ const RightSection = () => {
 
       {/* Category */}
       <div className="">
-        <HoverText text="Categories" type="subTitle" />
+        <p className="text-lg text-primary font-semibold">Categories</p>
         <div className="flex flex-col mt-1">
           {categoryLists.map((item) => (
             <Link

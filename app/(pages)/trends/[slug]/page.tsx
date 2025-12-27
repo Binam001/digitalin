@@ -25,50 +25,53 @@ export default async function TrendPostPage({
     <>
       <div className="">
         <header className="relative z-10 h-[70vh] flex items-center justify-center bg-background">
-          {/* <BgBubble /> */}
-          {/* <div className="w-full flex flex-col items-center justify-center gap-8">
-            <HoverText
-              text="Insights That Inspire"
-              type="title"
-              className="flex justify-center"
-            />
-            <p className="text-lg uppercase tracking-[0.3em] text-foreground/60 w-[70%] text-center">
-              Stories, tips, and trends shaping modern advertising.
-            </p>
-            <div className="">
-              <Link href="/trends">Trends</Link>
-              <span className="mr-2">/</span>
-              <span className="text-primary">{trend.title}</span>
-            </div>
-          </div> */}
-          {/* <img
+          <img
             src={trend.image}
             alt={trend.title}
             className="object-cover w-full h-full"
-          /> */}
+          />
+          <div className="absolute inset-0 w-full h-full bg-linear-to-b from-black/30 to-black"></div>
         </header>
       </div>
       <section className="mt-16">
-        <main className="px-4 md:px-8 lg:px-16">
+        <main className="">
           <div className="flex justify-between">
             <article className="">
-              <header className="mb-4 lg:mb-6">
-                <HoverText text={trend.title} type="title" />
+              <header className="mb-4 space-y-4">
+                <div className="flex justify-between items-center">
+                  <div className="flex items-center gap-1">
+                    <Icon icon="uil:calender" />
+                    <p className="text-xs">Dec 10, 2025</p>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <Icon icon="icon-park-outline:time" />
+                    <p className="text-xs">5 min</p>
+                  </div>
+                </div>
+                <h1 className="text-5xl text-primary font-[Poppins-ExtraBold] uppercase">
+                  {trend.title}
+                </h1>
               </header>
-              <figure className="my-8">
+              {/* <figure className="my-8">
                 <img
                   src={trend.image}
                   alt={`Image for ${trend.title}`}
                   className="w-1/2 rounded-lg object-cover"
                 />
-              </figure>
+              </figure> */}
               <div className="space-y-4 text-lg">
                 <p className="">{trend.desc}</p>
-                <p className="text-xl font-semibold">{trend.descTitle1}</p>
+                <p className="text-xl font-semibold text-primary">
+                  {trend.descTitle1}
+                </p>
                 <p className="">{trend.desc1}</p>
-                <p className="text-xl font-semibold">{trend.descTitle2}</p>
+                <p className="text-xl font-semibold text-primary">
+                  {trend.descTitle2}
+                </p>
                 <p className="">{trend.desc2}</p>
-                <p className="text-xl font-semibold">{trend.descTitle3}</p>
+                <p className="text-xl font-semibold text-primary">
+                  {trend.descTitle3}
+                </p>
                 <p className="">{trend.desc3}</p>
               </div>
             </article>
@@ -78,32 +81,37 @@ export default async function TrendPostPage({
         {/* Other Articles Section */}
         <aside aria-label="Related Trends" className="py-8 lg:py-16">
           <div className="space-y-4">
-            <HoverText text="Other Trends" type="title" />
+            <p className="text-5xl text-primary font-[Poppins-ExtraBold] uppercase">
+              Other Trends
+            </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
               {otherTrends.map((otherTrend) => (
                 <Link
                   key={otherTrend.slug}
-                  href={`/trend/${otherTrend.slug}`}
-                  className="group h-80 cursor-pointer relative overflow-hidden rounded-lg"
+                  href={`/trends/${otherTrend.slug}`}
+                  className="border border-foreground/30 p-4 rounded-lg flex flex-col justify-between gap-2 group hover:border-primary/30 transition-all duration-300"
                 >
-                  <article className="relative h-full">
-                    <div className="absolute inset-0 w-full h-full bg-linear-to-b from-black/70 via-transparent to-black/70 hover:bg-black/30 duration-300 transition-colors" />
-                    <div className="absolute right-3 top-3">
-                      <Icon
-                        icon="solar:arrow-right-up-outline"
-                        className="size-8 text-black group-hover:size-9 transition-all duration-300 ease-in-out bg-gray-300 rounded-full p-1"
-                      />
-                    </div>
+                  <div className="">
+                    <p className="group-hover:text-primary transition-colors duration-300 line-clamp-2">
+                      {otherTrend.title}
+                    </p>
+                  </div>
+                  <div className="space-y-2">
+                    <p className="text-xs text-foreground/50">5m read time</p>
                     <img
                       src={otherTrend.image}
                       alt={otherTrend.title}
-                      className="gallery-article w-full h-full object-cover"
+                      className="h-36 object-cover rounded-md group-hover:scale-[1.02] transition-transform duration-300"
                     />
-                    <div className="absolute bottom-4 left-4 flex items-end text-white text-lg font-medium">
-                      {otherTrend.title}
+                  </div>
+                  <div className="flex justify-between text-foreground/70">
+                    <div className="flex items-center gap-1">
+                      <Icon icon="mdi:eye-outline" className="size-5" />
+                      <span className="text-xs">4M</span>
                     </div>
-                  </article>
+                    <Icon icon="mdi:share" className="size-6" />
+                  </div>
                 </Link>
               ))}
             </div>

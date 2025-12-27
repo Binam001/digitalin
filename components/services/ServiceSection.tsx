@@ -207,15 +207,13 @@ const ServiceSection = () => {
             ref={stageRef}
             className="relative h-screen w-full overflow-hidden"
           >
-            {serviceLists.map((service, index) => (
-              <div
-                key={service.id}
-                className="absolute top-0 w-screen h-screen"
-              >
-                {/* Image */}
+            {/* Image layer - behind text */}
+            <div className="absolute inset-0 z-0 pointer-events-none">
+              {serviceLists.map((service, index) => (
                 <div
+                  key={`img-${service.id}`}
                   ref={(el) => addToImagesRef(el, index)}
-                  className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-screen h-screen z-10"
+                  className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-screen h-screen"
                 >
                   <img
                     src={service.image}
@@ -224,14 +222,23 @@ const ServiceSection = () => {
                     className="w-full h-full object-cover transition-all duration-700 brightness-25"
                   />
                 </div>
+              ))}
+            </div>
+
+            {/* Text layer - above images, interactive */}
+            <div className="absolute inset-0 z-10">
+              {serviceLists.map((service, index) => (
                 <article
+                  key={`text-${service.id}`}
                   ref={(el) => addToTextsRef(el, index)}
-                  className="absolute h-full w-full top-[0%] z-50 flex flex-col justify-between py-16 px-4 md:px-8 lg:px-16"
+                  className="absolute h-full w-full top-0 flex flex-col justify-between py-16 px-4 md:px-8 lg:px-16 pointer-events-none"
                 >
                   <h2 className="text-2xl md:text-4xl lg:text-5xl text-primary leading-none mb-4">
-                    {service.title.split(" ").map((word, index) => (
-                      <span key={index} className="block">
-                        <HoverText text={word} type="title" />
+                    {service.title.split(" ").map((word, wordIndex) => (
+                      <span key={wordIndex} className="block">
+                        <p className="text-5xl font-[Poppins-ExtraBold] uppercase">
+                          {word}
+                        </p>
                       </span>
                     ))}
                   </h2>
@@ -245,22 +252,10 @@ const ServiceSection = () => {
                     />
                   </div>
                 </article>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </section>
-
-        {/* Footer CTA */}
-        {/* <section className="relative z-10 h-screen flex items-center justify-center">
-          <div className="text-center px-8">
-            <h2 className="text-5xl md:text-7xl lg:text-8xl text-foreground leading-none mb-8">
-              LET&apos;S CREATE
-              <br />
-              <span className="text-stroke-primary">TOGETHER</span>
-            </h2>
-            <InteractiveHoverButton text="START A PROJECT" />
-          </div>
-        </section> */}
       </main>
     </div>
   );

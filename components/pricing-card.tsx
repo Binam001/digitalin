@@ -152,7 +152,7 @@ const PricingComponent: React.FC<PricingComponentProps> = ({
           <Card
             key={plan.id}
             className={cn(
-              "flex flex-col transition-all duration-300 shadow-md hover:shadow-lg bg-background border-primary/30 hover:scale-[1.02]"
+              "flex flex-col transition-all duration-300 shadow-md hover:shadow-lg bg-background border-foreground/30 hover:scale-[1.02]"
             )}
           >
             <CardHeader className="p-6 pb-4">
