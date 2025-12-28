@@ -6,7 +6,7 @@ import { InteractiveHoverButton } from "../ui/interactive-hover-button";
 
 const Blog = () => {
   return (
-    <section className="w-screen h-screen flex flex-col justify-evenly">
+    <section className="w-screen h-screen flex flex-col justify-center gap-8">
       <div className="">
         <h1 className="text-2xl lg:text-5xl font-[Poppins-ExtraBold] uppercase mb-8 text-center">
           Blogs

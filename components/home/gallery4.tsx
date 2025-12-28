@@ -20,6 +20,8 @@ import {
   CarouselItem,
 } from "../ui/carousel";
 import { whatWeDoLists } from "@/constants";
+import Link from "next/link";
+import { InteractiveHoverButton } from "../ui/interactive-hover-button";
 
 const images = [
   { id: 1, image: "/images/ads/ads1.jpg" },
@@ -99,7 +101,7 @@ const Gallery4 = () => {
 
   return (
     <section className="w-screen min-h-screen flex flex-col items-center justify-center">
-      <div className="w-full select-none relative">
+      <div className="w-full select-none relative space-y-8">
         <Button
           size="icon"
           variant="ghost"
@@ -122,7 +124,7 @@ const Gallery4 = () => {
         >
           <ArrowRight className="size-5 text-white" />
         </Button>
-        <h1 className="text-2xl lg:text-5xl font-[Poppins-ExtraBold] uppercase mb-8">
+        <h1 className="text-2xl lg:text-5xl font-[Poppins-ExtraBold] uppercase mb-8 text-center">
           Our Portfolio
         </h1>
         <Carousel
@@ -169,6 +171,10 @@ const Gallery4 = () => {
             ))}
           </CarouselContent>
         </Carousel>
+
+        <Link href="/portfolio" className="flex justify-center">
+          <InteractiveHoverButton text="View More" />
+        </Link>
       </div>
     </section>
   );

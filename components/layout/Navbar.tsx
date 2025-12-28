@@ -8,6 +8,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import LightRays from "../LightRays";
 import { useMediaQuery } from "react-responsive";
 import { usePathname } from "next/navigation";
+import AudioSection from "../AudioSection";
 
 const Navbar = ({
   serviceCount,
@@ -36,6 +37,9 @@ const Navbar = ({
           <Image src="/logo.png" alt="logo" width={100} height={24} />
         </Link>
       </nav>
+      <div className="fixed top-0 left-1/2 -translate-x-1/2 z-100 py-4">
+        <AudioSection />
+      </div>
       <nav className="fixed top-0 right-0 z-100 px-4 md:px-8 lg:px-16 py-4 mix-blend-difference">
         <button
           className="menu-toggler w-8 h-8 flex flex-col justify-center items-center gap-1 cursor-pointer z-50 group"

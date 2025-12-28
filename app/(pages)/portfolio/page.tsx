@@ -7,8 +7,8 @@ const page = () => {
     <div>
       {/* <div className="h-dvh"></div> */}
       <div className="relative">
-        <AdsViewer />
-        <div className="h-dvh"></div>
+        {/* <AdsViewer />
+        <div className="h-dvh"></div> */}
       </div>
       <OurWork />
     </div>
