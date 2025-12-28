@@ -52,7 +52,7 @@ const RightSection: React.FC<RightSectionProps> = ({ setIsDrawerOpen }) => {
   };
 
   return (
-    <div className="w-full lg:w-[30%] rounded-lg border border-foreground/30 p-4 space-y-8 h-[80vh] lg:h-auto overflow-y-scroll lg:overflow-hidden">
+    <div className="w-full lg:w-[30%] rounded-lg bg-background border border-foreground/30 p-4 space-y-8 h-[80vh] lg:h-auto overflow-y-auto lg:overflow-hidden">
       <div className="flex justify-between items-center">
         {isTablet ? (
           <p className="text-lg text-primary font-semibold">Category Filter</p>

@@ -4,26 +4,13 @@ import { Icon } from "@iconify/react";
 import Link from "next/link";
 import { InteractiveHoverButton } from "../ui/interactive-hover-button";
 import RightSection from "./RightSection";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useMediaQuery } from "react-responsive";
 import { motion, AnimatePresence } from "framer-motion";
-import { DrawerPortal } from "../ui/drawer-portal";
 
 const BlogSection = () => {
   const isTablet = useMediaQuery({ maxWidth: 767 });
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-
-  useEffect(() => {
-    if (isDrawerOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [isDrawerOpen]);
 
   return (
     <div id="blogSection" className="px-4 md:px-8 lg:px-16">
@@ -96,14 +83,14 @@ const BlogSection = () => {
       {/* Mobile Drawer */}
       <AnimatePresence>
         {isTablet && isDrawerOpen && (
-          <DrawerPortal>
+          <>
             {/* Backdrop */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
-              className="fixed inset-0 bg-black/50 z-999"
+              className="fixed inset-0 bg-black/50 z-40"
               onClick={() => setIsDrawerOpen(false)}
             />
 
@@ -113,19 +100,14 @@ const BlogSection = () => {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="
-          fixed top-0 right-0 z-50
-          h-[100dvh] overflow-auto! w-[85%] max-w-md
-          bg-background shadow-2xl
-          
-        "
+              className="fixed top-0 right-0 h-full w-[80%] max-w-md bg- z-50 shadow-2xl overflow-y-auto"
             >
               {/* Content */}
-              <div className="p-6 pt-16">
+              <div className="pt-16">
                 <RightSection setIsDrawerOpen={setIsDrawerOpen} />
               </div>
             </motion.div>
-          </DrawerPortal>
+          </>
         )}
       </AnimatePresence>
     </div>
