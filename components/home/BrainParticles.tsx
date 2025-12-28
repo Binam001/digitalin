@@ -1,5 +1,6 @@
 "use client";
 
+import { Icon } from "@iconify/react";
 import React, { useEffect } from "react";
 // import { brainSvg } from './brainSvg';
 
@@ -139,14 +140,22 @@ const BrainParticles: React.FC = () => {
           className="absolute top-0 w-full h-full bg-background"
         />
       </div>
-      <div className="w-full md:w-[90%] h-full mx-auto absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col justify-center items-center gap-4 pointer-events-none">
-        <h1 className="text-2xl lg:text-7xl text-center font-semibold">
-          Welcome to Digital<span className="text-primary">In</span>
-        </h1>
-        <p className="w-1/2 text-center">
-          We transform human thought into strategic advertising that captures
-          attention and drives results
-        </p>
+      <div className="w-full md:w-[90%] h-full mx-auto absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col justify-evenly items-center pointer-events-none">
+        <div className="flex flex-col items-center gap-4">
+          <h1 className="text-2xl lg:text-7xl text-center font-semibold">
+            Welcome to Digital<span className="text-primary">In</span>
+          </h1>
+          <p className="w-1/2 text-center">
+            We transform human thought into strategic advertising that captures
+            attention and drives results
+          </p>
+        </div>
+        <div className="flex flex-col items-center">
+          <p>Scroll Down</p>
+          <div className="animate-bounce">
+            <Icon icon="mynaui:arrow-long-down" className="size-6" />
+          </div>
+        </div>
       </div>
     </div>
   );

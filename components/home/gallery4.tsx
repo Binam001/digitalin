@@ -46,7 +46,7 @@ const Gallery4 = () => {
 
   useEffect(() => {
     // const itemsPerSlide = 3; // 2 rows * 3 columns
-    const itemsPerSlide = isMobile ? 1 : isTablet ? 2 : 4;
+    const itemsPerSlide = isMobile ? 1 : isTablet ? 2 : 8;
     const result = [];
     for (let i = 0; i < images.length; i += itemsPerSlide) {
       result.push(images.slice(i, i + itemsPerSlide));
@@ -124,7 +124,7 @@ const Gallery4 = () => {
         >
           <ArrowRight className="size-5 text-white" />
         </Button>
-        <h1 className="text-2xl lg:text-5xl font-[Poppins-ExtraBold] uppercase mb-8 text-center">
+        <h1 className="text-2xl lg:text-5xl font-[Poppins-ExtraBold] uppercase my-8 text-center">
           Our Portfolio
         </h1>
         <Carousel
@@ -154,16 +154,7 @@ const Gallery4 = () => {
                           alt=""
                           className="w-full h-full object-cover"
                         />
-                        {/* <div className="absolute right-0 bottom-0 -rotate-15 font-[Priestacy] text-xl font-semibold">
-                          {item.name}
-                        </div> */}
                       </div>
-                      {/* <div className="text-center">
-                        <p className="text-lg">{item.name}</p>
-                        <p className="line-clamp-8 px-4 text-zinc-500">
-                          {item.content}
-                        </p>
-                      </div> */}
                     </div>
                   ))}
                 </div>
