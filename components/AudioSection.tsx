@@ -30,8 +30,8 @@ const AudioSection = () => {
   }, [isAudioOn]);
 
   return (
-    <div className="text-foreground bg-foreground/20 rounded-full z-60 mix-blend-difference">
-      <div onClick={() => setIsAudioOn(!isAudioOn)} className="cursor-pointer">
+    <div className="text-foreground bg-foreground/20 rounded-full z-60 mix-blend-difference group">
+      <div onClick={() => setIsAudioOn(!isAudioOn)} className="">
         <img
           src={
             isAudioOn
@@ -39,7 +39,7 @@ const AudioSection = () => {
               : "/images/icons/sound-bar.svg"
           }
           alt="sound-bar"
-          className="size-8"
+          className="size-8 group-hover:scale-[1.02]"
         />
       </div>
       <audio ref={audioRef} src="/audios/audio.mp3" loop />

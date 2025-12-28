@@ -144,7 +144,7 @@ const Gallery4 = () => {
                   {group.map((item) => (
                     <div
                       key={item.id}
-                      className="rounded-lg flex flex-col items-center gap-4 h-96 overflow-hidden"
+                      className="rounded-lg flex flex-col items-center gap-4 h-110 overflow-hidden"
                       role="button"
                       tabIndex={0}
                     >

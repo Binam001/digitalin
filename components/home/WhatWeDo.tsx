@@ -13,20 +13,27 @@ const WhatWeDo = () => {
 
   useGSAP(
     () => {
-      // Return early if ref is not yet assigned (though useGSAP usually handles this)
       if (!container.current) return;
 
-      // 2. Type the array as HTMLElement[] so .style or GSAP properties are recognized
       const headers = gsap.utils.toArray<HTMLElement>(".services-header");
 
-      // Ensure headers exist before animating to avoid "undefined" errors
       if (headers.length < 3) return;
 
+      // Clear any existing ScrollTriggers to prevent conflicts
+      ScrollTrigger.getAll().forEach((trigger) => {
+        if (trigger.vars.trigger === container.current) {
+          trigger.kill();
+        }
+      });
+
+      const isMobile = window.innerWidth < 768;
+
+      // Initial slide-in animation
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: container.current,
-          start: "top bottom",
-          end: "top 10%",
+          start: isMobile ? "top 80%" : "top bottom",
+          end: isMobile ? "top 50%" : "top 10%",
           scrub: 1,
         },
       });
@@ -43,14 +50,16 @@ const WhatWeDo = () => {
         0
       );
 
+      // Pin and scale animation
       ScrollTrigger.create({
         trigger: container.current,
-        start: "top top",
-        end: () => `+=${window.innerHeight * 2}`,
+        start: isMobile ? "top center" : "top top",
+        end: () => `+=${window.innerHeight * (isMobile ? 1 : 1)}`,
         pin: true,
         scrub: 1,
-        pinSpacing: false,
-        // 3. Type 'self' as ScrollTrigger
+        pinSpacing: true,
+        anticipatePin: 1,
+        invalidateOnRefresh: true,
         onUpdate: (self: globalThis.ScrollTrigger) => {
           const progress = self.progress;
 
@@ -60,7 +69,6 @@ const WhatWeDo = () => {
             gsap.set(headers[0], { yPercent: yProgress * 100 });
             gsap.set(headers[2], { yPercent: yProgress * -100 });
 
-            // 4. Type the individual header in the loop
             headers.forEach((header: HTMLElement) =>
               gsap.set(header, { scale: 1 })
             );
@@ -78,14 +86,26 @@ const WhatWeDo = () => {
           }
         },
       });
+
+      // Refresh on resize
+      const handleResize = () => {
+        ScrollTrigger.refresh();
+      };
+
+      window.addEventListener("resize", handleResize);
+
+      return () => {
+        window.removeEventListener("resize", handleResize);
+      };
     },
-    { scope: container }
+    { scope: container, dependencies: [] }
   );
+
   return (
     <div>
       <section
         ref={container}
-        className="services relative w-screen h-screen flex flex-col items-center justify-center overflow-hidden z-20 pointer-events-none"
+        className="services relative w-screen h-fit flex flex-col items-center justify-center overflow-hidden z-20"
       >
         {[
           {
@@ -116,7 +136,7 @@ const WhatWeDo = () => {
           </div>
         ))}
       </section>
-      <section className="w-screen my-28 bg-background mt-[160dvh]">
+      <section className="w-screen bg-background -mt-8 lg:-mt-32">
         <div className="grid lg:grid-cols-2 gap-4 lg:gap-8">
           {whatWeDoLists.map((item, index) => {
             const isEven = index % 2 === 0;

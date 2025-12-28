@@ -64,7 +64,7 @@ const Footer = () => {
               <span className="text-xs">© Copyright 2025 DigitalIn</span>
             </div>
 
-            <div className="flex items-center gap-1 md:gap-2">
+            {/* <div className="flex items-center gap-1 md:gap-2">
               <span className="text-xs whitespace-nowrap">
                 Design & Developed by
               </span>
@@ -79,7 +79,7 @@ const Footer = () => {
                   className="w-10 md:w-12"
                 />
               </Link>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
