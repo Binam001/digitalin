@@ -1,9 +1,12 @@
 "use client";
 
 import { ImageSlideShow } from "@/components/framer-thumbnail-carousel";
+import Blog from "@/components/home/Blog";
+import BrainParticles from "@/components/home/BrainParticles";
 import Brands from "@/components/home/Brands";
 import CaseStudy from "@/components/home/CaseStudy";
 import FloatingInput from "@/components/home/FloatingInput";
+import { Gallery4 } from "@/components/home/gallery4";
 import HeroSection from "@/components/home/HeroSection";
 // import HeroSection from "@/components/home/HeroSection";
 import HorizontalScroll from "@/components/home/HorizontalScroll";
@@ -39,7 +42,8 @@ export default function Home() {
       {/* <HeroSection /> */}
       <div id="imageSlideShow" className="h-screen fixed inset-0">
         {/* <ImageSlideShow /> */}
-        <HeroSection />
+        <BrainParticles />
+        {/* <HeroSection /> */}
       </div>
       <div className="h-dvh" />
       <div className="relative z-20">
@@ -49,14 +53,16 @@ export default function Home() {
         <ThirdSection /> */}
       </div>
 
-      <HoverImageReveal />
+      {/* <HoverImageReveal /> */}
       {/* <CaseStudy /> */}
       <WhatWeDo />
-      <AdsViewer />
-      <div className="h-dvh"></div>
+      <Gallery4 />
+      {/* <AdsViewer />
+      <div className="h-dvh"></div> */}
       {/* <MarqueeExpand /> */}
       {/* <HorizontalScroll /> */}
       <Brands />
+      <Blog />
       {/* <FloatingInput /> */}
     </div>
   );

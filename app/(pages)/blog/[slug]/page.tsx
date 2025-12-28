@@ -31,7 +31,7 @@ export default async function BlogPostPage({
           <div className="absolute inset-0 w-full h-full bg-linear-to-b from-black/30 to-black"></div>
         </header>
       </div>
-      <section className="mt-16">
+      <section className="mt-16 w-8/12 mx-auto">
         <main className="">
           <div className="flex justify-between">
             <article className="">
@@ -77,6 +77,8 @@ export default async function BlogPostPage({
         </main>
 
         {/* Other Articles Section */}
+      </section>
+      <section>
         <aside aria-label="Related Blogs" className="py-8 lg:py-16">
           <div className="space-y-4">
             <p className="text-5xl text-primary font-[Poppins-ExtraBold] uppercase">

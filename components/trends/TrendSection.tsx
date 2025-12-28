@@ -9,7 +9,10 @@ import { Icon } from "@iconify/react";
 
 const BlogSection = () => {
   return (
-    <div id="trendSection" className="px-4 md:px-8 lg:px-16 bg-background">
+    <div
+      id="trendSection"
+      className="px-4 md:px-8 lg:px-16 bg-background mt-24"
+    >
       <div className="mb-4">
         <div className="w-full flex justify-center mb-8">
           <HoverText text="Trends" type="title" />

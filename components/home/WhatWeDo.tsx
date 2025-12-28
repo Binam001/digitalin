@@ -124,7 +124,7 @@ const WhatWeDo = () => {
             return (
               <motion.div
                 key={item.id}
-                className={`relative h-60 lg:h-80 group rounded-2xl border border-foreground/30 overflow-hidden will-change-transform flex items-center ${
+                className={`relative h-60 lg:h-80 group rounded-2xl border-2 border-foreground/30 overflow-hidden will-change-transform flex items-center ${
                   item.id % 2 === 0 ? "lg:relative lg:top-1/3" : ""
                 }`}
                 initial={{

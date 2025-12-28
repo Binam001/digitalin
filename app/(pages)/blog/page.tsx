@@ -4,7 +4,7 @@ import HeroSection from "@/components/blog/HeroSection";
 const page = () => {
   return (
     <div>
-      <HeroSection />
+      {/* <HeroSection /> */}
       <BlogSection />
     </div>
   );

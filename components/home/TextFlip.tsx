@@ -21,7 +21,7 @@ const TextFlip: React.FC = () => {
     </>,
     <>
       And attention
-      <span className="text-primary"> sells products</span>.
+      <span className="text-primary"> sells products.</span>
     </>,
   ];
 
@@ -62,6 +62,7 @@ const TextFlip: React.FC = () => {
   return (
     <>
       <section
+        id="text-flip"
         ref={containerRef}
         className="relative w-screen bg-background"
         style={{ height: pinHeight }}
@@ -94,7 +95,7 @@ const TextFlip: React.FC = () => {
                 }}
                 className="w-full absolute"
               >
-                <h1 className="text-3xl lg:text-7xl font-bold text-foreground whitespace-nowrap">
+                <h1 className="text-3xl lg:text-6xl font-bold text-foreground whitespace-nowrap">
                   {texts[currentIndex]}
                 </h1>
               </motion.div>

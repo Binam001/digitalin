@@ -180,7 +180,7 @@ const ServiceSection = () => {
     <div ref={containerRef} className="relative">
       {/* Background layer */}
       <div ref={bgRef} className="fixed inset-0 z-0" />
-      <header className="relative z-10 h-screen flex items-center justify-center bg-background">
+      {/* <header className="relative z-10 h-screen flex items-center justify-center bg-background">
         <BgBubble />
         <div className="w-full flex flex-col items-center justify-center gap-8">
           <HoverText
@@ -192,7 +192,7 @@ const ServiceSection = () => {
             results.
           </p>
         </div>
-      </header>
+      </header> */}
 
       {/* Scroll-driven service showcase */}
       <main className="relative z-10">
