@@ -10,6 +10,7 @@ import HorizontalScroll from "@/components/home/HorizontalScroll";
 import Introduction from "@/components/home/Introduction";
 import MarqueeExpand from "@/components/home/MarqueeExpand";
 import SecondSection from "@/components/home/SecondSection";
+import TextFlip from "@/components/home/TextFlip";
 import ThirdSection from "@/components/home/ThirdSection";
 import WhatWeDo from "@/components/home/WhatWeDo";
 import HoverImageReveal from "@/components/image-reveal";
@@ -42,9 +43,10 @@ export default function Home() {
       </div>
       <div className="h-dvh" />
       <div className="relative z-20">
-        <Introduction />
+        <TextFlip />
+        {/* <Introduction />
         <SecondSection />
-        <ThirdSection />
+        <ThirdSection /> */}
       </div>
 
       <HoverImageReveal />

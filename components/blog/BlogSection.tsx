@@ -1,60 +1,64 @@
 "use client";
-
 import { blogLists } from "@/constants";
 import { Icon } from "@iconify/react";
 import Link from "next/link";
-import HoverText from "../HoverText";
 import { InteractiveHoverButton } from "../ui/interactive-hover-button";
 import RightSection from "./RightSection";
+import { useEffect, useState } from "react";
+import { useMediaQuery } from "react-responsive";
+import { motion, AnimatePresence } from "framer-motion";
+import { DrawerPortal } from "../ui/drawer-portal";
 
 const BlogSection = () => {
+  const isTablet = useMediaQuery({ maxWidth: 767 });
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+
+  useEffect(() => {
+    if (isDrawerOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isDrawerOpen]);
+
   return (
     <div id="blogSection" className="px-4 md:px-8 lg:px-16">
       <div className="mb-4">
         <div className="w-full flex justify-center mb-8">
-          <HoverText text="Blogs" type="title" />
+          <h1 className="text-2xl lg:text-5xl font-[Poppins-ExtraBold] uppercase">
+            Blogs
+          </h1>
         </div>
-        <div className="flex gap-4">
-          {/* left section */}
-          {/* <div className="space-y-4 w-[70%]">
-            {blogLists.map((blog) => (
-              <div
-                key={blog.id}
-                className={`group h-fit relative rounded-lg border border-foreground/30 p-4 flex flex-col gap-2`}
-              >
-                <div className="flex justify-between">
-                  <p className="text-lg text-primary font-semibold">
-                    {blog.title}
-                  </p>
-                  <Link
-                    href={blog.slug ? `/blog/${blog.slug}` : "#"}
-                    className="text-sm"
-                  >
-                    <InteractiveHoverButton
-                      text="Read More"
-                      className="border-foreground/30"
-                      dotClassName="bg-foreground/30"
-                    />
-                  </Link>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="relative w-[30%] h-full rounded-md overflow-hidden">
-                    <img
-                      src={blog.image}
-                      alt={blog.title}
-                      className="w-full h-full object-cover rounded-md group-hover:scale-[1.05] transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 w-full h-full bg-linear-to-b from-black/70 via-transparent to-black/70 duration-300 transition-colors rounded-md" />
-                  </div>
-                  <div className="w-[70%] space-y-4">
-                    <p className="line-clamp-6 text-sm">{blog.desc}</p>
-                  </div>
-                </div>
+        {isTablet && (
+          <div>
+            <p className="text-lg text-primary font-semibold">
+              Search for Blog
+            </p>
+            <div className="flex items-center justify-between">
+              <div className="relative w-[80%]">
+                <input
+                  type="text"
+                  className="border border-foreground/30 rounded-md w-full p-2 mt-1 text-foreground/50 focus:outline-none"
+                  placeholder="Search for Blog"
+                />
+                <Icon
+                  icon="iconoir:search"
+                  className="size-5 absolute top-1/2 -translate-y-1/2 right-2 text-foreground/50"
+                />
               </div>
-            ))}
-          </div> */}
-
-          <div className="w-[70%] h-full grid grid-cols-3 gap-4">
+              <button onClick={() => setIsDrawerOpen(true)} className="p-2">
+                <Icon icon="mage:filter" className="size-6" />
+              </button>
+            </div>
+          </div>
+        )}
+        <div className="flex gap-4 relative mt-4">
+          {/* left section */}
+          <div className="w-full lg:w-[70%] h-full grid grid-cols-1 lg:grid-cols-3 gap-4">
             {blogLists.map((blog) => (
               <Link
                 href={blog.slug ? `/blog/${blog.slug}` : "#"}
@@ -71,7 +75,7 @@ const BlogSection = () => {
                   <img
                     src={blog.image}
                     alt={blog.title}
-                    className="h-36 object-cover rounded-md group-hover:scale-[1.02] transition-transform duration-300"
+                    className="lg:h-36 object-cover rounded-md group-hover:scale-[1.02] transition-transform duration-300"
                   />
                 </div>
                 <div className="flex justify-between text-foreground/70">
@@ -84,11 +88,46 @@ const BlogSection = () => {
               </Link>
             ))}
           </div>
-
-          {/* right section */}
-          <RightSection />
+          {/* right section - desktop */}
+          {!isTablet && <RightSection setIsDrawerOpen={setIsDrawerOpen} />}
         </div>
       </div>
+
+      {/* Mobile Drawer */}
+      <AnimatePresence>
+        {isTablet && isDrawerOpen && (
+          <DrawerPortal>
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="fixed inset-0 bg-black/50 z-999"
+              onClick={() => setIsDrawerOpen(false)}
+            />
+
+            {/* Drawer */}
+            <motion.div
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ type: "spring", damping: 25, stiffness: 200 }}
+              className="
+          fixed top-0 right-0 z-50
+          h-[100dvh] overflow-auto! w-[85%] max-w-md
+          bg-background shadow-2xl
+          
+        "
+            >
+              {/* Content */}
+              <div className="p-6 pt-16">
+                <RightSection setIsDrawerOpen={setIsDrawerOpen} />
+              </div>
+            </motion.div>
+          </DrawerPortal>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

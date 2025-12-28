@@ -3,14 +3,14 @@ const WhoWeAre = () => {
     <section className="py-24 bg-background relative">
       <div className="">
         {/* Section Header */}
-        <div className="w-[70%] justify-self-end mb-20">
+        <div className="lg:w-[70%] lg:justify-self-end mb-16">
           <div className="">
             <span className="text-primary text-sm tracking-[0.3em] uppercase">
               01 / Who We Are
             </span>
           </div>
           <div className="lg:col-span-8">
-            <h2 className="text-5xl md:text-6xl lg:text-7xl text-foreground leading-[0.9]">
+            <h2 className="text-3xl md:text-5xl lg:text-7xl text-foreground lg:leading-[0.9]">
               A COLLECTIVE OF
               <span className="block text-primary">CREATIVE MINDS</span>
               BASED IN NEPAL
@@ -19,7 +19,7 @@ const WhoWeAre = () => {
         </div>
 
         {/* Content Grid */}
-        <div className="w-[70%] justify-self-end">
+        <div className="lg:w-[70%] lg:justify-self-end space-y-4">
           <div className="h-px bg-foreground/30 mb-8" />
           <p className="text-lg text-muted-foreground leading-relaxed">
             Our team blends creativity and strategy to craft innovative

@@ -13,6 +13,7 @@ import useLaptopStore from "@/store";
 import LaptopModel from "./Laptop";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { cn } from "@/lib/utils";
+import { InteractiveHoverButton } from "../ui/interactive-hover-button";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -73,7 +74,7 @@ const ModelScroll = () => {
       });
 
       // Set initial position: Feature 1 has text on left, model on right
-      gsap.set(groupRef.current.position, { x: 2 });
+      gsap.set(groupRef.current.position, { x: `${isTablet ? 0 : 2}` });
 
       // Show first feature immediately
       gsap.set(".box1", { opacity: 1, y: 0 });
@@ -82,7 +83,7 @@ const ModelScroll = () => {
       modelTimeline
         // Feature 1 → 2: Model moves from right to left
         .to(groupRef.current.position, {
-          x: -2,
+          x: `${isTablet ? 0 : -2}`,
           ease: "power2.inOut",
         })
         .to(
@@ -96,7 +97,7 @@ const ModelScroll = () => {
 
         // Feature 2 → 3: Model moves from left to right
         .to(groupRef.current.position, {
-          x: 2,
+          x: `${isTablet ? 0 : 2}`,
           ease: "power2.inOut",
         })
         .to(
@@ -161,7 +162,7 @@ const ModelScroll = () => {
           </Html>
         }
       >
-        <LaptopModel scale={isTablet ? 0.05 : 0.08} position={[0, -1, 0]} />
+        <LaptopModel scale={isTablet ? 0.03 : 0.08} position={[0, -1, 0]} />
       </Suspense>
     </group>
   );
@@ -171,10 +172,10 @@ const AdsViewer = () => {
   return (
     <section
       id="features"
-      className="w-screen h-screen flex flex-col items-center justify-center relative"
+      className="w-screen h-screen flex flex-col items-center relative"
     >
       <div className="mt-24">
-        <p className="text-4xl font-semibold">
+        <p className="text-2xl lg:text-4xl text-center lg:text-left font-semibold">
           Explore the campaigns we've brought to life
         </p>
       </div>
@@ -185,26 +186,31 @@ const AdsViewer = () => {
         <ModelScroll />
       </Canvas>
 
-      <div className="absolute top-1/3 z-40 w-full h-full">
+      <div className="absolute top-1/4 lg:top-1/3 z-40 w-full h-full">
         {features.map((feature) => (
           <div
             key={feature.id}
             className={cn(
               "box",
               `box${feature.id}`,
-              "absolute w-[40%] px-4 md:px-8 lg:px-16 opacity-0",
+              "absolute w-full lg:w-[40%] px-4 md:px-8 lg:px-16 opacity-0",
               `${feature.id % 2 === 0 ? "right-0" : "left-0"}`,
               feature.styles
             )}
           >
             <p className="flex flex-col">
-              <span className="text-primary text-2xl font-semibold mb-4">
-                {feature.highlight}
+              <span className="text-primary lg:text-2xl font-semibold mb-4">
+                {feature.title}
               </span>
-              {feature.text}
+              {feature.desc}
             </p>
           </div>
         ))}
+        {/* <InteractiveHoverButton text="View More" /> */}
+      </div>
+
+      <div className="">
+        {/* <InteractiveHoverButton text="View More" /> */}
       </div>
     </section>
   );

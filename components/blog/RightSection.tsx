@@ -3,6 +3,8 @@
 import { Icon } from "@iconify/react";
 import React, { useState } from "react";
 import Link from "next/link";
+import { useMediaQuery } from "react-responsive";
+import { is } from "@react-three/fiber/dist/declarations/src/core/utils";
 
 // Generate months for a given year
 const getMonthsForYear = (year: number) => {
@@ -35,32 +37,51 @@ const categoryLists = [
   { id: 11, title: "Web Design & UX", link: "#" },
 ];
 
-const RightSection = () => {
+interface RightSectionProps {
+  setIsDrawerOpen?: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const RightSection: React.FC<RightSectionProps> = ({ setIsDrawerOpen }) => {
   const currentYear = new Date().getFullYear();
   const years = [currentYear, currentYear - 1]; // current + previous year
   const [openYear, setOpenYear] = useState<number | null>(currentYear);
+  const isTablet = useMediaQuery({ maxWidth: 767 });
 
   const toggleYear = (year: number) => {
     setOpenYear(openYear === year ? null : year);
   };
 
   return (
-    <div className="w-[30%] rounded-lg border border-foreground/30 p-4 space-y-8">
-      {/* Search */}
-      <div>
-        <p className="text-lg text-primary font-semibold">Search for Blog</p>
-        <div className="relative">
-          <input
-            type="text"
-            className="border border-foreground/30 rounded-md w-full p-2 mt-1 text-foreground/50 focus:outline-none"
-            placeholder="Search for Blog"
-          />
-          <Icon
-            icon="iconoir:search"
-            className="size-5 absolute top-1/2 -translate-y-1/2 right-2 text-foreground/50"
-          />
-        </div>
+    <div className="w-full lg:w-[30%] rounded-lg border border-foreground/30 p-4 space-y-8 h-[80vh] lg:h-auto overflow-y-scroll lg:overflow-hidden">
+      <div className="flex justify-between items-center">
+        {isTablet ? (
+          <p className="text-lg text-primary font-semibold">Category Filter</p>
+        ) : (
+          <p className="text-lg text-primary font-semibold">Search for Blog</p>
+        )}
+
+        {isTablet && setIsDrawerOpen && (
+          <button onClick={() => setIsDrawerOpen(false)} className="">
+            <Icon icon="mdi:close" className="size-6" />
+          </button>
+        )}
       </div>
+      {/* Search */}
+      {!isTablet && (
+        <div>
+          <div className="relative">
+            <input
+              type="text"
+              className="border border-foreground/30 rounded-md w-full p-2 mt-1 text-foreground/50 focus:outline-none"
+              placeholder="Search for Blog"
+            />
+            <Icon
+              icon="iconoir:search"
+              className="size-5 absolute top-1/2 -translate-y-1/2 right-2 text-foreground/50"
+            />
+          </div>
+        </div>
+      )}
 
       {/* Months Section */}
       <div>

@@ -1,34 +1,38 @@
-import React from "react";
 import {
   ThreeDScrollTriggerContainer,
   ThreeDScrollTriggerRow,
 } from "../lightswind/3d-scroll-trigger";
 import { brandsALists, brandsBLists } from "@/constants";
-import { img } from "framer-motion/client";
 import { InteractiveHoverButton } from "../ui/interactive-hover-button";
 import Link from "next/link";
-import HoverText from "../HoverText";
 const Brands = () => {
   return (
-    <div className="w-screen h-screen flex flex-col justify-center gap-4">
+    <div className="w-screen h-screen flex flex-col justify-center gap-16">
       <div className="w-full flex justify-center mb-8">
-        {/* <HoverText text="We've Worked With" type="title" /> */}
-        <p className="text-5xl font-[Poppins-ExtraBold] uppercase">
+        <p className="text-2xl lg:text-5xl font-[Poppins-ExtraBold] uppercase">
           We've Worked With
         </p>
       </div>
       <ThreeDScrollTriggerContainer>
-        <ThreeDScrollTriggerRow baseVelocity={10} direction={1}>
+        <ThreeDScrollTriggerRow baseVelocity={5} direction={1}>
           {brandsALists.map((brandsAItem) => (
             <div key={brandsAItem.id} className="px-4">
-              <img src={brandsAItem.image} alt={brandsAItem.title} />
+              <img
+                src={brandsAItem.image}
+                alt={brandsAItem.title}
+                className="w-2/3"
+              />
             </div>
           ))}
         </ThreeDScrollTriggerRow>
-        <ThreeDScrollTriggerRow baseVelocity={10} direction={-1}>
+        <ThreeDScrollTriggerRow baseVelocity={5} direction={-1}>
           {brandsBLists.map((brandsBItem) => (
             <div key={brandsBItem.id} className="px-4">
-              <img src={brandsBItem.image} alt={brandsBItem.title} />
+              <img
+                src={brandsBItem.image}
+                alt={brandsBItem.title}
+                className="w-2/3"
+              />
             </div>
           ))}
         </ThreeDScrollTriggerRow>

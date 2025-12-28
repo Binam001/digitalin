@@ -1,5 +1,3 @@
-import HoverText from "../HoverText";
-
 const OurVision = () => {
   return (
     <section className="bg-background relative overflow-hidden px-0">
@@ -13,12 +11,12 @@ const OurVision = () => {
           />
         </div>
 
-        <div className="flex flex-col justify-center p-8 lg:p-16 xl:p-24 order-1 lg:order-2">
+        <div className="flex flex-col justify-center px-4 md:px-8 lg:px-16 order-1 lg:order-2">
           <span className="text-primary text-sm tracking-[0.3em] uppercase mb-8">
             02 / Our Vision
           </span>
 
-          <h2 className="text-5xl md:text-6xl lg:text-7xl leading-[0.9] mb-8 text-foreground uppercase flex flex-col">
+          <h2 className="text-3xl md:text-5xl lg:text-7xl lg:leading-[0.9] mb-8 text-foreground uppercase flex flex-col">
             Leading the
             <span className="text-primary">Creative</span>
             <span className="text-primary">Revolution</span>

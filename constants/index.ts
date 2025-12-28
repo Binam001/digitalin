@@ -11,27 +11,27 @@ const navLinks = [
 const whatWeDoLists = [
   {
     id: 1,
-    title: "Facebook Advertising",
-    image: "/images/whatWeDo/facebook-Advertising.jpg",
-    desc: "Facebook Advertising is a powerful way to reach your ideal customers by placing targeted ads across Facebook's network. With advanced audience segmentation, precise interest-based targeting, and real-time optimization, Facebook allows you to connect with people who are genuinely interested in your brand. Whether your goal is brand awareness, generate lead, website traffic, or direct sales — Facebook Advertising provides the tools to deliver measurable results. As a Facebook advertising agency in Nepal, Digitalin specializes in designing performance-driven Facebook ad campaigns that align with your business goals. From compelling visuals and persuasive content to advanced targeting and budget optimization, we ensure that every rupee you spend works smarter — generating real engagement, quality leads, and impactful conversions. Whether you're launching a new brand, expanding your reach, or boosting your online sales, our Facebook advertising solutions help you achieve growth with strategic, digital marketing execution.",
+    title: "Social Media Advertising",
+    image: "/images/whatWeDo/social-media-ad.png",
+    desc: "We create impactful social media strategies that grow your brand and engage the right audience. From content creation to campaign management, we turn likes, shares, and followers into real business results.",
   },
   {
     id: 2,
     title: "Digital Advertising",
-    image: "/images/whatWeDo/digital-advertising.png",
+    image: "/images/whatWeDo/digital-ad.png",
     desc: "Digital advertising is the use of online platforms—like Google, Facebook, Instagram, and YouTube—to promote your brand, products, or services to the right audience at the right time. It involves placing targeted ads across digital channels using tools that allow precise control over audience segments, budgets, timing, and messaging to drive not only clicks but meaningful engagement. At Digitalin, we specialize in crafting data-driven digital ad campaigns that deliver measurable and high quality results. From search and display ads to social media and video promotions, our approach ensures that your advertising budget works harder—generating more traffic, higher engagement, qualified leads, and conversions. Whether you're looking to build brand awareness, foster audience interaction, or drive sales, we help you reach your business goals with strategic, performance-focused advertising and marketing.",
   },
   {
     id: 3,
     title: "Search Engine Optimization",
-    image: "/images/whatWeDo/seo-company-in-nepal.png",
+    image: "/images/whatWeDo/seo-ad.png",
     desc: "SEO (Search Engine Optimization) involves optimizing your website and content to make it more attractive to search engines. This process includes on-page SEO (optimizing individual pages with the right keywords, meta tags, and high-quality content) and off-page SEO (building backlinks and improving your website's authority). The goal of SEO is to increase your website visibility on search engine results pages (SERPs), making it easier for potential customers to find you through organic search and improve keyword rankings. As an expert SEO company in Nepal, we focus on creating strategy based approaches that help your website rank higher, attract more visitors, and convert them into loyal customers.",
   },
   {
     id: 4,
-    title: "Search Engine Marketing",
-    image: "/images/whatWeDo/search-engine-marketing-1.png",
-    desc: "Search Engine Marketing (SEM) is a powerful digital strategy that places your business at the top of search engine results when customers are actively looking for your products or services. It uses paid advertising platforms like Google Ads to drive instant visibility, highly targeted traffic, and strong conversions through keyword-focused campaigns. As a trusted search engine marketing agency, Digitalin helps businesses grow through strategic search engine marketing SEM practices built on smart marketing strategy, precise targeting, and controlled ad spend. Unlike generic promotion, SEM allows you to reach your audience at the right time, when they are most ready to take action. As a performance-focused digital marketing agency, we design high-impact sem campaigns that improve your online presence and strengthen your online visibility, ensuring your brand shows up exactly where it matters most.",
+    title: "Web Development",
+    image: "/images/whatWeDo/web-dev-ad.png",
+    desc: "We build fast, modern websites that don't just look great—they perform. From responsive design to seamless user experience, our web development turns visitors into customers and supports your business goals.",
   },
 ];
 
@@ -172,23 +172,23 @@ const features = [
   {
     id: 1,
     icon: "/images/icons/feature-icon1.svg",
-    highlight: "Mountain Dew",
-    text: "The mountains are calling, and the adrenaline is rising. In a land where adventure is in our DNA, Mountain Dew stands as the ultimate fuel for those who refuse to back down.",
-    styles: "top-[20%]",
+    title: "Mountain Dew",
+    desc: "The mountains are calling, and the adrenaline is rising. In a land where adventure is in our DNA, Mountain Dew stands as the ultimate fuel for those who refuse to back down.",
+    styles: "top-[0%]",
   },
   {
     id: 2,
     icon: "/images/icons/feature-icon2.svg",
-    highlight: "Pepsi",
-    text: "Our latest creative for Pepsi Nepal highlights the crisp, carbonated kick that cuts through the spice and doubles the delight. Because let's be honest: a meal without a cold Pepsi isn't a meal—it's just a snack.",
+    title: "Pepsi",
+    desc: "Our latest creative for Pepsi Nepal highlights the crisp, carbonated kick that cuts through the spice and doubles the delight. Because let's be honest: a meal without a cold Pepsi isn't a meal—it's just a snack.",
     styles: "top-[50%] opacity-0",
   },
   {
     id: 3,
     icon: "/images/icons/feature-icon3.svg",
-    highlight: "Happydent",
-    text: "Brighten every smile with Happydent! Enjoy long-lasting freshness and a burst of delicious flavor with every chew. Because your smile deserves to shine anywhere, anytime..",
-    styles: "top-[100%] opacity-0",
+    title: "Happydent",
+    desc: "Brighten every smile with Happydent! Enjoy long-lasting freshness and a burst of delicious flavor with every chew. Because your smile deserves to shine anywhere, anytime..",
+    styles: "top-[90%] opacity-0",
   },
   // {
   //   id: 4,

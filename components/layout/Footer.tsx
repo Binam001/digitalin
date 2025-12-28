@@ -11,23 +11,9 @@ const Footer = () => {
   return (
     <footer className="flex flex-col items-center w-screen px-4 md:px-8 lg:px-16 bg-background relative">
       <div className="flex flex-col items-center gap-4">
-        <div className="space-y-4 text-center">
-          {/* <p>Ideas or Ads?</p> */}
-          {/* <HoverText text="Let's Launch." className="text-4xl font-semibold" /> */}
-        </div>
-        {/* <AnalogClock /> */}
-        {/* <div className="text-background">
-          <p>We guessed you're in Nepal?</p>
-        </div> */}
-        {/* <Link href="/contact">
-          <InteractiveHoverButton
-            text="Contact Us"
-            className="text-foreground"
-          />
-        </Link> */}
+        <div className="space-y-4 text-center"></div>
         <div className="">
-          {/* <HoverText text="DIGITALIN" type="footer" className="leading-[0.7]" /> */}
-          <p className="text-[200px] font-[Poppins-ExtraBold] tracking-wider">
+          <p className="text-6xl lg:text-[200px] font-[Poppins-ExtraBold] tracking-wider">
             DIGITALIN
           </p>
         </div>
@@ -36,9 +22,8 @@ const Footer = () => {
       <div className="w-screen py-4 z-40 bg-background">
         <div className="px-4 md:px-8 lg:px-16 space-y-8 text-sm">
           <hr className="h-px w-full text-foreground/30" />
-          <div className="flex justify-between w-full">
+          <div className="flex justify-between flex-col lg:flex-row gap-8 lg:gap-0 w-full">
             <div className="">
-              {/* <HoverText text="Contact Us" type="subTitle" /> */}
               <p className="text-lg text-primary font-semibold">Contact Us</p>
               <div className="flex flex-col gap-y-4 mt-4">
                 {contactLists.map((contactItem) => (
@@ -55,13 +40,13 @@ const Footer = () => {
             </div>
 
             <div className="">
-              <div className="justify-self-end">
+              <div className="lg:justify-self-end">
                 {/* <HoverText text="Stay Connected" type="subTitle" /> */}
                 <p className="text-lg text-primary font-semibold">
                   Stay Connected
                 </p>
               </div>
-              <div className="flex items-center gap-4 mt-4">
+              <div className="flex items-center gap-8 lg:gap-4 mt-4">
                 {socialLinkLists.map((socialLinkItem) => (
                   <Link key={socialLinkItem.id} href={socialLinkItem.href}>
                     <Icon
@@ -79,7 +64,7 @@ const Footer = () => {
               <span className="text-xs">© Copyright 2025 DigitalIn</span>
             </div>
 
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-1 md:gap-2">
               <span className="text-xs whitespace-nowrap">
                 Design & Developed by
               </span>
@@ -88,7 +73,11 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <img src="/webx-logo.png" alt="webx logo" className="w-12" />
+                <img
+                  src="/webx-logo.png"
+                  alt="webx logo"
+                  className="w-10 md:w-12"
+                />
               </Link>
             </div>
           </div>

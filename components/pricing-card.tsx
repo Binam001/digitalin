@@ -1,7 +1,7 @@
 "use client";
 import * as React from "react";
 import { cn } from "@/lib/utils"; // Assuming a utility function for class merging
-import { Button } from "@/components/ui/button";
+// import { Button } from "@/components/ui/button";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import {
   Card,
@@ -13,7 +13,6 @@ import {
 } from "@/components/ui/card";
 import { Check, X } from "lucide-react";
 import { InteractiveHoverButton } from "./ui/interactive-hover-button";
-import HoverText from "./HoverText";
 // --- 1. Typescript Interfaces (API) ---
 
 type PackageCycle = "Social Media Package" | "Influence Package" | "Ad Package";
@@ -108,7 +107,7 @@ const PricingComponent: React.FC<PricingComponentProps> = ({
           }
         }}
         aria-label="Select billing cycle"
-        className="border border-foreground/30 rounded-lg p-1 bg-background/50"
+        className="border border-foreground/30 rounded-lg p-1 bg-background/50 space-x-4"
       >
         <ToggleGroupItem
           value="Social Media Package"
@@ -334,7 +333,9 @@ const PricingComponent: React.FC<PricingComponentProps> = ({
       {...props}
     >
       <header className="w-full flex justify-center mb-8">
-        <HoverText text="Pick Your Growth Package" type="title" />
+        <h1 className="text-5xl font-[Poppins-ExtraBold] uppercase">
+          Pick Your Growth Package
+        </h1>
       </header>
 
       {CycleToggle}

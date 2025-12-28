@@ -212,33 +212,35 @@ const HoverImageReveal = React.forwardRef<HTMLDivElement, ComponentProps>(
     }
 
     return (
-      <div className="py-16 bg-background">
+      <div className="lg:py-16">
         <div className="w-full flex justify-center -mb-8 z-60 relative bg-background pt-16">
           {/* <HoverText text="Where Strategy Meets Creativity" type="title" /> */}
-          <p className="text-5xl font-[Poppins-ExtraBold] uppercase">
+          <p className="text-2xl lg:text-5xl text-center font-[Poppins-ExtraBold] uppercase">
             Where Strategy Meets Creativity
           </p>
         </div>
         <div
           ref={ref}
           className={cn(
-            "relative py-24 grid grid-cols-2 gap-x-8 bg-background z-50"
+            "relative py-24 grid md:grid-cols-2 gap-8 bg-background z-50"
           )}
           onMouseLeave={handleMouseLeave}
           {...props}
         >
           {/* Background Gradients */}
-          {images.map((image) => (
-            <div
-              key={`bg-${image.id}`}
-              className={cn(
-                "absolute inset-0 transition-opacity duration-500 ease-in-out",
-                image.gradient,
-                activeImage?.id === image.id ? "opacity-100" : "opacity-0"
-              )}
-              style={{ gridColumn: "1 / -1" }} // Span across all grid columns
-            />
-          ))}
+
+          {isDesktop &&
+            images.map((image) => (
+              <div
+                key={`bg-${image.id}`}
+                className={cn(
+                  "absolute inset-0 transition-opacity duration-500 ease-in-out",
+                  image.gradient,
+                  activeImage?.id === image.id ? "opacity-100" : "opacity-0"
+                )}
+                style={{ gridColumn: "1 / -1" }} // Span across all grid columns
+              />
+            ))}
 
           {images.map((image) => (
             <Link
@@ -252,16 +254,16 @@ const HoverImageReveal = React.forwardRef<HTMLDivElement, ComponentProps>(
               )}
               onMouseEnter={() => handleImageHover(image)}
             >
-              {!isDesktop && (
+              {/* {!isDesktop && (
                 <img
                   src={image.src}
                   className="sm:w-32 sm:h-20 w-full h-52 object-cover rounded-md"
                   alt="mobileImg"
                 />
-              )}
+              )} */}
               <h2
                 className={cn(
-                  `text-5xl sm:py-6 py-2 leading-[100%] relative flex items-center gap-8`,
+                  `text-xl md:text-5xl sm:py-6 py-2 leading-[100%] relative flex items-center justify-center gap-8`,
                   activeImage?.id === image.id
                     ? "mix-blend-difference z-20 text-gray-300"
                     : "text-gray-700 dark:text-gray-300"
@@ -269,14 +271,14 @@ const HoverImageReveal = React.forwardRef<HTMLDivElement, ComponentProps>(
               >
                 {image.title}
                 <span
-                  className={`font-[Poppins-Light] text-foreground/50 ${
-                    image.id % 2 !== 0 ? "block" : "hidden"
+                  className={`font-[Poppins-Light] text-foreground/50 hidden ${
+                    image.id % 2 !== 0 ? "lg:block" : "hidden"
                   }`}
                 >
                   /
                 </span>
                 <span
-                  className={`absolute top-4 text-base font-light text-foreground/50 ${
+                  className={`absolute top-4 text-base font-light text-foreground/50 hidden lg:block ${
                     image.id % 2 === 0 ? "-right-5" : "right-8"
                   }`}
                 >

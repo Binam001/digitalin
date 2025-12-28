@@ -85,7 +85,7 @@ const WhatWeDo = () => {
     <div>
       <section
         ref={container}
-        className="services relative w-screen h-screen flex flex-col items-center justify-center overflow-hidden z-20"
+        className="services relative w-screen h-screen flex flex-col items-center justify-center overflow-hidden z-20 pointer-events-none"
       >
         {[
           {
@@ -116,28 +116,15 @@ const WhatWeDo = () => {
           </div>
         ))}
       </section>
-
-      {/* <section className="services-copy relative w-screen h-[50vh] mt-[155dvh] p-8 flex items-center text-center">
-        <h1 className="animate-text text-4xl font-semibold text-center w-full md:w-[70%] mx-auto">
-          We are a world-class team creating innovative advertising, marketing,
-          and social media solutions for growing brands.
-        </h1>
-      </section> */}
       <section className="w-screen my-28 bg-background mt-[160dvh]">
-        {/* <div className="w-full flex justify-center mb-8">
-          <p className="text-5xl font-[Poppins-ExtraBold] uppercase">
-            Our Services
-          </p>
-        </div> */}
-
-        <div className="grid grid-cols-2 gap-8">
+        <div className="grid lg:grid-cols-2 gap-4 lg:gap-8">
           {whatWeDoLists.map((item, index) => {
             const isEven = index % 2 === 0;
 
             return (
               <motion.div
                 key={item.id}
-                className={`relative group rounded-2xl overflow-hidden will-change-transform ${
+                className={`relative h-60 lg:h-80 group rounded-2xl border border-foreground/30 overflow-hidden will-change-transform flex items-center ${
                   item.id % 2 === 0 ? "lg:relative lg:top-1/3" : ""
                 }`}
                 initial={{
@@ -159,17 +146,17 @@ const WhatWeDo = () => {
                   margin: "-80px",
                 }}
               >
-                <div className="relative">
+                <div className="relative w-[60%]">
                   <img
                     src={item.image}
                     alt={item.title}
-                    className="rounded-2xl h-80 w-full grayscale group-hover:grayscale-0 transition duration-500"
+                    className="rounded-2xl size-[80%] mx-auto object-contain grayscale group-hover:grayscale-0 transition duration-500"
                   />
-                  <div className="absolute inset-0 bg-black/50 pointer-events-none" />
+                  <div className="absolute inset-0 bg-black/50 group-hover:bg-transparent transition duration-500 pointer-events-none" />
                 </div>
 
                 <div className="absolute inset-0 flex flex-col items-end justify-between p-4">
-                  <div className="text-xl lg:text-3xl font-semibold w-[45%] text-right uppercase">
+                  <div className="text-xl lg:text-3xl font-semibold w-[45%] text-right text-foreground/30 group-hover:text-foreground uppercase transition duration-500">
                     {item.title}
                   </div>
 

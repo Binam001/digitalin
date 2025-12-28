@@ -44,7 +44,7 @@ const ThirdSection = () => {
         initial={{ x: "-100%", opacity: 0 }}
         whileInView={{ x: 0, opacity: 1 }}
         transition={{ duration: 1, ease: "easeOut" }}
-        className="text-7xl font-bold flex items-center gap-4"
+        className="text-2xl lg:text-7xl font-bold text-center z-10 flex items-center gap-4"
       >
         {/* <HoverText text="And" />
         <HoverText text="attention" className="text-primary" />

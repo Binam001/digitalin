@@ -47,7 +47,7 @@ const Introduction = () => {
         initial={{ x: "-100%", opacity: 0 }}
         whileInView={{ x: 0, opacity: 1 }}
         transition={{ duration: 1, ease: "easeOut" }}
-        className="text-7xl font-bold"
+        className="text-2xl lg:text-7xl font-bold text-center z-10"
       >
         {/* <HoverText text="We don't sell products" /> */}
         <p>We don't sell products</p>

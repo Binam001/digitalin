@@ -94,7 +94,7 @@ const Navbar = ({
               </>
             )}
 
-            <div className="menu-links grid grid-cols-3 relative w-full h-1/2 items-center justify-center px-4 md:px-8 lg:px-16">
+            <div className="menu-links grid grid-cols-1 lg:grid-cols-3 gap-8 relative w-full lg:h-1/2 items-center justify-center px-4 md:px-8 lg:px-16">
               {navLinks.map((link) => {
                 const isActive = pathname === link.href;
 
