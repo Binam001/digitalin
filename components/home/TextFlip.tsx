@@ -70,7 +70,7 @@ const TextFlip: React.FC = () => {
           <div className="absolute right-0 top-0 h-[120vh] w-1/2">
             <video
               src="/videos/home/video1.mp4"
-              className="h-full w-full object-right"
+              className="h-full w-full object-right pointer-events-none"
               autoPlay
               loop
               muted
