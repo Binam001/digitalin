@@ -10,26 +10,45 @@ import LaserFlow from "../LaserFlow";
 const Footer = () => {
   // const isMobile = useMediaQuery({ maxWidth: 425 });
   return (
-    <footer className="flex flex-col items-center w-screen px-4 md:px-8 lg:px-16 bg-background relative">
+    <footer className="flex flex-col items-center w-screen px-4 md:px-8 lg:px-16 bg-background relative overflow-hidden">
+      <div className="absolute w-full -top-24 z-50 rotate-180">
+        <LaserFlow
+          horizontalBeamOffset={0}
+          verticalBeamOffset={0.0}
+          horizontalSizing={1.5}
+          color="#f26622"
+        />
+      </div>
+
       <div className="flex flex-col items-center gap-4">
-        <div className="space-y-4 text-center"></div>
-        <div className="">
-          <p className="text-6xl lg:text-[200px] font-[Poppins-ExtraBold] tracking-wider">
+        {/* <div className="space-y-4 text-center"></div> */}
+        <div className="relative inline-block">
+          {/* Base text (normal color) */}
+          <p className="text-6xl lg:text-[200px] font-[Poppins-ExtraBold] tracking-wider text-white">
+            DIGITALIN
+          </p>
+
+          {/* Gradient overlay (only bottom 20%) */}
+          <p
+            className="
+      absolute inset-0
+      text-6xl lg:text-[200px]
+      font-[Poppins-ExtraBold]
+      tracking-wider
+      text-transparent
+      bg-[linear-gradient(to_top,#f26622_0%,#f26622_20%,#ffffff_100%)]
+      bg-clip-text
+      pointer-events-none
+    "
+          >
             DIGITALIN
           </p>
         </div>
       </div>
-      {/* <div className="relative w-full h-full">
-        <LaserFlow
-          horizontalBeamOffset={0.1}
-          verticalBeamOffset={0.0}
-          color="#FF79C6"
-        />
-      </div> */}
 
       <div className="w-screen py-4 z-40 bg-background">
         <div className="px-4 md:px-8 lg:px-16 space-y-8 text-sm">
-          <hr className="h-px w-full text-foreground/30" />
+          {/* <hr className="h-px w-full text-foreground/30" /> */}
           <div className="flex justify-between flex-col lg:flex-row gap-8 lg:gap-0 w-full">
             <div className="">
               <p className="text-lg text-primary font-semibold">Contact Us</p>
