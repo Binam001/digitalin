@@ -6,46 +6,55 @@ import { InteractiveHoverButton } from "../ui/interactive-hover-button";
 
 const Blog = () => {
   return (
-    <section className="w-screen h-screen flex flex-col justify-center gap-8">
-      <div className="">
+    <section className="w-screen min-h-screen flex relative py-8">
+      {/* <div className="">
         <h1 className="text-2xl lg:text-5xl font-[Poppins-ExtraBold] uppercase mb-8 text-center">
           Blogs
         </h1>
+      </div> */}
+      <div className="w-[40%] space-y-8 sticky top-24 h-fit">
+        <p className="text-[150px] uppercase leading-[0.8]">
+          Bl
+          <br />
+          ogs
+        </p>
+        <p>Read about advertising world.</p>
+        <Link href="/blog" className="">
+          <InteractiveHoverButton text="View More" />
+        </Link>
       </div>
-      <div className="w-full grid grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="w-[60%] space-y-12">
         {blogLists.map((blog) => (
           <Link
             href={blog.slug ? `/blog/${blog.slug}` : "#"}
             key={blog.id}
-            className="border border-foreground/30 p-4 rounded-lg flex flex-col justify-between gap-2 group hover:border-primary/30 transition-all duration-300 z-10"
+            // className="border border-foreground/30 p-4 rounded-lg flex flex-col justify-between gap-2 group hover:border-primary/30 transition-all duration-300 z-10"
+            className="flex h-75 gap-2"
           >
-            <div className="">
-              <p className="group-hover:text-primary transition-colors duration-300">
-                {blog.title}
-              </p>
-            </div>
-            <div className="space-y-2">
-              <p className="text-xs text-foreground/50">5m read time</p>
+            <div className="w-[30%] h-full rounded-md border overflow-hidden">
               <img
-                src={blog.image}
+                src={blog.src}
                 alt={blog.title}
-                className="lg:h-36 object-cover rounded-md group-hover:scale-[1.02] transition-transform duration-300"
+                className="w-full h-full object-cover"
               />
             </div>
-            <div className="flex justify-between text-foreground/70">
-              <div className="flex items-center gap-1">
-                <Icon icon="mdi:eye-outline" className="size-5" />
-                <span className="text-xs">4M</span>
+            <div className="w-[70%] flex flex-col justify-around">
+              <div className="">
+                <p className="text-sm">Dec, 2025</p>
+                <p className="text-xl">{blog.title}</p>
               </div>
-              <Icon icon="mdi:share" className="size-6" />
+
+              <InteractiveHoverButton
+                text="Read More"
+                className="text-xs w-fit"
+              />
+              <p className="text-sm line-clamp-4 text-foreground/70">
+                {blog.desc}
+              </p>
             </div>
           </Link>
         ))}
       </div>
-
-      <Link href="/blog" className="flex justify-center">
-        <InteractiveHoverButton text="View More" />
-      </Link>
     </section>
   );
 };

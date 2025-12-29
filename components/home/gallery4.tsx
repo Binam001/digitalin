@@ -100,9 +100,9 @@ const Gallery4 = () => {
   }, [carouselApi]);
 
   return (
-    <section className="w-screen min-h-screen flex flex-col items-center justify-center">
+    <section className="w-screen min-h-screen flex flex-col items-center justify-center pt-40">
       <div className="w-full select-none relative space-y-8">
-        <Button
+        {/* <Button
           size="icon"
           variant="ghost"
           onClick={() => {
@@ -123,7 +123,7 @@ const Gallery4 = () => {
           className="disabled:pointer-events-auto rounded-full bg-primary hover:bg-primary/70 absolute top-1/2 -right-4 -translate-y-1/2 z-10"
         >
           <ArrowRight className="size-5 text-white" />
-        </Button>
+        </Button> */}
         <h1 className="text-2xl lg:text-5xl font-[Poppins-ExtraBold] uppercase my-8 text-center">
           Our Portfolio
         </h1>

@@ -1,6 +1,3 @@
-import BgBubble from "../BgBubble";
-import HoverText from "../HoverText";
-
 const HeroSection = () => {
   return (
     <section className="min-h-screen bg-background relative overflow-hidden w-screen px-0">

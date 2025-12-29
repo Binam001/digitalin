@@ -6,6 +6,8 @@ import Navbar from "@/components/layout/Navbar";
 import LenisProvider from "@/providers/LenisProvider";
 import Footer from "@/components/layout/Footer";
 import CustomCursor from "@/components/CustomCursor";
+import PageTransition from "@/components/PageTransition";
+import TransitionProvider from "@/context/TransitionContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -36,14 +38,19 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden`}
       >
         <LenisProvider>
+          {/* <TransitionProvider>
+            <PageTransition> */}
           <CustomCursor />
           <Navbar
             blogCount={blogLists.length}
             trendCount={trendLists.length}
             serviceCount={serviceLists.length}
           />
-          {children}
+          <main className="page-content">{children}</main>
+
           <Footer />
+          {/* </PageTransition>
+          </TransitionProvider> */}
         </LenisProvider>
       </body>
     </html>

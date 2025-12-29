@@ -1,6 +1,3 @@
-import BgBubble from "@/components/BgBubble";
-// import HeroSection from "@/components/trend/HeroSection";
-import HoverText from "@/components/HoverText";
 import { trendLists } from "@/constants";
 import { Icon } from "@iconify/react";
 import Link from "next/link";

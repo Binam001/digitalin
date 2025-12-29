@@ -5,7 +5,6 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { serviceLists, whatWeDoLists } from "@/constants";
 import { InteractiveHoverButton } from "../ui/interactive-hover-button";
-import BgBubble from "../BgBubble";
 import HoverText from "../HoverText";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -197,7 +196,6 @@ const ServiceSection = () => {
 
       {/* Hero Section */}
       <header className="relative z-10 h-screen flex items-center justify-center bg-background">
-        <BgBubble />
         <div className="w-full flex flex-col items-center justify-center gap-8">
           <HoverText
             text="Built to Perform, Designed to Impress"

@@ -4,6 +4,7 @@ import HoverText from "../HoverText";
 import { InteractiveHoverButton } from "../ui/interactive-hover-button";
 import { contactLists, socialLinkLists } from "@/constants";
 import { Icon } from "@iconify/react";
+import LaserFlow from "../LaserFlow";
 // import { useMediaQuery } from "react-responsive";
 
 const Footer = () => {
@@ -18,6 +19,13 @@ const Footer = () => {
           </p>
         </div>
       </div>
+      {/* <div className="relative w-full h-full">
+        <LaserFlow
+          horizontalBeamOffset={0.1}
+          verticalBeamOffset={0.0}
+          color="#FF79C6"
+        />
+      </div> */}
 
       <div className="w-screen py-4 z-40 bg-background">
         <div className="px-4 md:px-8 lg:px-16 space-y-8 text-sm">

@@ -13,7 +13,7 @@ const BlogSection = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   return (
-    <div id="blogSection" className="px-4 md:px-8 lg:px-16 mt-24">
+    <div id="blogSection" className="px-4 md:px-8 lg:px-16 pt-24">
       <div className="mb-4">
         <div className="w-full flex justify-center mb-8">
           <h1 className="text-2xl lg:text-5xl font-[Poppins-ExtraBold] uppercase">

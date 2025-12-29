@@ -8,13 +8,9 @@ import CaseStudy from "@/components/home/CaseStudy";
 import FloatingInput from "@/components/home/FloatingInput";
 import { Gallery4 } from "@/components/home/gallery4";
 import HeroSection from "@/components/home/HeroSection";
-// import HeroSection from "@/components/home/HeroSection";
 import HorizontalScroll from "@/components/home/HorizontalScroll";
-import Introduction from "@/components/home/Introduction";
 import MarqueeExpand from "@/components/home/MarqueeExpand";
-import SecondSection from "@/components/home/SecondSection";
 import TextFlip from "@/components/home/TextFlip";
-import ThirdSection from "@/components/home/ThirdSection";
 import WhatWeDo from "@/components/home/WhatWeDo";
 import HoverImageReveal from "@/components/image-reveal";
 import AdsViewer from "@/components/portfolio/AdsViewer";
@@ -48,9 +44,6 @@ export default function Home() {
       <div className="h-dvh" />
       <div className="relative z-20">
         <TextFlip />
-        {/* <Introduction />
-        <SecondSection />
-        <ThirdSection /> */}
       </div>
 
       {/* <HoverImageReveal /> */}

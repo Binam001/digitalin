@@ -5,8 +5,9 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { serviceLists, whatWeDoLists } from "@/constants";
 import { InteractiveHoverButton } from "../ui/interactive-hover-button";
-import BgBubble from "../BgBubble";
+// import BgBubble from "../BgBubble";
 import HoverText from "../HoverText";
+import { usePathname } from "next/navigation";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -67,6 +68,17 @@ const ServiceSection = () => {
   const imagesRef = useRef<HTMLDivElement[]>([]);
   const textsRef = useRef<HTMLElement[]>([]);
   const bgRef = useRef<HTMLDivElement>(null);
+
+  const pathname = usePathname();
+
+  useEffect(() => {
+    // Refresh ScrollTrigger when pathname changes
+    const timer = setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, [pathname]);
 
   useEffect(() => {
     const ctx = gsap.context(() => {

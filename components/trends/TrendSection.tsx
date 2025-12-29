@@ -11,7 +11,7 @@ const BlogSection = () => {
   return (
     <div
       id="trendSection"
-      className="px-4 md:px-8 lg:px-16 bg-background mt-24"
+      className="px-4 md:px-8 lg:px-16 bg-background pt-24"
     >
       <div className="mb-4">
         <div className="w-full flex justify-center mb-8">
