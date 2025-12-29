@@ -6,13 +6,13 @@ import { InteractiveHoverButton } from "../ui/interactive-hover-button";
 
 const Blog = () => {
   return (
-    <section className="w-screen min-h-screen flex relative py-8">
+    <section className="w-screen min-h-screen flex relative py-16">
       {/* <div className="">
         <h1 className="text-2xl lg:text-5xl font-[Poppins-ExtraBold] uppercase mb-8 text-center">
           Blogs
         </h1>
       </div> */}
-      <div className="w-[40%] space-y-8 sticky top-24 h-fit">
+      <div className="w-[40%] space-y-8 sticky top-1/2 -translate-y-1/2 h-fit">
         <p className="text-[150px] uppercase leading-[0.8]">
           Bl
           <br />

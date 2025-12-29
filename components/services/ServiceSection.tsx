@@ -5,9 +5,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { serviceLists, whatWeDoLists } from "@/constants";
 import { InteractiveHoverButton } from "../ui/interactive-hover-button";
-// import BgBubble from "../BgBubble";
 import HoverText from "../HoverText";
-import { usePathname } from "next/navigation";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -68,17 +66,6 @@ const ServiceSection = () => {
   const imagesRef = useRef<HTMLDivElement[]>([]);
   const textsRef = useRef<HTMLElement[]>([]);
   const bgRef = useRef<HTMLDivElement>(null);
-
-  const pathname = usePathname();
-
-  useEffect(() => {
-    // Refresh ScrollTrigger when pathname changes
-    const timer = setTimeout(() => {
-      ScrollTrigger.refresh();
-    }, 100);
-
-    return () => clearTimeout(timer);
-  }, [pathname]);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -191,9 +178,9 @@ const ServiceSection = () => {
   return (
     <div ref={containerRef} className="relative">
       {/* Background layer */}
-      <div ref={bgRef} className="fixed inset-0 z-0" />
-      {/* <header className="relative z-10 h-screen flex items-center justify-center bg-background">
-        <BgBubble />
+      <div ref={bgRef} className="fixed inset-0 z-0 bg-background" />
+      {/* Hero Section */}
+      <header className="relative z-10 h-screen flex items-center justify-center bg-background">
         <div className="w-full flex flex-col items-center justify-center gap-8">
           <HoverText
             text="Built to Perform, Designed to Impress"
@@ -204,13 +191,13 @@ const ServiceSection = () => {
             results.
           </p>
         </div>
-      </header> */}
+      </header>
 
       {/* Scroll-driven service showcase */}
       <main className="relative z-10">
         <section
           ref={serviceScrollRef}
-          className="relative px-0"
+          className="relative"
           style={{ height: `${services.length * 100}vh` }}
           aria-label="Work projects"
         >
@@ -219,51 +206,67 @@ const ServiceSection = () => {
             ref={stageRef}
             className="relative h-screen w-full overflow-hidden"
           >
-            {/* Image layer - behind text */}
-            <div className="absolute inset-0 z-0 pointer-events-none">
-              {serviceLists.map((service, index) => (
+            {serviceLists.map((service, index) => (
+              <div key={service.id} className="absolute inset-0">
+                {/* Image */}
                 <div
-                  key={`img-${service.id}`}
                   ref={(el) => addToImagesRef(el, index)}
-                  className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-screen h-screen"
+                  className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[60vh] max-w-4xl"
                 >
                   <img
                     src={service.image}
-                    alt={service.title}
+                    alt={`${service.title} project image`}
                     loading={index === 0 ? "eager" : "lazy"}
-                    className="w-full h-full object-cover transition-all duration-700 brightness-25"
+                    className="w-full h-full object-cover transition-all duration-700 brightness-75"
                   />
                 </div>
-              ))}
-            </div>
 
-            {/* Text layer - above images, interactive */}
-            <div className="absolute inset-0 z-10">
-              {serviceLists.map((service, index) => (
-                <article
-                  key={`text-${service.id}`}
+                {/* count */}
+                {/* <div
                   ref={(el) => addToTextsRef(el, index)}
-                  className="absolute h-full w-full top-0 flex flex-col justify-between py-16 px-4 md:px-8 lg:px-16 pointer-events-none"
+                  className="absolute bottom-1/3 left-10 text-2xl"
                 >
-                  <h2 className="text-2xl md:text-4xl lg:text-5xl text-primary leading-none mb-4 pointer-events-auto">
-                    {service.title.split(" ").map((word, wordIndex) => (
-                      <span key={wordIndex} className="block">
-                        <HoverText text={word} type="title" />
+                  {service.id}
+                </div> */}
+
+                {/* Text */}
+                <article
+                  ref={(el) => addToTextsRef(el, index)}
+                  className="absolute h-full w-full top-[0%] z-20 flex flex-col justify-between py-16"
+                >
+                  <h2 className="text-2xl md:text-4xl lg:text-5xl text-primary leading-none mb-4">
+                    {service.title.split(" ").map((word, index) => (
+                      <span key={index} className="block">
+                        {word}
                       </span>
                     ))}
                   </h2>
-                  <div className="flex flex-col items-center justify-center gap-4 pointer-events-auto">
-                    <p className="md:text-lg lg:text-2xl text-foreground/70">
+                  {/* <div
+                    // ref={(el) => addToTextsRef(el, index)}
+                    className="absolute bottom-1/3 left-10 text-2xl"
+                  >
+                    {service.id}/{serviceLists.length}
+                  </div> */}
+                  <div className="flex justify-center">
+                    <p className="text-sm md:text-base text-foreground/70 leading-relaxed max-w-3xl line-clamp-4">
                       {service.desc}
                     </p>
-                    <InteractiveHoverButton
-                      text="Make Inquiry"
-                      className="w-fit"
-                    />
                   </div>
                 </article>
-              ))}
-            </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Footer CTA */}
+        <section className="relative z-10 h-screen flex items-center justify-center">
+          <div className="text-center px-8">
+            <h2 className="text-5xl md:text-7xl lg:text-8xl text-foreground leading-none mb-8">
+              LET&apos;S CREATE
+              <br />
+              <span className="text-stroke-primary">TOGETHER</span>
+            </h2>
+            <InteractiveHoverButton text="START A PROJECT" />
           </div>
         </section>
       </main>

@@ -11,11 +11,12 @@ const Footer = () => {
   // const isMobile = useMediaQuery({ maxWidth: 425 });
   return (
     <footer className="flex flex-col items-center w-screen px-4 md:px-8 lg:px-16 bg-background relative overflow-hidden">
-      <div className="absolute w-full -top-24 z-50 rotate-180">
+      <div className="absolute w-full -top-28 z-50 rotate-180">
         <LaserFlow
           horizontalBeamOffset={0}
           verticalBeamOffset={0.0}
           horizontalSizing={1.5}
+          mouseTiltStrength={0}
           color="#f26622"
         />
       </div>
