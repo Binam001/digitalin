@@ -1,23 +1,36 @@
 import React from "react";
-import Particles from "../Particles";
-import { DotScreenShader } from "../dot-shader-background";
 import { InteractiveHoverButton } from "../ui/interactive-hover-button";
 import Link from "next/link";
+import Orb from "../Orb";
+import { Icon } from "@iconify/react";
 
 const HeroSection = () => {
   return (
     <div className="overflow-x-hidden h-dvh w-screen relative">
-      <div className="w-full md:w-[90%] h-full mx-auto absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col justify-evenly items-center z-50">
-        <h1 className="text-2xl lg:text-7xl text-center font-[Poppins-ExtraBold]">
-          Accelerating <span className="text-primary">Brands</span> Through the{" "}
-          <span className="text-primary">Digital Galaxy.</span>
-        </h1>
+      <div className="w-full h-2/3 mx-auto absolute top-1/3 left-1/2 -translate-x-1/2 flex flex-col justify-between items-center pointer-events-none">
+        <div className="flex flex-col items-center gap-4">
+          <h1 className="text-2xl lg:text-7xl text-center font-semibold">
+            Welcome to Digital<span className="text-primary">In</span>
+          </h1>
+          <p className="w-1/2 text-center">
+            We transform human thought into strategic advertising that captures
+            attention and drives results
+          </p>
+        </div>
 
-        <Link href="#text-flip">
-          <InteractiveHoverButton text="Explore More" className="w-fit" />
-        </Link>
+        <div className="flex flex-col items-center gap-2">
+          <p className="text-sm">Scroll Down</p>
+          <div className="animate-bounce">
+            <Icon icon="mynaui:arrow-long-down" className="size-6" />
+          </div>
+        </div>
       </div>
-      <DotScreenShader />
+      <Orb
+        hoverIntensity={0.5}
+        rotateOnHover={true}
+        hue={0}
+        forceHoverState={false}
+      />
       {/* <div
         className="z-40"
         style={{ width: "100%", height: "100%", position: "relative" }}

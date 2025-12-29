@@ -20,7 +20,7 @@ const Blog = () => {
         </p>
         <p>Read about advertising world.</p>
         <Link href="/blog" className="">
-          <InteractiveHoverButton text="View More" />
+          <InteractiveHoverButton text="View More" className="" />
         </Link>
       </div>
       <div className="w-[60%] space-y-12">

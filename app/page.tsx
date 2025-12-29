@@ -38,8 +38,8 @@ export default function Home() {
       {/* <HeroSection /> */}
       <div id="imageSlideShow" className="h-screen fixed inset-0">
         {/* <ImageSlideShow /> */}
-        <BrainParticles />
-        {/* <HeroSection /> */}
+        {/* <BrainParticles /> */}
+        <HeroSection />
       </div>
       <div className="h-dvh" />
       <div className="relative z-20">
